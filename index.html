@@ -512,6 +512,151 @@ body.route-modal-open{overflow:hidden}
 #route .route-board-wrap,
 #route .map-shell,
 #route #mobile-route-summary{display:none!important}
+
+/* V12 — four-plan comparison */
+#experience .experience-row{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){
+  #experience .experience-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  #experience .experience-row{grid-template-columns:1fr}
+}
+
+/* V12 — per-day cost comparison */
+.day-cost-summary{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 18px
+}
+.day-cost-summary>div{
+  padding:17px 18px;border:1px solid var(--line);border-radius:18px;background:#f8fbfa
+}
+.day-cost-summary>div:nth-child(2){background:#fff8f3}
+.day-cost-summary span{display:block;color:var(--muted);font-size:10px;font-weight:800;margin-bottom:5px}
+.day-cost-summary b{display:block;font-size:14px;color:var(--ink)}
+.day-cost-summary em{display:block;margin-top:6px;font-size:12px;font-style:normal;font-weight:850;color:var(--green)}
+.plan-cost-table-wrap{
+  overflow:hidden;border:1px solid var(--line);border-radius:22px;background:#fff
+}
+.plan-cost-table{width:100%;border-collapse:collapse}
+.plan-cost-table th{
+  padding:13px 12px;background:#f3f8f6;color:#5f746f;
+  font-size:10px;font-weight:850;text-align:left;white-space:nowrap
+}
+.plan-cost-table td{
+  padding:16px 12px;border-top:1px solid var(--line);
+  color:#465f59;font-size:11px;line-height:1.5;vertical-align:top
+}
+.plan-cost-table td:first-child{min-width:105px}
+.plan-cost-table b{display:block;color:var(--ink);font-size:13px}
+.plan-cost-table strong{color:#1d6b56;font-size:13px}
+.plan-cost-table small{display:block;margin-top:3px;color:var(--muted);font-size:9px}
+.plan-cost-table tr.active td{background:#eef8f3}
+.plan-cost-table tr.active td:first-child{box-shadow:inset 4px 0 0 #1d6b56}
+.cost-notes{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:15px;
+  color:var(--muted);font-size:10px;line-height:1.55
+}
+.cost-notes b{color:#48615b}
+
+@media(max-width:720px){
+  .day-cost-summary{grid-template-columns:1fr}
+  .plan-cost-table-wrap{border:0;background:transparent;overflow:visible}
+  .plan-cost-table,.plan-cost-table tbody,.plan-cost-table tr,.plan-cost-table td{display:block;width:100%}
+  .plan-cost-table thead{display:none}
+  .plan-cost-table tr{
+    margin-bottom:12px;border:1px solid var(--line);border-radius:18px;
+    overflow:hidden;background:#fff
+  }
+  .plan-cost-table td{
+    display:grid;grid-template-columns:108px minmax(0,1fr);
+    gap:10px;padding:11px 13px;border-top:1px solid var(--line);font-size:11px
+  }
+  .plan-cost-table td:first-child{border-top:0;min-width:0}
+  .plan-cost-table td:before{
+    content:attr(data-label);color:#8a9c97;font-size:9px;font-weight:850;padding-top:2px
+  }
+  .plan-cost-table tr.active td{background:#f2faf6}
+  .plan-cost-table tr.active td:first-child{box-shadow:inset 4px 0 0 #1d6b56}
+  .cost-notes{grid-template-columns:1fr}
+}
+
+/* V13 — restore route modal to map-style schematic */
+.route-modal-track{
+  display:block!important;
+  padding:10px 0 0!important;
+  overflow:visible!important;
+}
+.route-map-scroll{
+  width:100%;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:thin;scrollbar-color:#b8cdc6 transparent;
+  border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(180deg,#f8fcfa,#fdfcf8)
+}
+.route-map-canvas{
+  position:relative;width:100%;min-width:860px;aspect-ratio:1000/560;
+  overflow:hidden;border-radius:24px;
+  background:
+    radial-gradient(circle at 20% 23%,rgba(222,241,232,.72),transparent 26%),
+    radial-gradient(circle at 72% 68%,rgba(238,246,242,.90),transparent 30%),
+    linear-gradient(180deg,#fbfdfc,#f7fbf9)
+}
+.route-map-bg,.route-map-route{
+  position:absolute;inset:0;width:100%;height:100%;pointer-events:none
+}
+.route-map-region{
+  fill:#aec0ba;font:800 26px/1 var(--font);letter-spacing:.06em;opacity:.46
+}
+.route-map-soft{
+  fill:none;stroke:#fff;stroke-width:14;stroke-linecap:round;stroke-linejoin:round
+}
+.route-map-seg{
+  fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round
+}
+.route-map-seg.day1{stroke:#4aa7d4}
+.route-map-seg.day2{stroke:#ff8a5c}
+.route-map-step circle{stroke:#fff;stroke-width:4}
+.route-map-step.day1 circle{fill:#287ea9}
+.route-map-step.day2 circle{fill:#d86639}
+.route-map-step text{
+  fill:#fff;text-anchor:middle;dominant-baseline:central;
+  font:850 12px/1 var(--font)
+}
+.route-map-day-label{
+  font:850 20px/1 var(--font);letter-spacing:.12em
+}
+.route-map-day-label.day1{fill:#287ea9}
+.route-map-day-label.day2{fill:#d86639}
+
+.route-map-node{
+  position:absolute;z-index:5;transform:translate(-50%,-50%);
+  display:flex;align-items:center;gap:8px
+}
+.route-map-dot{
+  width:18px;height:18px;border-radius:50%;background:#fff;
+  border:5px solid #287ea9;box-shadow:0 5px 16px rgba(38,93,78,.18);flex:none
+}
+.route-map-node.day2 .route-map-dot{border-color:#d86639}
+.route-map-label{
+  min-width:112px;padding:9px 11px;border-radius:13px;
+  background:rgba(255,255,255,.95);border:1px solid rgba(72,105,95,.15);
+  box-shadow:0 8px 22px rgba(44,86,72,.10)
+}
+.route-map-label b{display:block;font-size:12px;color:var(--ink);white-space:nowrap}
+.route-map-label small{display:block;margin-top:3px;color:var(--muted);font-size:9px;white-space:nowrap}
+.route-map-mobile-tip{
+  margin:9px 4px 0;color:var(--muted);font-size:9px;text-align:right
+}
+
+@media(max-width:720px){
+  .route-modal-dialog{padding-bottom:20px}
+  .route-map-scroll{
+    width:calc(100vw - 34px);max-width:none;border-radius:18px
+  }
+  .route-map-canvas{
+    width:860px!important;min-width:860px!important;height:482px!important;
+    aspect-ratio:auto!important;border-radius:18px
+  }
+  .route-map-mobile-tip{text-align:left;line-height:1.5}
+}
 </style>
 </head>
 <body>
@@ -526,7 +671,6 @@ body.route-modal-open{overflow:hidden}
 </div>
 </div>
 </div>
-
 <header class="topbar">
 <div class="shell inner">
 <a class="brand" href="#top"><span class="brand-mark">QY</span><span>清远 2天1夜 · 3套方案</span></a>
@@ -599,7 +743,6 @@ body.route-modal-open{overflow:hidden}
 <section class="section white" id="route">
 <div class="shell">
 <div class="section-head"><div class="section-no">02 / 当前路线</div><div class="section-title"><h2 id="route-title">A 方案：先去英西，再转清新区。</h2><p id="route-desc">Day 1 把活动集中在英德黄花镇一带，傍晚去 T3 茶园，晚上转到玄真附近；Day 2 几乎不用赶路。</p></div></div>
-
 <div class="route-preview-card">
 <div class="route-preview-top">
 <div>
@@ -680,11 +823,11 @@ body.route-modal-open{overflow:hidden}
 <div class="event-media">
 <div class="timeline-gallery" data-gallery="cave-d">
 <div class="gallery-stage">
-<div class="gallery-slide active" data-desc="巨型天然穿洞和峰林水景，是这里最有辨识度的画面。" data-source="https://you.ctrip.com/sight/yingde962/78634.html" data-title="洞天仙境经典洞口">
-<img alt="英德洞天仙境天然洞口与水景" loading="lazy" referrerpolicy="no-referrer" src="https://dimg04.c-ctrip.com/images/0102g120008cx1y0xE4B9_W_750_0.jpg?proc=autoorient"/>
+<div class="gallery-slide active" data-desc="瀑布、天然洞口、碧绿水面和游船，是洞天仙境最有辨识度的一组画面。" data-source="https://travel.qunar.com/travelbook/note/7742293" data-title="洞天仙境经典天坑">
+<img alt="洞天仙境天坑瀑布与碧绿水面" class="smart-img" data-fallbacks="https://ak-d.tripcdn.com/images/1mi2712000dxxb8gz7E49.jpg?proc=source%2Ftrip|https://dimg04.c-ctrip.com/images/1lo2c12000qna4pnaD5A0_R_1000_500.jpg_.webp?proc=namelogo%2Fd_5" loading="lazy" referrerpolicy="no-referrer" src="https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/4bc3b46d3ef2530167c8683241787806.jpg_r_680x626x95_5b3480db.jpg"/>
 </div>
-<div class="gallery-slide" data-desc="坐船 / 步行结合，看洞穴、溪水和天坑式开口的组合。" data-source="https://you.ctrip.com/sight/yingde962/78634.html" data-title="洞内水系与峰林">
-<img alt="洞天仙境洞内水景" loading="lazy" referrerpolicy="no-referrer" src="https://dimg04.c-ctrip.com/images/100q1f000001gp3tpCA24_W_750_0.jpg?proc=autoorient"/>
+<div class="gallery-slide" data-desc="洞内步道和红桥连接水系与岩壁，整体更像大型天然天坑而不是普通商业溶洞。" data-source="https://sg.trip.com/travel-guide/attraction/yingde/dongtian-xianjing-97542/" data-title="洞内红桥与水景">
+<img alt="洞天仙境洞内红桥与碧绿水面" class="smart-img" data-fallbacks="https://ak-d.tripcdn.com/images/1mi2712000dxxb8gz7E49.jpg?proc=source%2Ftrip|https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/4bc3b46d3ef2530167c8683241787806.jpg_r_680x626x95_5b3480db.jpg" loading="lazy" referrerpolicy="no-referrer" src="https://ak-d.tripcdn.com/images/0EQ0k12000qu279an9084.jpg?proc=source%2Ftrip"/>
 </div>
 <div class="gallery-nav">
 <button aria-label="上一张" class="gallery-btn prev" type="button">‹</button>
@@ -693,14 +836,14 @@ body.route-modal-open{overflow:hidden}
 </div>
 <div class="gallery-info">
 <div class="gallery-copy">
-<b>洞天仙境经典洞口</b>
-<span>巨型天然穿洞和峰林水景，是这里最有辨识度的画面。</span>
+<b>洞天仙境经典天坑</b>
+<span>瀑布、天然洞口、碧绿水面和游船，是洞天仙境最有辨识度的一组画面。</span>
 <div class="gallery-dots">
 <button aria-label="查看第1张" class="gallery-dot active" data-index="0" type="button"></button>
 <button aria-label="查看第2张" class="gallery-dot" data-index="1" type="button"></button>
 </div>
 </div>
-<a class="gallery-source" href="https://you.ctrip.com/sight/yingde962/78634.html" rel="noopener" target="_blank">图片来源</a>
+<a class="gallery-source" href="https://travel.qunar.com/travelbook/note/7742293" rel="noopener" target="_blank">图片来源</a>
 </div>
 </div>
 </div>
@@ -734,18 +877,30 @@ body.route-modal-open{overflow:hidden}
 </section>
 <section class="section" id="experience">
 <div class="shell">
-<div class="section-head"><div class="section-no">05 / Day 1 怎么选</div><div class="section-title"><h2>三个方案，真正差的是第一天的参与方式。</h2><p>A 是驾驶和风景，B 是高空挑战，C 是洞穴与朋友协作。第二天的溪降 + 漂流在三套方案里都保留。</p></div></div>
+<div class="section-head"><div class="section-no">05 / Day 1 怎么选</div><div class="section-title"><h2>四个方案，真正差的是第一天怎么玩。</h2><p>A 是越野 + 风景，B 是高空挑战，C 是探洞协作，D 是轻松溶洞观景。第二天统一保留玄真溪降 + 漂流。</p></div></div>
 <div class="experience-row">
 <article class="experience"><div class="tag">ATV · 驾驶型</div><h3>A · 峰林越野</h3><p>约 6 km 丛林线路，自己握方向盘，刺激集中但体力消耗低，最适合接第二天溪降。</p><div class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="facts"><span><b>约1h</b> 越野</span><span><b>首选</b> 均衡</span></div></article>
 <article class="experience"><div class="tag">VIA FERRATA · 高空型</div><h3>B · 飞拉达</h3><p>借助钢索、脚踏和铁梯沿岩壁前进，画面最强，也最考验恐高和上肢体力。</p><div class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="facts"><span><b>268/520m</b> 两线</span><span><b>最刺激</b> Day1</span></div></article>
 <article class="experience"><div class="tag">CAVING · 协作型</div><h3>C · 探洞攀岩</h3><p>戴头灯进天然洞穴，再按人数拼攀岩或皮划艇。朋友局氛围最好，但人数门槛最高。</p><div class="level"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="facts"><span><b>8–10人</b> 更合适</span><span><b>团建感</b> 最强</span></div></article>
+<article class="experience">
+<div class="tag">CAVE SCENERY · 观景型</div>
+<h3>D · 洞天仙境</h3>
+<p>天然穿洞、洞内水系和英西峰林组合，体力消耗最低，最适合第一次去或朋友里有人不想连续两天高强度。</p>
+<div class="level">
+<i class="on"></i><i class="on"></i><i></i><i></i><i></i>
+</div>
+<div class="facts">
+<span><b>约2–2.5h</b>看景</span>
+<span><b>最轻松</b>Day 1</span>
+</div>
+</article>
 </div>
 </div>
 </section>
 <section class="section" id="stay">
 <div class="shell">
 <div class="section-head"><div class="section-no">06 / 住哪里</div><div class="section-title"><h2 id="stay-title">A 方案：第一晚直接住玄真附近。</h2><p id="stay-desc">预算约 300 元/间时，不必追网红山景房。优先顺序：离玄真近 ＞ 停车和充电 ＞ 房间新旧 ＞ 景观。</p></div></div>
-<div class="stay-panel" data-stay-panel="AB">
+<div class="stay-panel" data-stay-panel="ABD">
 <div class="hotel-list"><article class="hotel"><div class="rank">01</div><div><h3>玄真·十七墅度假酒店</h3><p>如果当天价格压在预算附近，位置效率最高。</p></div><div class="hotel-tags"><span>近景区</span><span>停车</span><span>充电</span></div><div class="hotel-price">目标价<b>¥260–360</b></div></article><article class="hotel"><div class="rank">02</div><div><h3>清远瑞雲汇朋国际酒店（古龙峡店）</h3><p>公开信息显示距玄真约 1.4 km，免费停车并配充电桩，综合性价比比较稳。</p></div><div class="hotel-tags"><span>约1.4km</span><span>充电</span><span>免费停车</span></div><div class="hotel-price">目标价<b>¥220–320</b></div></article><article class="hotel"><div class="rank">03</div><div><h3>清远清新希尔顿欢朋酒店</h3><p>更偏稳定的连锁体验；如果周末超过 350 元，就不用为了品牌强上。</p></div><div class="hotel-tags"><span>连锁</span><span>早餐</span><span>充电</span></div><div class="hotel-price">目标价<b>¥300–420</b></div></article></div>
 </div>
 <div class="stay-panel" data-stay-panel="C" hidden="">
@@ -756,21 +911,83 @@ body.route-modal-open{overflow:hidden}
 </section>
 <section class="section white" id="cost">
 <div class="shell">
-<div class="section-head"><div class="section-no">07 / 门票与预算</div><div class="section-title"><h2>把预算讲清楚，不做“看起来很便宜”的攻略。</h2><p>价格按 2026-09-09 可检索到的区间做参考。周末、节假日和平台促销都会变化，真正下单时以预订页为准。</p></div></div>
-<div class="cost-layout">
-<div class="cost-table"><table><thead><tr><th>项目</th><th>近期参考</th><th>建议</th></tr></thead><tbody>
-<tr><td><b>A · ATV + T3</b></td><td class="hot">约 ¥240–350 / 人</td><td>双人车更划算；峰林兜风可不额外买票</td></tr>
-<tr><td><b>B · 飞拉达</b></td><td>约 ¥158–188 / 人</td><td>挑战线 / 勇士线含门票产品参考</td></tr>
-<tr><td><b>C · 探洞 / 攀岩</b></td><td>约 ¥121 起 / 项</td><td>有成团门槛，人数不足价格会变</td></tr>
-<tr><td><b>王炸双飞</b><br/><span style="color:var(--muted)">溪降 + 悬崖漂</span></td><td class="hot">约 ¥298–338 起</td><td>本行程核心票</td></tr>
-<tr><td><b>住宿</b></td><td>约 ¥220–320 / 间</td><td>2 人/间，优先可退</td></tr>
-<tr><td><b>吃饭</b></td><td>约 ¥180–220 / 人</td><td>按两天正常吃，不按穷游算</td></tr>
-<tr><td><b>高速 + 电费 + 停车</b></td><td>约 ¥450–550 / 车</td><td>一辆电车估算</td></tr>
-</tbody></table></div>
-<div>
-<div class="budget-cards"><div class="budget-card featured" data-plan-budget="A"><small>A · 均衡版</small><b>≈ ¥1,050–1,200</b><span>人均参考</span></div><div class="budget-card" data-plan-budget="B" hidden=""><small>B · 全刺激版</small><b>≈ ¥950–1,100</b><span>人均参考</span></div><div class="budget-card" data-plan-budget="C" hidden=""><small>C · 朋友团建版</small><b>≈ ¥1,000–1,250</b><span>人均浮动更大</span></div></div>
-<p class="budget-note">以上按 4–6 人、1 辆电车、酒店约 300 元/间、Day 2 王炸双飞约 298–338 元起、正常吃饭和交通估算。C 方案受成团人数和民宿价格影响最大；6 人若需要两辆车，人均交通也会上升。</p>
+<div class="section-head">
+<div class="section-no">07 / 分日费用</div>
+<div class="section-title">
+<h2>费用按 Day 1 / Day 2 拆开看，朋友更容易一起选。</h2>
+<p>活动费按当前可检索到的公开价格区间估算；住宿、吃饭和电车交通单独作为共享成本。节假日和现场加项会浮动。</p>
 </div>
+</div>
+<div class="day-cost-summary">
+<div>
+<span>Day 2 三套都一样</span>
+<b>玄真溪降王炸线 + 悬崖漂</b>
+<em>约 ¥298–338 / 人</em>
+</div>
+<div>
+<span>共享成本</span>
+<b>住宿 + 两天吃饭 + 1 辆电车交通</b>
+<em>约 ¥405–510 / 人</em>
+</div>
+</div>
+<div class="plan-cost-table-wrap">
+<table class="plan-cost-table">
+<thead>
+<tr>
+<th>方案</th>
+<th>Day 1 玩什么</th>
+<th>Day 1 活动费 / 人</th>
+<th>Day 2 玩什么</th>
+<th>Day 2 活动费 / 人</th>
+<th>共享成本 / 人</th>
+<th>两天人均估算</th>
+</tr>
+</thead>
+<tbody>
+<tr class="active" data-cost-plan="A">
+<td data-label="方案"><b>A · 均衡</b><small>当前首推</small></td>
+<td data-label="Day 1">ATV 越野 + 英西峰林 + T3 茶园</td>
+<td data-label="Day 1 活动费"><strong>¥240–350</strong></td>
+<td data-label="Day 2">玄真溪降 + 悬崖漂</td>
+<td data-label="Day 2 活动费">¥298–338</td>
+<td data-label="共享成本">¥405–510</td>
+<td data-label="两天人均"><strong>≈ ¥940–1,200</strong></td>
+</tr>
+<tr data-cost-plan="B">
+<td data-label="方案"><b>B · 刺激</b><small>高空挑战</small></td>
+<td data-label="Day 1">飞拉达 + 英西峰林</td>
+<td data-label="Day 1 活动费"><strong>¥158–188</strong></td>
+<td data-label="Day 2">玄真溪降 + 悬崖漂</td>
+<td data-label="Day 2 活动费">¥298–338</td>
+<td data-label="共享成本">¥405–510</td>
+<td data-label="两天人均"><strong>≈ ¥860–1,040</strong></td>
+</tr>
+<tr data-cost-plan="C">
+<td data-label="方案"><b>C · 朋友局</b><small>人数影响最大</small></td>
+<td data-label="Day 1">探洞 + 攀岩 / 皮划艇</td>
+<td data-label="Day 1 活动费"><strong>约 ¥280–410</strong><small>按组合项目估算</small></td>
+<td data-label="Day 2">玄真溪降 + 悬崖漂</td>
+<td data-label="Day 2 活动费">¥298–338</td>
+<td data-label="共享成本">¥405–510</td>
+<td data-label="两天人均"><strong>≈ ¥980–1,260</strong></td>
+</tr>
+<tr data-cost-plan="D">
+<td data-label="方案"><b>D · 溶洞</b><small>最轻松</small></td>
+<td data-label="Day 1">洞天仙境 + 英西峰林</td>
+<td data-label="Day 1 活动费"><strong>¥95 起</strong><small>不含景区额外自费项目</small></td>
+<td data-label="Day 2">玄真溪降 + 悬崖漂</td>
+<td data-label="Day 2 活动费">¥298–338</td>
+<td data-label="共享成本">¥405–510</td>
+<td data-label="两天人均"><strong>≈ ¥800–950</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cost-notes">
+<span><b>住宿：</b>按 ¥300 / 间、2 人一间 ≈ ¥150 / 人</span>
+<span><b>吃饭：</b>按两天约 ¥180–220 / 人</span>
+<span><b>电车：</b>高速 + 电费 + 停车按 ¥450–550 / 车；4–6 人共 1 辆车折算约 ¥75–138 / 人</span>
+<span><b>C 方案：</b>探洞/攀岩有成团门槛，人数不足时波动最大</span>
 </div>
 </div>
 </section>
@@ -801,7 +1018,24 @@ body.route-modal-open{overflow:hidden}
 <div class="footer-route" id="footer-route"><span>深圳</span><span>→</span><span>峰驰 ATV</span><span>→</span><span>T3茶园</span><span>→</span><span>清新区</span><span>→</span><span>玄真</span><span>→</span><span>深圳</span></div>
 </div>
 </footer>
-<script>
+<div aria-hidden="true" class="route-modal" hidden="" id="route-modal">
+<div class="route-modal-backdrop" data-route-close=""></div>
+<div aria-label="路线图" aria-modal="true" class="route-modal-dialog" role="dialog">
+<div class="route-modal-head">
+<div>
+<span class="route-modal-kicker" id="route-modal-kicker">A · 均衡</span>
+<h3 id="route-modal-title">两天路线图</h3>
+<p id="route-modal-desc"></p>
+</div>
+<button aria-label="关闭路线图" class="route-modal-close" data-route-close="" type="button">×</button>
+</div>
+<div class="route-modal-legend">
+<span><i class="day1"></i>Day 1</span>
+<span><i class="day2"></i>Day 2</span>
+</div>
+<div class="route-modal-track" id="route-modal-track"></div>
+</div>
+</div><script>
 const PLAN_DATA = {"A": {"label": "A · 均衡", "routeTitle": "先去英西，再转清新区。", "routeDesc": "Day 1 集中玩 ATV、英西峰林和 T3 茶园；晚上住玄真附近。Day 2 直接溪降 + 漂流。", "stayTitle": "A 方案：第一晚直接住玄真附近。", "stayDesc": "预算约 300 元/间时，不必追网红山景房。优先顺序：离玄真近 ＞ 停车和充电 ＞ 房间新旧 ＞ 景观。", "stayTipTitle": "订房只确认 5 件事：", "stayTipText": "免费停车、充电桩、到玄真车程、双床宽度、天气不好能否退。", "footer": ["深圳", "→", "峰驰 ATV", "→", "T3 茶园", "→", "清新区", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["峰驰 ATV", "丛林越野", "d1"], ["英西峰林 / T3", "兜风 + 茶园", "d1"], ["清新区", "住宿 + 充电", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}, "B": {"label": "B · 刺激", "routeTitle": "先玩飞拉达，再转清新区。", "routeDesc": "Day 1 重点是飞拉达，之后只轻松看英西峰林并尽早休息；Day 2 继续溪降 + 漂流。", "stayTitle": "B 方案：住宿重点是恢复体力。", "stayDesc": "飞拉达后不建议继续住英西慢慢玩，直接转清新区，早点吃饭睡觉；第二天还有溪降和漂流。", "stayTipTitle": "B 方案订房重点：", "stayTipText": "离玄真近、停车方便、房间安静、早餐不要太晚、订单可退。", "footer": ["深圳", "→", "飞拉达", "→", "英西峰林", "→", "清新区", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["英西峰林", "飞拉达", "d1"], ["峰林沿途", "轻松兜风", "d1"], ["清新区", "住宿 + 恢复体力", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}, "C": {"label": "C · 朋友局", "routeTitle": "第一晚留在山野，第二天早起去玄真。", "routeDesc": "Day 1 做探洞、攀岩 / 皮划艇和朋友局；如果住山野民宿，Day 2 要更早出发。", "stayTitle": "C 方案：住宿本身就是玩法的一部分。", "stayDesc": "8–10 人朋友团更适合留在竹林奇境一带；但如果更在意玄真早场，晚饭后转清新区会更稳。", "stayTipTitle": "C 方案先做一个取舍：", "stayTipText": "要山野朋友局，就接受 Day 2 早起；要溪降早场从容，就晚饭后转清新区。", "footer": ["深圳", "→", "竹林奇境", "→", "探洞 / 攀岩", "→", "山野民宿", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["竹林奇境 / 黄花镇", "天然洞穴探洞", "d1"], ["营地 / 岩壁", "攀岩或皮划艇", "d1"], ["住宿点", "山野民宿 / 清新区", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}, "D": {"label": "D · 溶洞", "routeTitle": "先看洞天仙境与峰林，再转清新区。", "routeDesc": "Day 1 以轻松看景为主：洞天仙境 + 英西峰林。Day 2 再集中玩玄真溪降 + 漂流。", "stayTitle": "D 方案：第一晚同样建议住玄真附近。", "stayDesc": "第一天强度低，傍晚从英西直接转清新区即可；第二天进玄真最省心。", "stayTipTitle": "D 方案订房重点：", "stayTipText": "离玄真近、停车与充电方便、订单可退即可，不必为景观额外加预算。", "footer": ["深圳", "→", "洞天仙境", "→", "英西峰林", "→", "清新区", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["洞天仙境", "溶洞 + 水系", "d1"], ["英西峰林", "沿途慢走 / 拍照", "d1"], ["清新区", "住宿 + 充电", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}};
 let activePlan = 'A';
 
@@ -816,34 +1050,96 @@ function renderRoutePreview(plan){
   }).join('');
 }
 
+
 function renderRouteModal(plan){
   const data = PLAN_DATA[plan];
   if(!data) return;
+
   const kicker = document.getElementById('route-modal-kicker');
   const title = document.getElementById('route-modal-title');
   const desc = document.getElementById('route-modal-desc');
   const track = document.getElementById('route-modal-track');
+
   if(kicker) kicker.textContent = data.label;
   if(title) title.textContent = '两天路线图';
   if(desc) desc.textContent = data.routeDesc;
-  if(track){
-    track.innerHTML = data.nodes.map((n,i) => {
-      const day2 = n[2] === 'd2';
-      const cls = day2 ? 'day2' : 'day1';
-      const day = day2 ? 'DAY 2' : 'DAY 1';
-      const arrow = i < data.nodes.length - 1 ? `<div class="route-modal-arrow">→</div>` : '';
-      return `<div class="route-modal-node ${cls}">
-        <div class="route-modal-place ${cls}">
-          <span class="route-modal-number">${i+1}</span>
-          <b>${n[0]}</b>
-          <span>${n[1]}</span>
-          <em class="route-modal-day">${day}</em>
-        </div>
-        ${arrow}
-      </div>`;
-    }).join('');
-  }
+  if(!track) return;
+
+  // 采用固定画布 + 曲线路径，避免手机端把整张地图压扁。
+  // 最后一个“深圳返程”与起点共用同一个地图节点。
+  const pts = [
+    {x:820,y:430,cls:'day1',pos:'right'},
+    {x:215,y:150,cls:'day1',pos:'left'},
+    {x:410,y:235,cls:'day1',pos:'mid'},
+    {x:650,y:355,cls:'day1',pos:'stay'},
+    {x:770,y:205,cls:'day2',pos:'xuanzhen'}
+  ];
+  const nodes = data.nodes.slice(0,5);
+
+  const labels = nodes.map((n,i)=>{
+    const p = pts[i];
+    const isStart = i===0;
+    const dayCls = i>=4 ? 'day2' : 'day1';
+    const sub = isStart ? '出发 / 返程' : n[1];
+    return `<div class="route-map-node ${dayCls} node-${i+1}" style="left:${p.x/10}%;top:${p.y/5.6}%">
+      <span class="route-map-dot"></span>
+      <div class="route-map-label">
+        <b>${n[0]}</b>
+        <small>${sub}</small>
+      </div>
+    </div>`;
+  }).join('');
+
+  track.innerHTML = `
+    <div class="route-map-scroll">
+      <div class="route-map-canvas">
+        <svg class="route-map-bg" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M55 120 C180 28 330 54 425 155 S650 225 820 122" fill="none" stroke="#dcece6" stroke-width="3"/>
+          <path d="M20 165 C160 78 320 105 430 185 S665 250 860 165" fill="none" stroke="#e8f2ee" stroke-width="2"/>
+          <path d="M505 402 C650 318 815 336 965 445" fill="none" stroke="#dcece6" stroke-width="3"/>
+          <path d="M530 442 C690 358 835 385 945 482" fill="none" stroke="#e8f2ee" stroke-width="2"/>
+          <path d="M720 62 C675 138 765 205 712 286 C670 350 700 408 650 500" fill="none" stroke="#cfe9f2" stroke-width="18" stroke-linecap="round" opacity=".54"/>
+          <path d="M110 490 C240 430 350 460 470 510" fill="none" stroke="#eef5f2" stroke-width="34" stroke-linecap="round"/>
+          <text x="110" y="80" class="route-map-region">英西峰林</text>
+          <text x="625" y="470" class="route-map-region">清新区</text>
+          <text x="825" y="500" class="route-map-region">深圳</text>
+        </svg>
+
+        <svg class="route-map-route" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <marker id="routeArrowD1" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#4aa7d4"/>
+            </marker>
+            <marker id="routeArrowD2" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#ff8a5c"/>
+            </marker>
+          </defs>
+
+          <path class="route-map-soft" d="M820 430 C690 500 430 438 215 150 M215 150 C295 152 348 188 410 235 M410 235 C520 255 588 320 650 355 M650 355 C710 330 744 260 770 205 M770 205 C930 245 958 355 820 430"/>
+
+          <path class="route-map-seg day1" d="M820 430 C690 500 430 438 215 150" marker-end="url(#routeArrowD1)"/>
+          <path class="route-map-seg day1" d="M215 150 C295 152 348 188 410 235" marker-end="url(#routeArrowD1)"/>
+          <path class="route-map-seg day1" d="M410 235 C520 255 588 320 650 355" marker-end="url(#routeArrowD1)"/>
+          <path class="route-map-seg day2" d="M650 355 C710 330 744 260 770 205" marker-end="url(#routeArrowD2)"/>
+          <path class="route-map-seg day2" d="M770 205 C930 245 958 355 820 430" marker-end="url(#routeArrowD2)"/>
+
+          <g class="route-map-step day1" transform="translate(575 450)"><circle r="15"/><text>1</text></g>
+          <g class="route-map-step day1" transform="translate(315 181)"><circle r="15"/><text>2</text></g>
+          <g class="route-map-step day1" transform="translate(535 300)"><circle r="15"/><text>3</text></g>
+          <g class="route-map-step day2" transform="translate(715 282)"><circle r="15"/><text>4</text></g>
+          <g class="route-map-step day2" transform="translate(908 332)"><circle r="15"/><text>5</text></g>
+
+          <text class="route-map-day-label day1" x="320" y="116">DAY 1</text>
+          <text class="route-map-day-label day2" x="798" y="170">DAY 2</text>
+        </svg>
+
+        ${labels}
+      </div>
+    </div>
+    <div class="route-map-mobile-tip">手机端可左右滑动查看完整地图，路线不会再被压缩。</div>
+  `;
 }
+
 
 function setPlan(plan, shouldScroll=false){
   const data = PLAN_DATA[plan];
@@ -873,7 +1169,11 @@ function setPlan(plan, shouldScroll=false){
     el.classList.toggle('featured', on);
   });
 
-  const stayAB = document.querySelector('[data-stay-panel="AB"]');
+  document.querySelectorAll('[data-cost-plan]').forEach(el => {
+    el.classList.toggle('active', el.dataset.costPlan === plan);
+  });
+
+  const stayAB = document.querySelector('[data-stay-panel="ABD"]');
   const stayC = document.querySelector('[data-stay-panel="C"]');
   if(stayAB) stayAB.hidden = plan === 'C';
   if(stayC) stayC.hidden = plan !== 'C';
@@ -909,28 +1209,49 @@ document.querySelectorAll('.plan-tab, .sticky-plan-tab').forEach(el => {
   el.addEventListener('click', () => setPlan(el.dataset.plan, false));
 });
 
-const routeModal = document.getElementById('route-modal');
-function openRouteModal(){
-  renderRouteModal(activePlan);
-  routeModal.hidden = false;
-  routeModal.setAttribute('aria-hidden','false');
-  document.body.classList.add('route-modal-open');
+
+function getRouteModal(){
+  return document.getElementById('route-modal');
 }
+
+function openRouteModal(){
+  const modal = getRouteModal();
+  if(!modal) return;
+  renderRouteModal(activePlan);
+  modal.hidden = false;
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('route-modal-open');
+  requestAnimationFrame(()=>{
+    const scroller = modal.querySelector('.route-map-scroll');
+    if(scroller && window.innerWidth <= 720){
+      scroller.scrollLeft = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+    }
+  });
+}
+
 function closeRouteModal(){
-  routeModal.hidden = true;
-  routeModal.setAttribute('aria-hidden','true');
+  const modal = getRouteModal();
+  if(!modal) return;
+  modal.hidden = true;
+  modal.setAttribute('aria-hidden','true');
   document.body.classList.remove('route-modal-open');
 }
+
 document.getElementById('route-open-btn')?.addEventListener('click', openRouteModal);
-document.querySelectorAll('[data-route-close]').forEach(el => el.addEventListener('click', closeRouteModal));
+
+document.addEventListener('click', e => {
+  if(e.target.closest('[data-route-close]')) closeRouteModal();
+});
+
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape' && routeModal && !routeModal.hidden) closeRouteModal();
+  const modal = getRouteModal();
+  if(e.key === 'Escape' && modal && !modal.hidden) closeRouteModal();
 });
 
 function updateStickyPlanBar(){
   const bar = document.getElementById('sticky-plan-bar');
   const start = document.getElementById('plans');
-  const end = document.getElementById('budget');
+  const end = document.getElementById('cost');
   if(!bar || !start || !end) return;
   const top = window.scrollY + 90;
   const inPlanJourney = top >= start.offsetTop && top <= (end.offsetTop + end.offsetHeight - 80);
@@ -978,25 +1299,6 @@ document.querySelectorAll('[data-gallery]').forEach(g=>{
  g.querySelector('.prev').addEventListener('click',()=>show(cur-1));g.querySelector('.next').addEventListener('click',()=>show(cur+1));dots.forEach((d,i)=>d.addEventListener('click',()=>show(i)));
 });
 </script>
-
-<div aria-hidden="true" class="route-modal" hidden="" id="route-modal">
-<div class="route-modal-backdrop" data-route-close=""></div>
-<div aria-label="路线图" aria-modal="true" class="route-modal-dialog" role="dialog">
-<div class="route-modal-head">
-<div>
-<span class="route-modal-kicker" id="route-modal-kicker">A · 均衡</span>
-<h3 id="route-modal-title">两天路线图</h3>
-<p id="route-modal-desc"></p>
-</div>
-<button aria-label="关闭路线图" class="route-modal-close" data-route-close="" type="button">×</button>
-</div>
-<div class="route-modal-legend">
-<span><i class="day1"></i>Day 1</span>
-<span><i class="day2"></i>Day 2</span>
-</div>
-<div class="route-modal-track" id="route-modal-track"></div>
-</div>
-</div>
 <div aria-hidden="true" class="image-lightbox" hidden="" id="image-lightbox">
 <div class="lightbox-backdrop" data-lightbox-close=""></div>
 <div aria-label="图片预览" aria-modal="true" class="lightbox-dialog" role="dialog">
