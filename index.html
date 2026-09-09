@@ -361,9 +361,172 @@ body.lightbox-open{overflow:hidden}
   .plan-tabs{grid-template-columns:repeat(4,1fr)!important}
   .plan-tab{font-size:10px!important;padding:10px 3px!important}
 }
+
+/* V10 — plan switch stays available through the plan journey */
+.sticky-plan-bar{
+  position:fixed;left:50%;top:max(8px,env(safe-area-inset-top));
+  transform:translate(-50%,-14px);z-index:1200;
+  width:min(760px,calc(100vw - 24px));
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease
+}
+.sticky-plan-bar.visible{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)
+}
+.sticky-plan-inner{
+  display:flex;align-items:center;gap:10px;padding:7px 8px 7px 12px;
+  border:1px solid rgba(45,95,81,.13);border-radius:18px;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(14px);
+  box-shadow:0 10px 34px rgba(31,67,57,.15)
+}
+.sticky-plan-label{
+  flex:none;color:var(--muted);font-size:10px;font-weight:800;white-space:nowrap
+}
+.sticky-plan-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;flex:1}
+.sticky-plan-tab{
+  border:0;border-radius:12px;padding:9px 8px;background:transparent;
+  color:#57706a;font:800 11px/1 var(--font);cursor:pointer;white-space:nowrap
+}
+.sticky-plan-tab.active{background:#e9f5f0;color:#1d6b56}
+body.route-modal-open .sticky-plan-bar,
+body.lightbox-open .sticky-plan-bar{opacity:0!important;pointer-events:none!important}
+
+/* V10 — route summary in page */
+.route-preview-card{
+  margin-top:26px;padding:22px;border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(135deg,#f7fbf9,#fff8f3);
+  box-shadow:0 12px 32px rgba(35,86,71,.07)
+}
+.route-preview-top{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.route-preview-kicker{
+  display:block;margin-bottom:10px;color:var(--green);font-size:10px;font-weight:850;letter-spacing:.12em
+}
+.route-preview-steps{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.route-preview-step{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 9px;border-radius:12px;
+  background:#fff;border:1px solid var(--line);font-size:11px;font-weight:750;color:#435c56
+}
+.route-preview-arrow{color:#8ea39d;font-size:13px}
+.route-open-btn{
+  flex:none;display:inline-flex;align-items:center;gap:10px;
+  min-height:48px;padding:0 17px;border:0;border-radius:15px;
+  background:#1d6b56;color:#fff;font:800 13px/1 var(--font);cursor:pointer;
+  box-shadow:0 9px 22px rgba(29,107,86,.20)
+}
+.route-open-btn b{font-size:16px}
+.route-preview-tip{margin:13px 0 0;color:var(--muted);font-size:10px}
+
+/* V10 — route modal; no squeezed SVG */
+.route-modal[hidden]{display:none!important}
+.route-modal{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;padding:22px}
+.route-modal-backdrop{position:absolute;inset:0;background:rgba(9,20,17,.76);backdrop-filter:blur(8px)}
+.route-modal-dialog{
+  position:relative;z-index:2;width:min(1180px,96vw);max-height:90vh;overflow:auto;
+  padding:26px;border-radius:28px;background:#fff;box-shadow:0 28px 90px rgba(0,0,0,.28)
+}
+.route-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.route-modal-kicker{display:block;margin-bottom:7px;color:var(--green);font-size:11px;font-weight:850}
+.route-modal-head h3{margin:0;font-size:30px;line-height:1.15}
+.route-modal-head p{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+.route-modal-close{
+  flex:none;width:42px;height:42px;border:0;border-radius:50%;
+  background:#eef5f2;color:#25483e;font-size:27px;cursor:pointer
+}
+.route-modal-legend{display:flex;gap:14px;margin:22px 0 12px;color:var(--muted);font-size:10px;font-weight:800}
+.route-modal-legend span{display:flex;align-items:center;gap:6px}
+.route-modal-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.route-modal-legend .day1{background:#4aa7d4}
+.route-modal-legend .day2{background:#ff8a5c}
+
+.route-modal-track{
+  display:flex;align-items:stretch;gap:0;padding:22px 8px 10px;min-width:0
+}
+.route-modal-node{
+  flex:1;min-width:0;display:flex;align-items:center
+}
+.route-modal-place{
+  flex:1;min-width:0;position:relative;padding:18px 12px;border-radius:20px;
+  background:#f8fbfa;border:1px solid var(--line);text-align:center
+}
+.route-modal-place.day2{background:#fff8f4;border-color:#f0ddd2}
+.route-modal-number{
+  width:28px;height:28px;margin:0 auto 9px;border-radius:50%;display:grid;place-items:center;
+  background:#287ea9;color:#fff;font-size:11px;font-weight:850
+}
+.route-modal-place.day2 .route-modal-number{background:#d86639}
+.route-modal-place b{display:block;font-size:14px;color:var(--ink)}
+.route-modal-place span{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.45}
+.route-modal-day{
+  display:inline-flex!important;margin-top:9px!important;padding:4px 7px;border-radius:999px;
+  background:#e8f5fb;color:#287ea9!important;font-size:8px!important;font-weight:850!important
+}
+.route-modal-place.day2 .route-modal-day{background:#ffebe1;color:#d86639!important}
+.route-modal-arrow{
+  flex:none;width:42px;display:grid;place-items:center;color:#7f9690;font-size:22px
+}
+
+body.route-modal-open{overflow:hidden}
+
+@media(max-width:720px){
+  .sticky-plan-bar{
+    top:max(6px,env(safe-area-inset-top));width:calc(100vw - 14px)
+  }
+  .sticky-plan-inner{padding:5px 6px;border-radius:15px}
+  .sticky-plan-label{display:none}
+  .sticky-plan-tabs{gap:4px}
+  .sticky-plan-tab{padding:9px 3px;font-size:10px;border-radius:10px}
+
+  .route-preview-card{padding:17px;border-radius:19px}
+  .route-preview-top{display:block}
+  .route-preview-steps{gap:5px}
+  .route-preview-step{font-size:10px;padding:6px 7px}
+  .route-open-btn{width:100%;justify-content:center;margin-top:15px;min-height:46px}
+  .route-preview-tip{font-size:9px;line-height:1.5}
+
+  .route-modal{padding:0;align-items:end}
+  .route-modal-dialog{
+    width:100vw;max-height:94dvh;padding:20px 17px 28px;
+    border-radius:24px 24px 0 0
+  }
+  .route-modal-head h3{font-size:25px}
+  .route-modal-track{display:block;padding:12px 2px 4px}
+  .route-modal-node{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;position:relative}
+  .route-modal-node:not(:last-child){padding-bottom:29px}
+  .route-modal-node:not(:last-child):after{
+    content:"";position:absolute;left:20px;top:47px;bottom:0;width:3px;
+    background:#4aa7d4;border-radius:99px
+  }
+  .route-modal-node.day2:not(:last-child):after{background:#ff8a5c}
+  .route-modal-place{
+    grid-column:2;text-align:left;padding:14px 15px
+  }
+  .route-modal-number{
+    position:absolute;left:-48px;top:14px;margin:0;width:38px;height:38px;
+    border:5px solid #fff;box-sizing:border-box
+  }
+  .route-modal-arrow{display:none}
+}
+
+/* Old inline map/mobile map are intentionally retired in V10. */
+#route .route-board,
+#route .route-board-wrap,
+#route .map-shell,
+#route #mobile-route-summary{display:none!important}
 </style>
 </head>
 <body>
+<div aria-label="方案快速切换" class="sticky-plan-bar" id="sticky-plan-bar">
+<div class="sticky-plan-inner">
+<span class="sticky-plan-label">当前方案</span>
+<div class="sticky-plan-tabs">
+<button class="sticky-plan-tab active" data-plan="A" type="button">A · 均衡</button>
+<button class="sticky-plan-tab" data-plan="B" type="button">B · 刺激</button>
+<button class="sticky-plan-tab" data-plan="C" type="button">C · 朋友局</button>
+<button class="sticky-plan-tab" data-plan="D" type="button">D · 溶洞</button>
+</div>
+</div>
+</div>
+
 <header class="topbar">
 <div class="shell inner">
 <a class="brand" href="#top"><span class="brand-mark">QY</span><span>清远 2天1夜 · 3套方案</span></a>
@@ -414,7 +577,6 @@ body.lightbox-open{overflow:hidden}
 <div class="plan-meta"><div><small>刺激度</small><b>★★★★☆</b></div><div><small>体力</small><b>★★★☆☆</b></div><div><small>项目价格</small><b>约 ¥121 起</b></div><div><small>适合</small><b>8–10人更香</b></div></div>
 <div class="plan-note">公开活动规则：探洞约 8 人成团，其他活动多见 10 人成团；未成团可能产生额外教练费用。</div>
 </article>
-
 <article class="plan-card" data-plan="D" hidden="">
 <div class="plan-kicker">轻松观景版｜朋友第一次去清远可选</div>
 <h3>洞天仙境 + 英西峰林</h3>
@@ -437,55 +599,20 @@ body.lightbox-open{overflow:hidden}
 <section class="section white" id="route">
 <div class="shell">
 <div class="section-head"><div class="section-no">02 / 当前路线</div><div class="section-title"><h2 id="route-title">A 方案：先去英西，再转清新区。</h2><p id="route-desc">Day 1 把活动集中在英德黄花镇一带，傍晚去 T3 茶园，晚上转到玄真附近；Day 2 几乎不用赶路。</p></div></div>
-<div class="map-shell">
-<div class="map-top"><div><strong id="map-route-title">深圳 → 峰驰 ATV → T3 茶园 → 清新区 → 玄真 → 深圳</strong><p id="map-route-sub">蓝色是 Day 1，橙色是 Day 2；①②③④ 是实际行驶顺序，箭头表示前进方向。</p></div><div class="legend"><span><i class="d1"></i>Day 1</span><span><i class="d2"></i>Day 2</span></div></div>
-<div aria-live="polite" class="route-board">
-<div aria-hidden="true" class="map-bg"><svg preserveaspectratio="none" viewbox="0 0 1000 520"><path d="M40 130 C170 35 330 70 410 160 S650 220 820 130" fill="none" stroke="#d8ebe4" stroke-width="3"></path><path d="M18 170 C160 82 320 110 420 190 S660 255 850 168" fill="none" stroke="#e1efe9" stroke-width="2"></path><path d="M500 390 C650 310 820 335 965 440" fill="none" stroke="#d8ebe4" stroke-width="3"></path><path d="M522 425 C680 345 830 375 940 470" fill="none" stroke="#e1efe9" stroke-width="2"></path><path d="M720 80 C670 150 760 215 710 285 C665 345 700 395 650 470" fill="none" opacity=".32" stroke="#bde1ee" stroke-linecap="round" stroke-width="18"></path><path class="route-dash" d="M850 470 C720 390 610 320 500 250 C390 180 300 145 205 130"></path></svg></div>
-<div class="route-layer active" data-plan-map="A">
-<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 1000 520">
-<defs><marker id="arrowA1" markerheight="12" markerunits="userSpaceOnUse" markerwidth="12" orient="auto" refx="9" refy="5"><path d="M0,0 L10,5 L0,10 Z" fill="#4aa7d4"></path></marker><marker id="arrowA2" markerheight="12" markerunits="userSpaceOnUse" markerwidth="12" orient="auto" refx="9" refy="5"><path d="M0,0 L10,5 L0,10 Z" fill="#ff8a5c"></path></marker></defs>
-<path class="route-path-soft" d="M820 430 C690 500 430 438 215 145 M215 145 C295 150 345 190 390 225 M390 225 C510 250 575 318 650 350 M650 350 C710 325 742 260 770 205 M770 205 C932 245 955 355 820 430"></path>
-<path class="route-segment d1" d="M820 430 C690 500 430 438 215 145" marker-end="url(#arrowA1)"></path>
-<path class="route-segment d1" d="M215 145 C295 150 345 190 390 225 C510 250 575 318 650 350" marker-end="url(#arrowA1)"></path>
-<path class="route-segment d2" d="M650 350 C710 325 742 260 770 205" marker-end="url(#arrowA2)"></path>
-<path class="route-segment d2" d="M770 205 C932 245 955 355 820 430" marker-end="url(#arrowA2)"></path>
-<g class="route-step d1" transform="translate(575 448)"><circle r="14"></circle><text>1</text></g><g class="route-step d1" transform="translate(455 258)"><circle r="14"></circle><text>2</text></g><g class="route-step d2" transform="translate(716 280)"><circle r="14"></circle><text>3</text></g><g class="route-step d2" transform="translate(910 330)"><circle r="14"></circle><text>4</text></g>
-<text class="route-day-label d1" x="315" y="122">DAY 1</text><text class="route-day-label d2" x="795" y="175">DAY 2</text>
-</svg>
-<div class="route-node n1 edge-right"><span class="dot"></span><span class="label">深圳<small>出发 / 返程</small></span></div><div class="route-node n2 edge-left"><span class="dot"></span><span class="label">峰驰 ATV<small>黄花镇 · 约 1h</small></span></div><div class="route-node n3 green"><span class="dot"></span><span class="label">T3 茶园<small>峰林 / 傍晚</small></span></div><div class="route-node n4"><span class="dot"></span><span class="label">清新区住宿<small>充电 + 吃饭</small></span></div><div class="route-node n5 day2"><span class="dot"></span><span class="label">玄真<small>溪降 + 悬崖漂</small></span></div>
+
+<div class="route-preview-card">
+<div class="route-preview-top">
+<div>
+<span class="route-preview-kicker">当前方案路线</span>
+<div class="route-preview-steps" id="route-preview-steps"></div>
 </div>
-<div class="route-layer" data-plan-map="B">
-<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 1000 520">
-<defs><marker id="arrowB1" markerheight="12" markerunits="userSpaceOnUse" markerwidth="12" orient="auto" refx="9" refy="5"><path d="M0,0 L10,5 L0,10 Z" fill="#4aa7d4"></path></marker><marker id="arrowB2" markerheight="12" markerunits="userSpaceOnUse" markerwidth="12" orient="auto" refx="9" refy="5"><path d="M0,0 L10,5 L0,10 Z" fill="#ff8a5c"></path></marker></defs>
-<path class="route-path-soft" d="M820 430 C690 500 435 430 245 170 M245 170 C335 178 410 225 455 260 M455 260 C545 280 600 325 650 350 M650 350 C710 325 742 260 770 205 M770 205 C932 245 955 355 820 430"></path>
-<path class="route-segment d1" d="M820 430 C690 500 435 430 245 170" marker-end="url(#arrowB1)"></path>
-<path class="route-segment d1" d="M245 170 C335 178 410 225 455 260 C545 280 600 325 650 350" marker-end="url(#arrowB1)"></path>
-<path class="route-segment d2" d="M650 350 C710 325 742 260 770 205" marker-end="url(#arrowB2)"></path>
-<path class="route-segment d2" d="M770 205 C932 245 955 355 820 430" marker-end="url(#arrowB2)"></path>
-<g class="route-step d1" transform="translate(585 445)"><circle r="14"></circle><text>1</text></g><g class="route-step d1" transform="translate(480 285)"><circle r="14"></circle><text>2</text></g><g class="route-step d2" transform="translate(716 280)"><circle r="14"></circle><text>3</text></g><g class="route-step d2" transform="translate(910 330)"><circle r="14"></circle><text>4</text></g>
-<text class="route-day-label d1" x="340" y="148">DAY 1</text><text class="route-day-label d2" x="795" y="175">DAY 2</text>
-</svg>
-<div class="route-node n1 edge-right"><span class="dot"></span><span class="label">深圳<small>出发 / 返程</small></span></div><div class="route-node n2 edge-left"><span class="dot"></span><span class="label">峰林飞拉达<small>挑战线 / 勇士线</small></span></div><div class="route-node n3 green"><span class="dot"></span><span class="label">峰林轻松兜风<small>拍照 / 休息</small></span></div><div class="route-node n4"><span class="dot"></span><span class="label">清新区住宿<small>早点休息</small></span></div><div class="route-node n5 day2"><span class="dot"></span><span class="label">玄真<small>溪降 + 悬崖漂</small></span></div>
+<button class="route-open-btn" id="route-open-btn" type="button">
+<span>查看路线图</span>
+<b>↗</b>
+</button>
 </div>
-<div class="route-layer" data-plan-map="C">
-<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 1000 520">
-<defs><marker id="arrowC1" markerheight="12" markerunits="userSpaceOnUse" markerwidth="12" orient="auto" refx="9" refy="5"><path d="M0,0 L10,5 L0,10 Z" fill="#4aa7d4"></path></marker><marker id="arrowC2" markerheight="12" markerunits="userSpaceOnUse" markerwidth="12" orient="auto" refx="9" refy="5"><path d="M0,0 L10,5 L0,10 Z" fill="#ff8a5c"></path></marker></defs>
-<path class="route-path-soft" d="M820 430 C675 500 440 432 275 205 M275 205 C355 245 425 275 485 300 M485 300 C620 292 710 245 770 205 M770 205 C932 245 955 355 820 430"></path>
-<path class="route-segment d1" d="M820 430 C675 500 440 432 275 205" marker-end="url(#arrowC1)"></path>
-<path class="route-segment d1" d="M275 205 C355 245 425 275 485 300" marker-end="url(#arrowC1)"></path>
-<path class="route-segment d2" d="M485 300 C620 292 710 245 770 205" marker-end="url(#arrowC2)"></path>
-<path class="route-segment d2" d="M770 205 C932 245 955 355 820 430" marker-end="url(#arrowC2)"></path>
-<g class="route-step d1" transform="translate(585 445)"><circle r="14"></circle><text>1</text></g><g class="route-step d1" transform="translate(390 265)"><circle r="14"></circle><text>2</text></g><g class="route-step d2" transform="translate(640 270)"><circle r="14"></circle><text>3</text></g><g class="route-step d2" transform="translate(910 330)"><circle r="14"></circle><text>4</text></g>
-<text class="route-day-label d1" x="360" y="185">DAY 1</text><text class="route-day-label d2" x="715" y="185">DAY 2</text>
-</svg>
-<div class="route-node n1 edge-right"><span class="dot"></span><span class="label">深圳<small>出发 / 返程</small></span></div><div class="route-node n2 edge-left"><span class="dot"></span><span class="label">竹林奇境 / 探洞<small>黄花镇</small></span></div><div class="route-node n3 green"><span class="dot"></span><span class="label">山野民宿<small>烧烤 / 朋友局</small></span></div><div class="route-node n4 day2"><span class="dot"></span><span class="label">玄真<small>早起转场</small></span></div>
-</div>
-</div>
-<div style="padding:10px 18px 0;color:#6b7d79;font-size:11px">路线读法：<b style="color:#287ea9">①② = Day 1</b>，<b style="color:#d95f32">③④ = Day 2</b>；每段线尾箭头表示实际前进方向。</div>
-<div class="map-foot"><div><small>Day 1 出发</small><b id="route-leg-1">深圳 → 英西峰林</b></div><div><small>Day 1 核心</small><b id="route-leg-2">ATV → T3 茶园</b></div><div><small>Day 2 启动</small><b id="route-leg-3">酒店 → 玄真</b></div><div><small>Day 2 返程</small><b id="route-leg-4">玄真 → 深圳</b></div></div>
-<div class="mobile-route-map" id="mobile-route-summary"></div>
-</div>
-</div>
+<p class="route-preview-tip">点击后打开完整路线；手机使用竖向路线，桌面使用横向路线。</p>
+</div></div>
 </section>
 <section class="section" id="day1">
 <div class="day1-panel" data-plan-panel="A">
@@ -590,7 +717,6 @@ body.lightbox-open{overflow:hidden}
 </div>
 </div>
 </section>
-
 </section>
 <section class="section white" id="day2">
 <div class="day-grid media-layout shell reverse day2"><div class="day-copy">
@@ -676,139 +802,173 @@ body.lightbox-open{overflow:hidden}
 </div>
 </footer>
 <script>
-const PLAN_DATA = {
-  A: {
-    routeTitle: '先去英西，再转清新区。',
-    routeDesc: 'Day 1 把活动集中在英德黄花镇一带，傍晚去 T3 茶园，晚上转到玄真附近；Day 2 几乎不用赶路。',
-    mapTitle: '深圳 → 峰驰 ATV → T3 茶园 → 清新区 → 玄真 → 深圳',
-    mapSub: '蓝色是 Day 1，橙色是 Day 2；①②③④ 是实际行驶顺序，箭头表示前进方向。',
-    legs: ['深圳 → 英西峰林','ATV → T3 茶园','清新区酒店 → 玄真','玄真 → 深圳'],
-    stayTitle: 'A 方案：第一晚直接住玄真附近。',
-    stayDesc: '预算约 300 元/间时，不必追网红山景房。优先顺序：离玄真近 ＞ 停车和充电 ＞ 房间新旧 ＞ 景观。',
-    stayTipTitle: '订房只确认 5 件事：', stayTipText: '免费停车、充电桩、到玄真车程、双床宽度、天气不好能否退。',
-    footer: ['深圳','→','峰驰 ATV','→','T3茶园','→','清新区','→','玄真','→','深圳']
-  },
-  B: {
-    routeTitle: '先玩飞拉达，再转清新区。',
-    routeDesc: 'Day 1 的活动点换成英西峰林飞拉达，结束后只轻松看景并尽早转清新区；这套最大价值是刺激，但必须保体力。',
-    mapTitle: '深圳 → 英西峰林飞拉达 → 峰林兜风 → 清新区 → 玄真 → 深圳',
-    mapSub: '蓝色为 Day 1，橙色为 Day 2；①②③④ 按实际行驶顺序标在路线线上，箭头表示方向。',
-    legs: ['深圳 → 英西峰林','飞拉达 → 峰林兜风','清新区酒店 → 玄真','玄真 → 深圳'],
-    stayTitle: 'B 方案：住宿比景观更重要的是“恢复体力”。',
-    stayDesc: '飞拉达后不建议继续住英西慢慢玩，直接转清新区，早点吃饭睡觉；第二天还有溪降和漂流。',
-    stayTipTitle: 'B 方案订房重点：', stayTipText: '离玄真近、停车方便、房间安静、早餐不要太晚、订单可退。',
-    footer: ['深圳','→','飞拉达','→','英西峰林','→','清新区','→','玄真','→','深圳']
-  },
-  C: {
-    routeTitle: '第一晚留在山野，第二天早起去玄真。',
-    routeDesc: '探洞和营地朋友局都在英西一带。如果坚持住竹林奇境，Day 2 要比 A/B 更早出发；如果优先玄真早场，晚饭后改住清新区更稳。',
-    mapTitle: '深圳 → 竹林奇境 / 探洞 → 山野民宿 → 玄真 → 深圳',
-    mapSub: 'C 方案用蓝色完成 Day 1 山野段，Day 2 转为橙色；①②③④ 和箭头共同标明先后顺序。',
-    legs: ['深圳 → 竹林奇境','探洞 → 攀岩 / 营地','山野民宿 → 玄真','玄真 → 深圳'],
-    stayTitle: 'C 方案：住宿本身就是玩法的一部分。',
-    stayDesc: '8–10 人朋友团更适合留在竹林奇境一带；但如果你们更在意玄真早场，晚饭后转清新区会更稳。',
-    stayTipTitle: 'C 方案先做一个取舍：', stayTipText: '要山野朋友局，就接受 Day 2 早起；要溪降早场从容，就晚饭后转清新区。',
-    footer: ['深圳','→','竹林奇境','→','探洞 / 攀岩','→','山野民宿','→','玄真','→','深圳']
+const PLAN_DATA = {"A": {"label": "A · 均衡", "routeTitle": "先去英西，再转清新区。", "routeDesc": "Day 1 集中玩 ATV、英西峰林和 T3 茶园；晚上住玄真附近。Day 2 直接溪降 + 漂流。", "stayTitle": "A 方案：第一晚直接住玄真附近。", "stayDesc": "预算约 300 元/间时，不必追网红山景房。优先顺序：离玄真近 ＞ 停车和充电 ＞ 房间新旧 ＞ 景观。", "stayTipTitle": "订房只确认 5 件事：", "stayTipText": "免费停车、充电桩、到玄真车程、双床宽度、天气不好能否退。", "footer": ["深圳", "→", "峰驰 ATV", "→", "T3 茶园", "→", "清新区", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["峰驰 ATV", "丛林越野", "d1"], ["英西峰林 / T3", "兜风 + 茶园", "d1"], ["清新区", "住宿 + 充电", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}, "B": {"label": "B · 刺激", "routeTitle": "先玩飞拉达，再转清新区。", "routeDesc": "Day 1 重点是飞拉达，之后只轻松看英西峰林并尽早休息；Day 2 继续溪降 + 漂流。", "stayTitle": "B 方案：住宿重点是恢复体力。", "stayDesc": "飞拉达后不建议继续住英西慢慢玩，直接转清新区，早点吃饭睡觉；第二天还有溪降和漂流。", "stayTipTitle": "B 方案订房重点：", "stayTipText": "离玄真近、停车方便、房间安静、早餐不要太晚、订单可退。", "footer": ["深圳", "→", "飞拉达", "→", "英西峰林", "→", "清新区", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["英西峰林", "飞拉达", "d1"], ["峰林沿途", "轻松兜风", "d1"], ["清新区", "住宿 + 恢复体力", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}, "C": {"label": "C · 朋友局", "routeTitle": "第一晚留在山野，第二天早起去玄真。", "routeDesc": "Day 1 做探洞、攀岩 / 皮划艇和朋友局；如果住山野民宿，Day 2 要更早出发。", "stayTitle": "C 方案：住宿本身就是玩法的一部分。", "stayDesc": "8–10 人朋友团更适合留在竹林奇境一带；但如果更在意玄真早场，晚饭后转清新区会更稳。", "stayTipTitle": "C 方案先做一个取舍：", "stayTipText": "要山野朋友局，就接受 Day 2 早起；要溪降早场从容，就晚饭后转清新区。", "footer": ["深圳", "→", "竹林奇境", "→", "探洞 / 攀岩", "→", "山野民宿", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["竹林奇境 / 黄花镇", "天然洞穴探洞", "d1"], ["营地 / 岩壁", "攀岩或皮划艇", "d1"], ["住宿点", "山野民宿 / 清新区", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}, "D": {"label": "D · 溶洞", "routeTitle": "先看洞天仙境与峰林，再转清新区。", "routeDesc": "Day 1 以轻松看景为主：洞天仙境 + 英西峰林。Day 2 再集中玩玄真溪降 + 漂流。", "stayTitle": "D 方案：第一晚同样建议住玄真附近。", "stayDesc": "第一天强度低，傍晚从英西直接转清新区即可；第二天进玄真最省心。", "stayTipTitle": "D 方案订房重点：", "stayTipText": "离玄真近、停车与充电方便、订单可退即可，不必为景观额外加预算。", "footer": ["深圳", "→", "洞天仙境", "→", "英西峰林", "→", "清新区", "→", "玄真", "→", "深圳"], "nodes": [["深圳", "出发", "d1"], ["洞天仙境", "溶洞 + 水系", "d1"], ["英西峰林", "沿途慢走 / 拍照", "d1"], ["清新区", "住宿 + 充电", "d1"], ["玄真", "溪降 + 悬崖漂", "d2"], ["深圳", "返程", "d2"]]}};
+let activePlan = 'A';
+
+function renderRoutePreview(plan){
+  const data = PLAN_DATA[plan];
+  const host = document.getElementById('route-preview-steps');
+  if(!host || !data) return;
+  host.innerHTML = data.nodes.map((n,i) => {
+    const place = `<span class="route-preview-step">${n[0]}</span>`;
+    const arrow = i < data.nodes.length - 1 ? `<span class="route-preview-arrow">→</span>` : '';
+    return place + arrow;
+  }).join('');
+}
+
+function renderRouteModal(plan){
+  const data = PLAN_DATA[plan];
+  if(!data) return;
+  const kicker = document.getElementById('route-modal-kicker');
+  const title = document.getElementById('route-modal-title');
+  const desc = document.getElementById('route-modal-desc');
+  const track = document.getElementById('route-modal-track');
+  if(kicker) kicker.textContent = data.label;
+  if(title) title.textContent = '两天路线图';
+  if(desc) desc.textContent = data.routeDesc;
+  if(track){
+    track.innerHTML = data.nodes.map((n,i) => {
+      const day2 = n[2] === 'd2';
+      const cls = day2 ? 'day2' : 'day1';
+      const day = day2 ? 'DAY 2' : 'DAY 1';
+      const arrow = i < data.nodes.length - 1 ? `<div class="route-modal-arrow">→</div>` : '';
+      return `<div class="route-modal-node ${cls}">
+        <div class="route-modal-place ${cls}">
+          <span class="route-modal-number">${i+1}</span>
+          <b>${n[0]}</b>
+          <span>${n[1]}</span>
+          <em class="route-modal-day">${day}</em>
+        </div>
+        ${arrow}
+      </div>`;
+    }).join('');
   }
-,
-  D: {
-    routeTitle: '先看溶洞与峰林，再转清新区。',
-    routeSub: '适合第一次来清远、想轻松看景的朋友。',
-    routeTag: 'D · 溶洞轻松版',
-    legs: ['深圳 → 洞天仙境','洞天仙境 → 英西峰林','英西峰林 → 清新区','清新区 → 玄真','玄真 → 深圳']
-  }};
-
-
-const MOBILE_ROUTE_DATA = {
-  A: [
-    ['深圳','出发','d1'],
-    ['英西峰林','ATV 越野 + 峰林 + T3 茶园','d1'],
-    ['清新区','住宿 + 充电','d1'],
-    ['玄真','溪降王炸线 + 悬崖漂','d2'],
-    ['深圳','返程','d2']
-  ],
-  B: [
-    ['深圳','出发','d1'],
-    ['英西峰林','飞拉达 + 峰林兜风','d1'],
-    ['清新区','住宿 + 恢复体力','d1'],
-    ['玄真','溪降王炸线 + 悬崖漂','d2'],
-    ['深圳','返程','d2']
-  ],
-  C: [
-    ['深圳','出发','d1'],
-    ['竹林奇境 / 黄花镇','探洞 + 攀岩 / 皮划艇','d1'],
-    ['住宿点','山野民宿或转清新区','d1'],
-    ['玄真','溪降王炸线 + 悬崖漂','d2'],
-    ['深圳','返程','d2']
-  ]
-,
-  D: [
-    ['深圳','出发','d1'],
-    ['洞天仙境','溶洞 + 水系 + 峰林','d1'],
-    ['英西峰林','沿途慢走 / 拍照','d1'],
-    ['清新区','住宿 + 充电','d1'],
-    ['玄真','溪降王炸线 + 悬崖漂','d2'],
-    ['深圳','返程','d2']
-  ]};
-
-function renderMobileRoute(plan){
-  const host=document.getElementById('mobile-route-summary');
-  const nodes=MOBILE_ROUTE_DATA[plan];
-  if(!host||!nodes) return;
-  host.innerHTML='<div class="mobile-route-track">'+nodes.map((n,i)=>{
-    const dayClass=n[2]==='d2'?'day2':'day1';
-    const dayLabel=n[2]==='d2'?'DAY 2':'DAY 1';
-    const leg=i<nodes.length-1?`<span class="mobile-route-leg">${i+1}</span>`:'';
-    return `<div class="mobile-route-node ${dayClass}">
-      <div class="mobile-route-dot"></div>
-      <div class="mobile-route-copy"><b>${n[0]}</b><span>${n[1]}</span><em class="mobile-route-day">${dayLabel}</em></div>
-      ${leg}
-    </div>`;
-  }).join('')+'</div>';
 }
 
 function setPlan(plan, shouldScroll=false){
-  const data = PLAN_DATA[plan]; if(!data) return;
+  const data = PLAN_DATA[plan];
+  if(!data) return;
+  activePlan = plan;
   document.documentElement.dataset.plan = plan;
-  document.querySelectorAll('.plan-tab').forEach(el=>{const on=el.dataset.plan===plan;el.classList.toggle('active',on);el.setAttribute('aria-selected',on?'true':'false')});
-  document.querySelectorAll('.plan-card').forEach(el=>{const on=el.dataset.plan===plan;el.hidden=!on;el.classList.toggle('active',on)});
-    document.querySelectorAll('[data-plan-map]').forEach(el=>el.classList.toggle('active',el.dataset.planMap===plan));
-  document.querySelectorAll('[data-plan-panel]').forEach(el=>el.hidden=el.dataset.planPanel!==plan);
-  document.querySelectorAll('[data-plan-budget]').forEach(el=>{const on=el.dataset.planBudget===plan;el.hidden=!on;el.classList.toggle('featured',on)});
-  document.querySelector('[data-stay-panel="AB"]').hidden = plan==='C';
-  document.querySelector('[data-stay-panel="C"]').hidden = plan!=='C';
-  document.getElementById('route-title').textContent=data.routeTitle;
-  document.getElementById('route-desc').textContent=data.routeDesc;
-  document.getElementById('map-route-title').textContent=data.mapTitle;
-  document.getElementById('map-route-sub').textContent=data.mapSub;
-  data.legs.forEach((v,i)=>document.getElementById('route-leg-'+(i+1)).textContent=v);
-  document.getElementById('mobile-route-summary').innerHTML=data.legs.map((v,i)=>`<span>${i+1} · ${v}</span>`).join('');
-  renderMobileRoute(plan);
-  document.getElementById('stay-title').textContent=data.stayTitle;
-  document.getElementById('stay-desc').textContent=data.stayDesc;
-  document.getElementById('stay-tip-title').textContent=data.stayTipTitle;
-  document.getElementById('stay-tip-text').textContent=data.stayTipText;
-  document.getElementById('footer-route').innerHTML=data.footer.map(v=>`<span>${v}</span>`).join('');
-  try{localStorage.setItem('qingyuanActivePlan',plan)}catch(e){}
-  if(shouldScroll) document.getElementById('route').scrollIntoView({behavior:'smooth',block:'start'});
+
+  document.querySelectorAll('.plan-tab, .sticky-plan-tab').forEach(el => {
+    const on = el.dataset.plan === plan;
+    el.classList.toggle('active', on);
+    if(el.classList.contains('plan-tab')) el.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.plan-card').forEach(el => {
+    const on = el.dataset.plan === plan;
+    el.hidden = !on;
+    el.classList.toggle('active', on);
+  });
+
+  document.querySelectorAll('[data-plan-panel]').forEach(el => {
+    el.hidden = el.dataset.planPanel !== plan;
+  });
+
+  document.querySelectorAll('[data-plan-budget]').forEach(el => {
+    const on = el.dataset.planBudget === plan;
+    el.hidden = !on;
+    el.classList.toggle('featured', on);
+  });
+
+  const stayAB = document.querySelector('[data-stay-panel="AB"]');
+  const stayC = document.querySelector('[data-stay-panel="C"]');
+  if(stayAB) stayAB.hidden = plan === 'C';
+  if(stayC) stayC.hidden = plan !== 'C';
+
+  const routeTitle = document.getElementById('route-title');
+  const routeDesc = document.getElementById('route-desc');
+  if(routeTitle) routeTitle.textContent = data.routeTitle;
+  if(routeDesc) routeDesc.textContent = data.routeDesc;
+
+  const stayTitle = document.getElementById('stay-title');
+  const stayDesc = document.getElementById('stay-desc');
+  const stayTipTitle = document.getElementById('stay-tip-title');
+  const stayTipText = document.getElementById('stay-tip-text');
+  if(stayTitle) stayTitle.textContent = data.stayTitle;
+  if(stayDesc) stayDesc.textContent = data.stayDesc;
+  if(stayTipTitle) stayTipTitle.textContent = data.stayTipTitle;
+  if(stayTipText) stayTipText.textContent = data.stayTipText;
+
+  const footer = document.getElementById('footer-route');
+  if(footer) footer.innerHTML = data.footer.map(v => `<span>${v}</span>`).join('');
+
+  renderRoutePreview(plan);
+  renderRouteModal(plan);
+
+  try{ localStorage.setItem('qingyuanActivePlan', plan); }catch(e){}
+  if(shouldScroll){
+    const target = document.getElementById('route');
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
 }
 
-document.querySelectorAll('.plan-tab').forEach(el=>el.addEventListener('click',()=>setPlan(el.dataset.plan,false)));
+document.querySelectorAll('.plan-tab, .sticky-plan-tab').forEach(el => {
+  el.addEventListener('click', () => setPlan(el.dataset.plan, false));
+});
+
+const routeModal = document.getElementById('route-modal');
+function openRouteModal(){
+  renderRouteModal(activePlan);
+  routeModal.hidden = false;
+  routeModal.setAttribute('aria-hidden','false');
+  document.body.classList.add('route-modal-open');
+}
+function closeRouteModal(){
+  routeModal.hidden = true;
+  routeModal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('route-modal-open');
+}
+document.getElementById('route-open-btn')?.addEventListener('click', openRouteModal);
+document.querySelectorAll('[data-route-close]').forEach(el => el.addEventListener('click', closeRouteModal));
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && routeModal && !routeModal.hidden) closeRouteModal();
+});
+
+function updateStickyPlanBar(){
+  const bar = document.getElementById('sticky-plan-bar');
+  const start = document.getElementById('plans');
+  const end = document.getElementById('budget');
+  if(!bar || !start || !end) return;
+  const top = window.scrollY + 90;
+  const inPlanJourney = top >= start.offsetTop && top <= (end.offsetTop + end.offsetHeight - 80);
+  bar.classList.toggle('visible', inPlanJourney);
+}
+let stickyTick = false;
+window.addEventListener('scroll', () => {
+  if(stickyTick) return;
+  stickyTick = true;
+  requestAnimationFrame(() => {
+    updateStickyPlanBar();
+    stickyTick = false;
+  });
+}, {passive:true});
+window.addEventListener('resize', updateStickyPlanBar);
 
 function setupSmartImages(){
-  document.querySelectorAll('img.smart-img').forEach(img=>{
-    const fallbacks=(img.dataset.fallbacks||'').split('|').filter(Boolean);let idx=0;
-    img.addEventListener('load',()=>img.closest('.photo')?.classList.remove('image-failed'));
-    const handleError=()=>{
-      if(idx<fallbacks.length){img.src=fallbacks[idx++];return;}
+  document.querySelectorAll('img.smart-img').forEach(img => {
+    const fallbacks = (img.dataset.fallbacks || '').split('|').filter(Boolean);
+    let idx = 0;
+    img.addEventListener('load', () => img.closest('.photo')?.classList.remove('image-failed'));
+    const handleError = () => {
+      if(idx < fallbacks.length){ img.src = fallbacks[idx++]; return; }
       img.closest('.photo')?.classList.add('image-failed');
     };
-    img.addEventListener('error',handleError);
-    if(img.complete && img.naturalWidth===0) handleError();
+    img.addEventListener('error', handleError);
+    if(img.complete && img.naturalWidth === 0) handleError();
   });
 }
 setupSmartImages();
-let initial='A';try{const saved=localStorage.getItem('qingyuanActivePlan');if(PLAN_DATA[saved])initial=saved}catch(e){}setPlan(initial,false);
+
+let initial = 'A';
+try{
+  const saved = localStorage.getItem('qingyuanActivePlan');
+  if(PLAN_DATA[saved]) initial = saved;
+}catch(e){}
+setPlan(initial, false);
+updateStickyPlanBar();
 </script>
 <script>
 document.querySelectorAll('[data-gallery]').forEach(g=>{
@@ -819,6 +979,24 @@ document.querySelectorAll('[data-gallery]').forEach(g=>{
 });
 </script>
 
+<div aria-hidden="true" class="route-modal" hidden="" id="route-modal">
+<div class="route-modal-backdrop" data-route-close=""></div>
+<div aria-label="路线图" aria-modal="true" class="route-modal-dialog" role="dialog">
+<div class="route-modal-head">
+<div>
+<span class="route-modal-kicker" id="route-modal-kicker">A · 均衡</span>
+<h3 id="route-modal-title">两天路线图</h3>
+<p id="route-modal-desc"></p>
+</div>
+<button aria-label="关闭路线图" class="route-modal-close" data-route-close="" type="button">×</button>
+</div>
+<div class="route-modal-legend">
+<span><i class="day1"></i>Day 1</span>
+<span><i class="day2"></i>Day 2</span>
+</div>
+<div class="route-modal-track" id="route-modal-track"></div>
+</div>
+</div>
 <div aria-hidden="true" class="image-lightbox" hidden="" id="image-lightbox">
 <div class="lightbox-backdrop" data-lightbox-close=""></div>
 <div aria-label="图片预览" aria-modal="true" class="lightbox-dialog" role="dialog">
@@ -829,7 +1007,6 @@ document.querySelectorAll('[data-gallery]').forEach(g=>{
 <div class="lightbox-caption"></div>
 </div>
 </div>
-
 <script>
 (() => {
   const box = document.getElementById('image-lightbox');
