@@ -188,6 +188,179 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
   .media-layout .gallery-info{display:block}
   .media-layout .gallery-source{display:inline-block;margin-top:7px}
 }
+
+/* V8 — single-state plan UX */
+.plan-grid{grid-template-columns:1fr!important}
+.plan-card[hidden], .budget-card[hidden]{display:none!important}
+.plan-card{cursor:default!important;max-width:none}
+.plan-card.active:after{display:none!important}
+.plan-card .plan-route{display:none}
+.plan-days{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  margin:20px 0 18px
+}
+.plan-day{
+  display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;
+  min-height:76px;padding:15px 16px;border-radius:18px;
+  background:#f7fbf9;border:1px solid var(--line);
+  color:#425b55;font-size:13px;line-height:1.55
+}
+.plan-day.d2{background:#fff8f3;border-color:#f2dfd2}
+.plan-day-badge{
+  display:grid;place-items:center;min-width:54px;height:32px;padding:0 9px;
+  border-radius:999px;background:#e6f4fb;color:#287ea9;
+  font-size:11px;font-weight:800
+}
+.plan-day.d2 .plan-day-badge{background:#ffeadf;color:#d86639}
+.plan-meta{margin-top:4px}
+
+.mobile-route-map{display:none}
+.mobile-route-track{padding:8px 6px 2px}
+.mobile-route-node{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;position:relative
+}
+.mobile-route-node:not(:last-child){padding-bottom:34px}
+.mobile-route-node:not(:last-child):before{
+  content:"";position:absolute;left:18px;top:34px;bottom:0;width:3px;
+  background:#4aa7d4;border-radius:99px
+}
+.mobile-route-node.day2:not(:last-child):before{background:#ff8a5c}
+.mobile-route-dot{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:#fff;border:5px solid #4aa7d4;position:relative;z-index:2;
+  box-shadow:0 5px 15px rgba(35,86,71,.12)
+}
+.mobile-route-node.day2 .mobile-route-dot{border-color:#ff8a5c}
+.mobile-route-copy{
+  padding:4px 0 0
+}
+.mobile-route-copy b{display:block;font-size:15px;color:var(--ink)}
+.mobile-route-copy span{display:block;margin-top:2px;font-size:11px;color:var(--muted)}
+.mobile-route-leg{
+  position:absolute;left:7px;bottom:9px;width:24px;height:24px;border-radius:50%;
+  display:grid;place-items:center;background:#287ea9;color:#fff;
+  font-size:11px;font-weight:850;z-index:3
+}
+.mobile-route-node.day2 .mobile-route-leg{background:#d86639}
+.mobile-route-day{
+  display:inline-flex;margin-top:7px;padding:4px 8px;border-radius:999px;
+  background:#eaf6fb;color:#287ea9;font-size:9px;font-weight:800
+}
+.mobile-route-node.day2 .mobile-route-day{background:#fff0e7;color:#d86639}
+
+@media(max-width:560px){
+  .plan-tabs{
+    display:grid!important;grid-template-columns:repeat(3,1fr);
+    gap:7px;padding:7px;border:1px solid var(--line);border-radius:16px;
+    background:rgba(247,251,249,.96)
+  }
+  .plan-tab{
+    min-width:0;border-radius:11px;padding:10px 5px!important;
+    font-size:11px!important;white-space:nowrap
+  }
+  .plan-grid{margin-top:14px}
+  .plan-card{padding:20px 17px!important}
+  .plan-card h3{font-size:23px!important;line-height:1.2}
+  .plan-card>p{font-size:13px;line-height:1.55}
+  .plan-days{grid-template-columns:1fr;gap:8px;margin:16px 0}
+  .plan-day{min-height:0;padding:12px 13px;grid-template-columns:50px 1fr}
+  .plan-day-badge{min-width:48px;height:28px;padding:0 6px}
+  .plan-meta{grid-template-columns:1fr 1fr!important}
+  .plan-note{font-size:11px;line-height:1.5}
+
+  /* Desktop SVG map is hidden on phone. Use a vertical, readable route instead. */
+  .route-board{display:none!important}
+  .map-foot{display:none!important}
+  .mobile-route-map{
+    display:block!important;padding:18px 18px 20px;
+    background:linear-gradient(180deg,#f7fbf9,#fff);
+    border-top:1px solid var(--line)
+  }
+  .map-top{padding-bottom:10px!important}
+  .map-top .legend{font-size:10px}
+  .map-top strong{line-height:1.45}
+  .section-title h2{font-size:30px!important;line-height:1.1}
+  .section-title p{font-size:13px!important}
+
+  .day-title{gap:10px}
+  .day-chip{width:44px;height:44px;border-radius:14px}
+  .media-layout .day-title h3{font-size:24px!important;line-height:1.18}
+}
+
+/* V9 mobile: desktop route never gets squeezed */
+@media(max-width:720px){
+  #route .route-board-wrap,
+  #route .route-board,
+  #route svg,
+  #route .map-foot{
+    display:none!important;
+  }
+  #route .mobile-route-map{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    overflow:visible!important;
+  }
+  #route .mobile-route-track{
+    width:100%!important;
+    padding:8px 2px 4px!important;
+  }
+}
+
+/* V9 image zoom */
+.gallery-slide img{cursor:zoom-in}
+.image-lightbox[hidden]{display:none!important}
+.image-lightbox{
+  position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
+  padding:24px
+}
+.lightbox-backdrop{
+  position:absolute;inset:0;background:rgba(8,16,14,.88);backdrop-filter:blur(8px)
+}
+.lightbox-dialog{
+  position:relative;z-index:2;width:min(1180px,94vw);height:min(86vh,820px);
+  display:grid;grid-template-columns:64px 1fr 64px;
+  grid-template-rows:1fr auto;align-items:center;gap:12px
+}
+.lightbox-image{
+  grid-column:2;grid-row:1;max-width:100%;max-height:76vh;
+  width:auto;height:auto;justify-self:center;align-self:center;
+  object-fit:contain;border-radius:18px;box-shadow:0 20px 70px rgba(0,0,0,.35)
+}
+.lightbox-caption{
+  grid-column:2;grid-row:2;color:#fff;text-align:center;
+  font-size:13px;line-height:1.6;padding:0 8px
+}
+.lightbox-close{
+  position:absolute;right:0;top:-4px;width:44px;height:44px;
+  border:0;border-radius:50%;background:rgba(255,255,255,.14);
+  color:#fff;font-size:30px;cursor:pointer;z-index:4
+}
+.lightbox-nav{
+  width:50px;height:50px;border:0;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;font-size:34px;cursor:pointer
+}
+.lightbox-prev{grid-column:1;grid-row:1}
+.lightbox-next{grid-column:3;grid-row:1}
+body.lightbox-open{overflow:hidden}
+@media(max-width:720px){
+  .image-lightbox{padding:0}
+  .lightbox-dialog{
+    width:100vw;height:100dvh;grid-template-columns:50px 1fr 50px;
+    grid-template-rows:1fr auto;padding:16px 8px 20px
+  }
+  .lightbox-image{
+    max-width:100%;max-height:78dvh;border-radius:12px
+  }
+  .lightbox-close{right:12px;top:12px;background:rgba(0,0,0,.42)}
+  .lightbox-nav{width:42px;height:42px;background:rgba(0,0,0,.38)}
+  .lightbox-caption{font-size:12px;padding:0 10px 6px}
+}
+
+@media(max-width:560px){
+  .plan-tabs{grid-template-columns:repeat(4,1fr)!important}
+  .plan-tab{font-size:10px!important;padding:10px 3px!important}
+}
 </style>
 </head>
 <body>
@@ -216,39 +389,54 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 </section>
 <section class="section" id="plans">
 <div class="shell">
-<div class="section-head"><div class="section-no">01 / 三套方案</div><div class="section-title"><h2>先选玩法，下面整页会跟着切换。</h2><p>点击 A / B / C 后，路线地图、Day 1 时间轴、图片、住宿建议与预算高亮都会同步变化。Day 2 的玄真溪降 + 悬崖漂固定保留。</p></div></div>
+<div class="section-head"><div class="section-no">01 / 选择玩法</div><div class="section-title"><h2>先选 A / B / C，再看这一套怎么玩。</h2><p>切换方案后，两天速览、路线图、第一天行程、住宿与预算会一起切换；第二天固定为玄真溪降 + 悬崖漂。</p></div></div>
 <div aria-label="切换旅行方案" class="plan-tabs" role="tablist">
-<button aria-selected="true" class="plan-tab active" data-plan="A" role="tab" type="button">A · 均衡版</button>
-<button aria-selected="false" class="plan-tab" data-plan="B" role="tab" type="button">B · 全刺激</button>
+<button aria-selected="true" class="plan-tab active" data-plan="A" role="tab" type="button">A · 均衡</button>
+<button aria-selected="false" class="plan-tab" data-plan="B" role="tab" type="button">B · 刺激</button>
 <button aria-selected="false" class="plan-tab" data-plan="C" role="tab" type="button">C · 朋友局</button>
-</div>
+<button aria-selected="false" class="plan-tab" data-plan="D" role="tab" type="button">D · 溶洞</button></div>
 <div class="plan-grid">
-<article aria-pressed="true" class="plan-card active recommended" data-plan="A" role="button" tabindex="0">
-<div class="plan-kicker">PLAN A · 均衡版</div><h3>ATV越野 + 峰林 + 茶园</h3><p>最好落地的一套。先把肾上腺素拉起来，再用峰林和茶园把节奏放松，第二天还能留足体力。</p>
+<article class="plan-card active recommended" data-plan="A">
+<div class="plan-kicker">均衡版｜4–6 人首选</div><h3>ATV 越野 + 英西峰林 + T3 茶园</h3><p>最好落地的一套。先把肾上腺素拉起来，再用峰林和茶园把节奏放松，第二天还能留足体力。</p><div class="plan-days"><div class="plan-day d1"><span class="plan-day-badge">第一天</span><div>ATV 丛林越野 → 英西峰林兜风 → T3 茶园 → 清新区住宿</div></div><div class="plan-day d2"><span class="plan-day-badge">第二天</span><div>玄真溪降王炸线 → 悬崖全程漂 → 深圳</div></div></div>
 <div class="plan-route"><span>深圳 → 英德黄花镇</span><span>峰驰 ATV 丛林越野 · 约 1h</span><span>英西峰林自驾 / 小电驴兜风</span><span>T3 有机茶园 · 傍晚</span><span>清新区住宿 → Day 2 玄真</span></div>
 <div class="plan-meta"><div><small>刺激度</small><b>★★★★☆</b></div><div><small>体力</small><b>★★☆☆☆</b></div><div><small>Day 1 加价</small><b>约 ¥240–350/人</b></div><div><small>适合</small><b>4–6人首选</b></div></div>
 <div class="plan-note">ATV 公开产品约 ¥294–298 起；双人车约 ¥397 起/车。T3 茶园公开营业参考 09:00–18:00。</div>
 </article>
-<article aria-pressed="false" class="plan-card" data-plan="B" role="button" tabindex="0">
-<div class="plan-kicker">PLAN B · 全刺激版</div><h3>飞拉达 + 峰林</h3><p>Day 1 上悬崖，Day 2 下峡谷。画面和刺激感最强，但两天下来体力消耗也最大。</p>
+<article class="plan-card" data-plan="B" hidden="">
+<div class="plan-kicker">全刺激版｜适合不恐高</div><h3>飞拉达 + 英西峰林</h3><p>Day 1 上悬崖，Day 2 下峡谷。画面和刺激感最强，但两天下来体力消耗也最大。</p><div class="plan-days"><div class="plan-day d1"><span class="plan-day-badge">第一天</span><div>英西峰林飞拉达 → 峰林轻松兜风 → 清新区住宿</div></div><div class="plan-day d2"><span class="plan-day-badge">第二天</span><div>玄真溪降王炸线 → 悬崖全程漂 → 深圳</div></div></div>
 <div class="plan-route"><span>深圳 → 英西峰林</span><span>峰林晓镇飞拉达 · 挑战线 / 勇士线</span><span>峰林轻松兜风 / 拍照</span><span>提前去清新区休息</span><span>Day 2 玄真溪降 + 悬崖漂</span></div>
 <div class="plan-meta"><div><small>刺激度</small><b>★★★★★</b></div><div><small>体力</small><b>★★★★☆</b></div><div><small>Day 1 参考</small><b>约 ¥158–188/人</b></div><div><small>适合</small><b>不恐高的人</b></div></div>
 <div class="plan-note">公开活动资料显示：挑战线约 268m、勇士线约 520m。实际开放与场次需要出发前再次确认。</div>
 </article>
-<article aria-pressed="false" class="plan-card" data-plan="C" role="button" tabindex="0">
-<div class="plan-kicker">PLAN C · 朋友团建版</div><h3>野外探洞 + 攀岩 + 山野民宿</h3><p>不是看开发溶洞，而是戴头盔头灯进天然洞。人多时最好玩，晚上直接把住宿也做成朋友局。</p>
+<article class="plan-card" data-plan="C" hidden="">
+<div class="plan-kicker">朋友局版｜8–10 人更适合</div><h3>野外探洞 + 攀岩 / 皮划艇 + 山野朋友局</h3><p>不是看开发溶洞，而是戴头盔头灯进天然洞。人多时最好玩，晚上直接把住宿也做成朋友局。</p><div class="plan-days"><div class="plan-day d1"><span class="plan-day-badge">第一天</span><div>天然洞穴探洞 → 攀岩 / 皮划艇 → 山野民宿或转清新区</div></div><div class="plan-day d2"><span class="plan-day-badge">第二天</span><div>早起转玄真 → 溪降王炸线 → 悬崖全程漂 → 深圳</div></div></div>
 <div class="plan-route"><span>深圳 → 黄花镇 / 竹林奇境</span><span>天然洞穴探洞</span><span>攀岩 / 皮划艇按人数选</span><span>山野民宿 · 烧烤 / 打牌</span><span>Day 2 早起转场玄真</span></div>
 <div class="plan-meta"><div><small>刺激度</small><b>★★★★☆</b></div><div><small>体力</small><b>★★★☆☆</b></div><div><small>项目价格</small><b>约 ¥121 起</b></div><div><small>适合</small><b>8–10人更香</b></div></div>
 <div class="plan-note">公开活动规则：探洞约 8 人成团，其他活动多见 10 人成团；未成团可能产生额外教练费用。</div>
 </article>
+
+<article class="plan-card" data-plan="D" hidden="">
+<div class="plan-kicker">轻松观景版｜朋友第一次去清远可选</div>
+<h3>洞天仙境 + 英西峰林</h3>
+<p>这套强度最低，第一天主要负责看景、拍照和聊天，第二天再把刺激项目集中到玄真。</p>
+<div class="plan-days">
+<div class="plan-day d1"><span class="plan-day-badge">第一天</span><div>洞天仙境 → 英西峰林沿途 → 清新区住宿</div></div>
+<div class="plan-day d2"><span class="plan-day-badge">第二天</span><div>玄真溪降王炸线 → 悬崖全程漂 → 深圳</div></div>
 </div>
-<p class="plan-helper">提示：整张方案卡也可以点击切换；当前选中的方案会高亮。</p>
-<div class="compare-strip"><div><small>我会怎么选</small><b>A ＞ B ＞ C</b></div><div><small>最稳妥</small><b>A · ATV峰林茶园</b></div><div><small>最刺激</small><b>B · 飞拉达</b></div><div><small>人数越多越值</small><b>C · 探洞攀岩</b></div></div>
+<div class="plan-meta">
+<span>强度：★★☆☆☆</span>
+<span>刺激：★★★☆☆</span>
+<span>拍照：★★★★★</span>
+<span>适合：第一次去 / 男女混合局</span>
+</div>
+<div class="plan-note">不是当前首推，但很适合给朋友一起投票参考。</div>
+</article>
+</div>
 </div>
 </section>
 <section class="section white" id="route">
 <div class="shell">
-<div class="section-head"><div class="section-no">02 / 路线总览</div><div class="section-title"><h2 id="route-title">A 方案：先去英西，再转清新区。</h2><p id="route-desc">Day 1 把活动集中在英德黄花镇一带，傍晚去 T3 茶园，晚上转到玄真附近；Day 2 几乎不用赶路。</p></div></div>
+<div class="section-head"><div class="section-no">02 / 当前路线</div><div class="section-title"><h2 id="route-title">A 方案：先去英西，再转清新区。</h2><p id="route-desc">Day 1 把活动集中在英德黄花镇一带，傍晚去 T3 茶园，晚上转到玄真附近；Day 2 几乎不用赶路。</p></div></div>
 <div class="map-shell">
 <div class="map-top"><div><strong id="map-route-title">深圳 → 峰驰 ATV → T3 茶园 → 清新区 → 玄真 → 深圳</strong><p id="map-route-sub">蓝色是 Day 1，橙色是 Day 2；①②③④ 是实际行驶顺序，箭头表示前进方向。</p></div><div class="legend"><span><i class="d1"></i>Day 1</span><span><i class="d2"></i>Day 2</span></div></div>
 <div aria-live="polite" class="route-board">
@@ -295,14 +483,14 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 </div>
 <div style="padding:10px 18px 0;color:#6b7d79;font-size:11px">路线读法：<b style="color:#287ea9">①② = Day 1</b>，<b style="color:#d95f32">③④ = Day 2</b>；每段线尾箭头表示实际前进方向。</div>
 <div class="map-foot"><div><small>Day 1 出发</small><b id="route-leg-1">深圳 → 英西峰林</b></div><div><small>Day 1 核心</small><b id="route-leg-2">ATV → T3 茶园</b></div><div><small>Day 2 启动</small><b id="route-leg-3">酒店 → 玄真</b></div><div><small>Day 2 返程</small><b id="route-leg-4">玄真 → 深圳</b></div></div>
-<div class="mobile-route-summary" id="mobile-route-summary"><span>① 深圳 → 英西峰林</span><span>② ATV → T3 茶园</span><span>③ 清新区酒店 → 玄真</span><span>④ 玄真 → 深圳</span></div>
+<div class="mobile-route-map" id="mobile-route-summary"></div>
 </div>
 </div>
 </section>
 <section class="section" id="day1">
 <div class="day1-panel" data-plan-panel="A">
 <div class="day-grid shell media-layout">
-<div class="day-copy"><div class="day-title"><div class="day-chip">D1</div><div><h3>A：先越野，再把节奏放松。</h3><p>深圳 → 黄花镇 → ATV → 英西峰林 → T3茶园 → 清新区</p></div></div><ol class="timeline">
+<div class="day-copy"><div class="day-title"><div class="day-chip">D1</div><div><h3>第一天｜ATV 越野 + 英西峰林 + T3 茶园</h3><p>深圳 → 黄花镇 → ATV → 英西峰林 → T3 茶园 → 清新区</p></div></div><ol class="timeline">
 <li><div class="time">07:30</div><div><h4>深圳满电出发</h4><p>早餐在深圳解决。普通周末尽量 8 点前走，给下午项目留出缓冲。</p><span class="inline-note">电车建议 90%–100% 电量出发</span></div></li>
 <li><div class="time">11:30</div><div><h4>黄花镇午饭</h4><p>当地农家菜，控制在 30–50 元/人。下午先玩 ATV，不要吃得太撑。</p></div></li>
 <li class="with-media"><div class="time">13:00</div><div class="event-copy"><h4>峰驰 ATV 丛林越野｜约 50–60 分钟</h4><p>公开线路约 6 km，包含竹林、丛林、河道、障碍和爬坡；有教练带队。近期公开产品约 ¥294–298 起，双人车约 ¥397 起/车。</p><span class="inline-note">4–6 人更建议两人一车，拍照和成本都舒服</span></div><div aria-hidden="true" class="media-connector"></div><div class="event-media"><div class="timeline-gallery" data-gallery="atv-a"><div class="gallery-stage"><div class="gallery-slide active" data-desc="竹林、碎石和溪流是这条 6 km 越野线最有参与感的部分。" data-source="https://bbs.xiaopeng.com/article/2931095" data-title="峰驰 ATV：溪流冲刺"><img alt="英德峰驰丛林越野 ATV 冲过溪流" loading="lazy" referrerpolicy="no-referrer" src="https://s.xiaopeng.com/bbs/uploaded/20241006/media_202410061146_9704_file_w_1080%40h_810.jpeg?x-oss-process=image%2Fresize%2Cm_mfit%2Cw_1150%2Climit_1%2Fformat%2Cwebp%2Fquality%2Cq_90"/></div><div class="gallery-slide" data-desc="专业教练带队，约 50–60 分钟，适合两人一车边玩边拍。" data-source="https://huodong.ctrip.com/ottd-activity/dest/t43017185.html" data-title="峰驰 ATV：丛林赛道"><img alt="英德峰驰 ATV 丛林越野" loading="lazy" referrerpolicy="no-referrer" src="https://dimg04.c-ctrip.com/images/0106w120009hefhfdA573_W_640_0_Q90.jpg?proc=autoorient"/></div><div class="gallery-nav"><button aria-label="上一张" class="gallery-btn prev" type="button">‹</button><button aria-label="下一张" class="gallery-btn next" type="button">›</button></div></div><div class="gallery-info"><div class="gallery-copy"><b>峰驰 ATV：溪流冲刺</b><span>竹林、碎石和溪流是这条 6 km 越野线最有参与感的部分。</span><div class="gallery-dots"><button aria-label="查看第1张" class="gallery-dot active" data-index="0" type="button"></button><button aria-label="查看第2张" class="gallery-dot" data-index="1" type="button"></button></div></div><a class="gallery-source" href="https://bbs.xiaopeng.com/article/2931095" rel="noopener" target="_blank">图片来源</a></div></div></div></li>
@@ -310,12 +498,11 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 <li class="with-media"><div class="time">16:15</div><div class="event-copy"><h4>T3 有机茶园｜喝茶 + 看峰林</h4><p>公开营业参考 09:00–18:00。适合做 Day 1 收尾；想专门等日落，务必提前确认当天最晚离园时间。</p></div><div aria-hidden="true" class="media-connector"></div><div class="event-media"><div class="timeline-gallery" data-gallery="tea-a"><div class="gallery-stage"><div class="gallery-slide active" data-desc="茶田在前、峰林在后，是这里最有辨识度的景观组合。" data-source="https://pc.nfnews.com/8840/2118061.html" data-title="T3 茶园经典视角"><img alt="T3有机茶园茶田与英西峰林" loading="lazy" referrerpolicy="no-referrer" src="https://pic.nfapp.southcn.com/nfplus/ossfs/pic/xy/201904/15/563351c2-ecef-45d6-b661-7513a5180feb.jpg"/></div><div class="gallery-slide" data-desc="高处视野能把茶海、村落和峰林一起收入画面。" data-source="https://you.ctrip.com/sight/yingde962/99868215.html" data-title="茶园山顶看峰林"><img alt="T3有机茶园峰林与茶田" loading="lazy" referrerpolicy="no-referrer" src="https://dimg04.c-ctrip.com/images/0106b12000a5et41y3498_W_750_0.jpg?proc=autoorient"/></div><div class="gallery-slide" data-desc="从高处看更容易理解茶园和周围峰林的空间关系。" data-source="https://www.ly.com/scenery/BookSceneryTicket_679860.html" data-title="T3 茶园整体规模"><img alt="T3有机茶园航拍" loading="lazy" referrerpolicy="no-referrer" src="https://pic5.40017.cn/i/ori/UNF3Yjdo8E.jpg"/></div><div class="gallery-nav"><button aria-label="上一张" class="gallery-btn prev" type="button">‹</button><button aria-label="下一张" class="gallery-btn next" type="button">›</button></div></div><div class="gallery-info"><div class="gallery-copy"><b>T3 茶园经典视角</b><span>茶田在前、峰林在后，是这里最有辨识度的景观组合。</span><div class="gallery-dots"><button aria-label="查看第1张" class="gallery-dot active" data-index="0" type="button"></button><button aria-label="查看第2张" class="gallery-dot" data-index="1" type="button"></button><button aria-label="查看第3张" class="gallery-dot" data-index="2" type="button"></button></div></div><a class="gallery-source" href="https://pc.nfnews.com/8840/2118061.html" rel="noopener" target="_blank">图片来源</a></div></div></div></li>
 <li><div class="time">18:00</div><div><h4>转清新区：入住、充电、吃清远鸡</h4><p>晚上住玄真附近，第二天起床基本不用赶长途。</p></div></li>
 </ol></div>
-
 </div>
 </div>
 <div class="day1-panel" data-plan-panel="B" hidden="">
 <div class="day-grid shell media-layout">
-<div class="day-copy"><div class="day-title"><div class="day-chip">D1</div><div><h3>B：第一天就把刺激拉满。</h3><p>深圳 → 英西峰林 → 飞拉达 → 峰林轻松兜风 → 清新区</p></div></div><ol class="timeline">
+<div class="day-copy"><div class="day-title"><div class="day-chip">D1</div><div><h3>第一天｜飞拉达 + 英西峰林</h3><p>深圳 → 英西峰林 → 飞拉达 → 峰林兜风 → 清新区</p></div></div><ol class="timeline">
 <li><div class="time">07:30</div><div><h4>深圳出发</h4><p>飞拉达受天气和现场场次影响更明显，建议比 A 方案更早一点出发。</p></div></li>
 <li><div class="time">11:30</div><div><h4>黄花镇 / 峰林一带午饭</h4><p>午饭不要太撑，穿运动服和抓地力好的运动鞋，提前确认现场装备是否全含。</p></div></li>
 <li><div class="time">13:00</div><div><h4>飞拉达报到 + 安全讲解</h4><p>公开活动资料显示，英西峰林当前有挑战线约 268m、勇士线约 520m。真正出发前要确认当天具体开放线路。</p><span class="inline-note">恐高的人不要被朋友起哄硬上</span></div></li>
@@ -323,12 +510,11 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 <li class="with-media"><div class="time">16:15</div><div class="event-copy"><h4>峰林轻松兜风 / 拍照</h4><p>这时不再安排长骑行或额外徒步，给第二天溪降保留体力。</p></div><div aria-hidden="true" class="media-connector"></div><div class="event-media"><div class="timeline-gallery" data-gallery="yingxi-b"><div class="gallery-stage"><div class="gallery-slide active" data-desc="喀斯特孤峰从田园和村落中拔起，是英西最有辨识度的画面。" data-source="https://ysln.ycwb.com/content/2021-11/21/content_40405191.html" data-title="英西峰林经典全景"><img alt="英西峰林喀斯特峰林与田园" loading="lazy" referrerpolicy="no-referrer" src="https://ysln.ycwb.com/pic/2021-11/21/913dc2e4-7fff-42ca-8e8f-123294337e46.jpg"/></div><div class="gallery-slide" data-desc="峰林不只是山，沿途还有河塘、村落和乡间道路，适合慢慢兜风。" data-source="https://ysln.ycwb.com/content/2021-11/21/content_40405191.html" data-title="峰林与水乡"><img alt="英西峰林山水景观" loading="lazy" referrerpolicy="no-referrer" src="https://ysln.ycwb.com/pic/2021-11/21/9d64ef37-28e5-4fd3-a965-e0574668e98e.jpg"/></div><div class="gallery-nav"><button aria-label="上一张" class="gallery-btn prev" type="button">‹</button><button aria-label="下一张" class="gallery-btn next" type="button">›</button></div></div><div class="gallery-info"><div class="gallery-copy"><b>英西峰林经典全景</b><span>喀斯特孤峰从田园和村落中拔起，是英西最有辨识度的画面。</span><div class="gallery-dots"><button aria-label="查看第1张" class="gallery-dot active" data-index="0" type="button"></button><button aria-label="查看第2张" class="gallery-dot" data-index="1" type="button"></button></div></div><a class="gallery-source" href="https://ysln.ycwb.com/content/2021-11/21/content_40405191.html" rel="noopener" target="_blank">图片来源</a></div></div></div></li>
 <li><div class="time">17:30</div><div><h4>去清新区入住</h4><p>早点吃饭、充电、休息。B 方案最怕第一晚继续熬夜，把第二天直接玩废。</p></div></li>
 </ol></div>
-
 </div>
 </div>
 <div class="day1-panel" data-plan-panel="C" hidden="">
 <div class="day-grid shell media-layout">
-<div class="day-copy"><div class="day-title"><div class="day-chip">D1</div><div><h3>C：把第一天做成一场朋友局。</h3><p>深圳 → 竹林奇境 / 黄花古洞 → 探洞 → 攀岩 / 皮划艇 → 山野民宿</p></div></div><ol class="timeline">
+<div class="day-copy"><div class="day-title"><div class="day-chip">D1</div><div><h3>第一天｜野外探洞 + 攀岩 / 皮划艇</h3><p>深圳 → 竹林奇境 / 黄花镇 → 探洞 → 攀岩 / 皮划艇 → 住宿</p></div></div><ol class="timeline">
 <li><div class="time">07:30</div><div><h4>深圳出发</h4><p>C 方案人数门槛最高，出发前必须先确认探洞和攀岩是否成团，不要到了现场再拼。</p></div></li>
 <li><div class="time">11:30</div><div><h4>黄花镇午饭 + 营地报到</h4><p>竹林奇境公开活动包括探洞、攀岩、皮划艇、桨板等，可以根据最终人数组合。</p></div></li>
 <li class="with-media"><div class="time">13:00</div><div class="event-copy"><h4>天然洞穴探洞｜约 1.5–2 小时</h4><p>公开活动场地包括黄花古洞、阳岩洞，提供头盔和头灯。体验重点是黑暗、泥地、窄洞和团队协作，不是看景区灯光。</p><span class="inline-note">探洞公开规则约 8 人成团</span></div><div aria-hidden="true" class="media-connector"></div><div class="event-media"><div class="timeline-gallery" data-gallery="cave-c"><div class="gallery-stage"><div class="gallery-slide active" data-desc="天然洞口、峰林和水面形成完全不同于商业溶洞的野外氛围。" data-source="https://sg.trip.com/travel-guide/attraction/yingde/yingxi-fenglin-corridor-79766/" data-title="英西峰林天然洞穴"><img alt="英西峰林洞穴与峰林" loading="lazy" referrerpolicy="no-referrer" src="https://ak-d.tripcdn.com/images/1mi1512000ljq9mjv7ED6.jpg?proc=source%2Ftrip"/></div><div class="gallery-slide" data-desc="真正的探洞会用到头盔、头灯，并面对黑暗、湿滑和窄洞环境。" data-source="https://www.ourchinastory.com/" data-title="探洞环境参考"><img alt="英西峰林天然洞穴景观" loading="lazy" referrerpolicy="no-referrer" src="https://www.ourchinastory.com/images/content/travel-leisure/2021/09/%E7%95%B6%E4%BB%A3%E4%B8%AD%E5%9C%8B-%E6%BD%AE%E9%81%8A%E7%94%9F%E6%B4%BB-%E6%97%85%E9%81%8A%E9%A2%A8%E7%89%A9-%E8%8B%B1%E8%A5%BF%E5%B3%B0%E6%9E%97%E8%B5%B0%E5%BB%8A%EF%BC%90%EF%BC%96_x1.jpg"/></div><div class="gallery-nav"><button aria-label="上一张" class="gallery-btn prev" type="button">‹</button><button aria-label="下一张" class="gallery-btn next" type="button">›</button></div></div><div class="gallery-info"><div class="gallery-copy"><b>英西峰林天然洞穴</b><span>天然洞口、峰林和水面形成完全不同于商业溶洞的野外氛围。</span><div class="gallery-dots"><button aria-label="查看第1张" class="gallery-dot active" data-index="0" type="button"></button><button aria-label="查看第2张" class="gallery-dot" data-index="1" type="button"></button></div></div><a class="gallery-source" href="https://sg.trip.com/travel-guide/attraction/yingde/yingxi-fenglin-corridor-79766/" rel="noopener" target="_blank">图片来源</a></div></div></div></li>
@@ -336,13 +522,79 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 <li><div class="time">18:00</div><div><h4>营地晚饭 + 朋友局</h4><p>烧烤、聊天、打牌比继续塞景点更适合 C 方案。</p></div></li>
 <li><div class="time">20:30</div><div><h4>住宿二选一</h4><p><b>更有氛围：</b>住竹林奇境山野民宿，Day 2 需要早起转玄真；<b>更稳：</b>晚饭后直接转清新区住。</p></div></li>
 </ol></div>
-
+</div>
+</div>
+<section class="section white day1-panel" data-plan-panel="D" hidden="">
+<div class="shell day-grid media-layout">
+<div class="day-copy">
+<div class="day-title">
+<div class="day-chip">D1</div>
+<div>
+<h3>第一天｜洞天仙境 + 英西峰林</h3>
+<p>深圳 → 洞天仙境 → 英西峰林沿途 → 清新区</p>
+</div>
+</div>
+<ol class="timeline">
+<li>
+<div class="time">07:30</div>
+<div><h4>深圳出发</h4><p>电车满电出发，中途服务区简单休息。</p></div>
+</li>
+<li>
+<div class="time">11:30</div>
+<div><h4>英西午饭</h4><p>黄花镇 / 九龙镇附近先吃饭，下午再进景区。</p></div>
+</li>
+<li class="with-media">
+<div class="time">13:00</div>
+<div class="event-copy">
+<h4>洞天仙境｜约 2–2.5 小时</h4>
+<p>天然穿洞、洞内水系、喀斯特峰林和观景平台集中在一起，属于轻松看景型项目。</p>
+</div>
+<div aria-hidden="true" class="media-connector"></div>
+<div class="event-media">
+<div class="timeline-gallery" data-gallery="cave-d">
+<div class="gallery-stage">
+<div class="gallery-slide active" data-desc="巨型天然穿洞和峰林水景，是这里最有辨识度的画面。" data-source="https://you.ctrip.com/sight/yingde962/78634.html" data-title="洞天仙境经典洞口">
+<img alt="英德洞天仙境天然洞口与水景" loading="lazy" referrerpolicy="no-referrer" src="https://dimg04.c-ctrip.com/images/0102g120008cx1y0xE4B9_W_750_0.jpg?proc=autoorient"/>
+</div>
+<div class="gallery-slide" data-desc="坐船 / 步行结合，看洞穴、溪水和天坑式开口的组合。" data-source="https://you.ctrip.com/sight/yingde962/78634.html" data-title="洞内水系与峰林">
+<img alt="洞天仙境洞内水景" loading="lazy" referrerpolicy="no-referrer" src="https://dimg04.c-ctrip.com/images/100q1f000001gp3tpCA24_W_750_0.jpg?proc=autoorient"/>
+</div>
+<div class="gallery-nav">
+<button aria-label="上一张" class="gallery-btn prev" type="button">‹</button>
+<button aria-label="下一张" class="gallery-btn next" type="button">›</button>
+</div>
+</div>
+<div class="gallery-info">
+<div class="gallery-copy">
+<b>洞天仙境经典洞口</b>
+<span>巨型天然穿洞和峰林水景，是这里最有辨识度的画面。</span>
+<div class="gallery-dots">
+<button aria-label="查看第1张" class="gallery-dot active" data-index="0" type="button"></button>
+<button aria-label="查看第2张" class="gallery-dot" data-index="1" type="button"></button>
+</div>
+</div>
+<a class="gallery-source" href="https://you.ctrip.com/sight/yingde962/78634.html" rel="noopener" target="_blank">图片来源</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="time">15:45</div>
+<div><h4>英西峰林沿途慢走</h4><p>不用再进重收费景区，走黄花镇一带乡道，看峰林、田野和小桥。</p></div>
+</li>
+<li>
+<div class="time">17:30</div>
+<div><h4>转清新区住宿 + 充电</h4><p>晚上住玄真附近，第二天能直接早进溪降。</p></div>
+</li>
+</ol>
 </div>
 </div>
 </section>
+
+</section>
 <section class="section white" id="day2">
 <div class="day-grid media-layout shell reverse day2"><div class="day-copy">
-<div class="day-title"><div class="day-chip">D2</div><div><h3>整趟旅行的主菜，全放在这一天。</h3><p>酒店 → 玄真溪降 → 悬崖漂 → 深圳</p></div></div>
+<div class="day-title"><div class="day-chip">D2</div><div><h3>第二天｜玄真溪降 + 悬崖漂</h3><p>三套方案共同的第二天：酒店 / 住宿点 → 玄真溪降 → 漂流 → 深圳</p></div></div>
 <ol class="timeline">
 <li><div class="time">08:30</div><div><h4>起床 + 早餐</h4><p>不要空腹，也不要大油大肉。退房前把干衣、湿衣袋、毛巾分开收好。</p></div></li>
 <li><div class="time">10:00</div><div><h4>到玄真换装、存包</h4><p>不同日期的场次会变化，原则是不把溪降拖到下午才开始。越早进入，后面的漂流衔接越从容。</p><span class="inline-note">玄真地址：清新区玄真路尾</span></div></li>
@@ -390,7 +642,7 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 <tr><td><b>高速 + 电费 + 停车</b></td><td>约 ¥450–550 / 车</td><td>一辆电车估算</td></tr>
 </tbody></table></div>
 <div>
-<div class="budget-cards"><div class="budget-card featured" data-plan-budget="A"><small>A · 均衡版</small><b>≈ ¥1,050–1,200</b><span>人均参考</span></div><div class="budget-card" data-plan-budget="B"><small>B · 全刺激版</small><b>≈ ¥950–1,100</b><span>人均参考</span></div><div class="budget-card" data-plan-budget="C"><small>C · 朋友团建版</small><b>≈ ¥1,000–1,250</b><span>人均浮动更大</span></div></div>
+<div class="budget-cards"><div class="budget-card featured" data-plan-budget="A"><small>A · 均衡版</small><b>≈ ¥1,050–1,200</b><span>人均参考</span></div><div class="budget-card" data-plan-budget="B" hidden=""><small>B · 全刺激版</small><b>≈ ¥950–1,100</b><span>人均参考</span></div><div class="budget-card" data-plan-budget="C" hidden=""><small>C · 朋友团建版</small><b>≈ ¥1,000–1,250</b><span>人均浮动更大</span></div></div>
 <p class="budget-note">以上按 4–6 人、1 辆电车、酒店约 300 元/间、Day 2 王炸双飞约 298–338 元起、正常吃饭和交通估算。C 方案受成团人数和民宿价格影响最大；6 人若需要两辆车，人均交通也会上升。</p>
 </div>
 </div>
@@ -426,7 +678,7 @@ h1{font-size:clamp(52px,6.5vw,86px);line-height:1.04;letter-spacing:-.055em;marg
 <script>
 const PLAN_DATA = {
   A: {
-    routeTitle: 'A 方案：先去英西，再转清新区。',
+    routeTitle: '先去英西，再转清新区。',
     routeDesc: 'Day 1 把活动集中在英德黄花镇一带，傍晚去 T3 茶园，晚上转到玄真附近；Day 2 几乎不用赶路。',
     mapTitle: '深圳 → 峰驰 ATV → T3 茶园 → 清新区 → 玄真 → 深圳',
     mapSub: '蓝色是 Day 1，橙色是 Day 2；①②③④ 是实际行驶顺序，箭头表示前进方向。',
@@ -437,7 +689,7 @@ const PLAN_DATA = {
     footer: ['深圳','→','峰驰 ATV','→','T3茶园','→','清新区','→','玄真','→','深圳']
   },
   B: {
-    routeTitle: 'B 方案：上悬崖，再去玄真下峡谷。',
+    routeTitle: '先玩飞拉达，再转清新区。',
     routeDesc: 'Day 1 的活动点换成英西峰林飞拉达，结束后只轻松看景并尽早转清新区；这套最大价值是刺激，但必须保体力。',
     mapTitle: '深圳 → 英西峰林飞拉达 → 峰林兜风 → 清新区 → 玄真 → 深圳',
     mapSub: '蓝色为 Day 1，橙色为 Day 2；①②③④ 按实际行驶顺序标在路线线上，箭头表示方向。',
@@ -448,7 +700,7 @@ const PLAN_DATA = {
     footer: ['深圳','→','飞拉达','→','英西峰林','→','清新区','→','玄真','→','深圳']
   },
   C: {
-    routeTitle: 'C 方案：Day 1 留在山野，Day 2 早起转玄真。',
+    routeTitle: '第一晚留在山野，第二天早起去玄真。',
     routeDesc: '探洞和营地朋友局都在英西一带。如果坚持住竹林奇境，Day 2 要比 A/B 更早出发；如果优先玄真早场，晚饭后改住清新区更稳。',
     mapTitle: '深圳 → 竹林奇境 / 探洞 → 山野民宿 → 玄真 → 深圳',
     mapSub: 'C 方案用蓝色完成 Day 1 山野段，Day 2 转为橙色；①②③④ 和箭头共同标明先后顺序。',
@@ -458,16 +710,71 @@ const PLAN_DATA = {
     stayTipTitle: 'C 方案先做一个取舍：', stayTipText: '要山野朋友局，就接受 Day 2 早起；要溪降早场从容，就晚饭后转清新区。',
     footer: ['深圳','→','竹林奇境','→','探洞 / 攀岩','→','山野民宿','→','玄真','→','深圳']
   }
-};
+,
+  D: {
+    routeTitle: '先看溶洞与峰林，再转清新区。',
+    routeSub: '适合第一次来清远、想轻松看景的朋友。',
+    routeTag: 'D · 溶洞轻松版',
+    legs: ['深圳 → 洞天仙境','洞天仙境 → 英西峰林','英西峰林 → 清新区','清新区 → 玄真','玄真 → 深圳']
+  }};
+
+
+const MOBILE_ROUTE_DATA = {
+  A: [
+    ['深圳','出发','d1'],
+    ['英西峰林','ATV 越野 + 峰林 + T3 茶园','d1'],
+    ['清新区','住宿 + 充电','d1'],
+    ['玄真','溪降王炸线 + 悬崖漂','d2'],
+    ['深圳','返程','d2']
+  ],
+  B: [
+    ['深圳','出发','d1'],
+    ['英西峰林','飞拉达 + 峰林兜风','d1'],
+    ['清新区','住宿 + 恢复体力','d1'],
+    ['玄真','溪降王炸线 + 悬崖漂','d2'],
+    ['深圳','返程','d2']
+  ],
+  C: [
+    ['深圳','出发','d1'],
+    ['竹林奇境 / 黄花镇','探洞 + 攀岩 / 皮划艇','d1'],
+    ['住宿点','山野民宿或转清新区','d1'],
+    ['玄真','溪降王炸线 + 悬崖漂','d2'],
+    ['深圳','返程','d2']
+  ]
+,
+  D: [
+    ['深圳','出发','d1'],
+    ['洞天仙境','溶洞 + 水系 + 峰林','d1'],
+    ['英西峰林','沿途慢走 / 拍照','d1'],
+    ['清新区','住宿 + 充电','d1'],
+    ['玄真','溪降王炸线 + 悬崖漂','d2'],
+    ['深圳','返程','d2']
+  ]};
+
+function renderMobileRoute(plan){
+  const host=document.getElementById('mobile-route-summary');
+  const nodes=MOBILE_ROUTE_DATA[plan];
+  if(!host||!nodes) return;
+  host.innerHTML='<div class="mobile-route-track">'+nodes.map((n,i)=>{
+    const dayClass=n[2]==='d2'?'day2':'day1';
+    const dayLabel=n[2]==='d2'?'DAY 2':'DAY 1';
+    const leg=i<nodes.length-1?`<span class="mobile-route-leg">${i+1}</span>`:'';
+    return `<div class="mobile-route-node ${dayClass}">
+      <div class="mobile-route-dot"></div>
+      <div class="mobile-route-copy"><b>${n[0]}</b><span>${n[1]}</span><em class="mobile-route-day">${dayLabel}</em></div>
+      ${leg}
+    </div>`;
+  }).join('')+'</div>';
+}
 
 function setPlan(plan, shouldScroll=false){
   const data = PLAN_DATA[plan]; if(!data) return;
   document.documentElement.dataset.plan = plan;
   document.querySelectorAll('.plan-tab').forEach(el=>{const on=el.dataset.plan===plan;el.classList.toggle('active',on);el.setAttribute('aria-selected',on?'true':'false')});
-  document.querySelectorAll('.plan-card').forEach(el=>{const on=el.dataset.plan===plan;el.classList.toggle('active',on);el.setAttribute('aria-pressed',on?'true':'false')});
-  document.querySelectorAll('[data-plan-map]').forEach(el=>el.classList.toggle('active',el.dataset.planMap===plan));
+  document.querySelectorAll('.plan-card').forEach(el=>{const on=el.dataset.plan===plan;el.hidden=!on;el.classList.toggle('active',on)});
+    document.querySelectorAll('[data-plan-map]').forEach(el=>el.classList.toggle('active',el.dataset.planMap===plan));
   document.querySelectorAll('[data-plan-panel]').forEach(el=>el.hidden=el.dataset.planPanel!==plan);
-  document.querySelectorAll('[data-plan-budget]').forEach(el=>el.classList.toggle('featured',el.dataset.planBudget===plan));
+  document.querySelectorAll('[data-plan-budget]').forEach(el=>{const on=el.dataset.planBudget===plan;el.hidden=!on;el.classList.toggle('featured',on)});
   document.querySelector('[data-stay-panel="AB"]').hidden = plan==='C';
   document.querySelector('[data-stay-panel="C"]').hidden = plan!=='C';
   document.getElementById('route-title').textContent=data.routeTitle;
@@ -476,6 +783,7 @@ function setPlan(plan, shouldScroll=false){
   document.getElementById('map-route-sub').textContent=data.mapSub;
   data.legs.forEach((v,i)=>document.getElementById('route-leg-'+(i+1)).textContent=v);
   document.getElementById('mobile-route-summary').innerHTML=data.legs.map((v,i)=>`<span>${i+1} · ${v}</span>`).join('');
+  renderMobileRoute(plan);
   document.getElementById('stay-title').textContent=data.stayTitle;
   document.getElementById('stay-desc').textContent=data.stayDesc;
   document.getElementById('stay-tip-title').textContent=data.stayTipTitle;
@@ -486,10 +794,6 @@ function setPlan(plan, shouldScroll=false){
 }
 
 document.querySelectorAll('.plan-tab').forEach(el=>el.addEventListener('click',()=>setPlan(el.dataset.plan,false)));
-document.querySelectorAll('.plan-card').forEach(el=>{
-  el.addEventListener('click',()=>setPlan(el.dataset.plan,false));
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setPlan(el.dataset.plan,false)}});
-});
 
 function setupSmartImages(){
   document.querySelectorAll('img.smart-img').forEach(img=>{
@@ -513,6 +817,78 @@ document.querySelectorAll('[data-gallery]').forEach(g=>{
  function show(i){cur=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===cur));dots.forEach((d,n)=>d.classList.toggle('active',n===cur));const s=slides[cur];title.textContent=s.dataset.title||'';desc.textContent=s.dataset.desc||'';source.href=s.dataset.source||'#';}
  g.querySelector('.prev').addEventListener('click',()=>show(cur-1));g.querySelector('.next').addEventListener('click',()=>show(cur+1));dots.forEach((d,i)=>d.addEventListener('click',()=>show(i)));
 });
+</script>
+
+<div aria-hidden="true" class="image-lightbox" hidden="" id="image-lightbox">
+<div class="lightbox-backdrop" data-lightbox-close=""></div>
+<div aria-label="图片预览" aria-modal="true" class="lightbox-dialog" role="dialog">
+<button aria-label="关闭" class="lightbox-close" data-lightbox-close="" type="button">×</button>
+<button aria-label="上一张" class="lightbox-nav lightbox-prev" type="button">‹</button>
+<img alt="" class="lightbox-image" src=""/>
+<button aria-label="下一张" class="lightbox-nav lightbox-next" type="button">›</button>
+<div class="lightbox-caption"></div>
+</div>
+</div>
+
+<script>
+(() => {
+  const box = document.getElementById('image-lightbox');
+  if (!box) return;
+  const img = box.querySelector('.lightbox-image');
+  const caption = box.querySelector('.lightbox-caption');
+  const prev = box.querySelector('.lightbox-prev');
+  const next = box.querySelector('.lightbox-next');
+  let items = [];
+  let current = 0;
+
+  function collectFromGallery(clickedImg){
+    const gallery = clickedImg.closest('[data-gallery]');
+    if(!gallery) return [clickedImg];
+    return [...gallery.querySelectorAll('.gallery-slide img')];
+  }
+
+  function show(index){
+    if(!items.length) return;
+    current = (index + items.length) % items.length;
+    const target = items[current];
+    img.src = target.currentSrc || target.src;
+    img.alt = target.alt || '';
+    const slide = target.closest('.gallery-slide');
+    const title = slide?.dataset.title || target.alt || '';
+    const desc = slide?.dataset.desc || '';
+    caption.textContent = [title, desc].filter(Boolean).join(' · ');
+    box.hidden = false;
+    box.setAttribute('aria-hidden','false');
+    document.body.classList.add('lightbox-open');
+  }
+
+  function close(){
+    box.hidden = true;
+    box.setAttribute('aria-hidden','true');
+    img.src = '';
+    document.body.classList.remove('lightbox-open');
+  }
+
+  document.addEventListener('click', e => {
+    const target = e.target.closest('.gallery-slide img');
+    if(target){
+      items = collectFromGallery(target);
+      current = Math.max(0, items.indexOf(target));
+      show(current);
+      return;
+    }
+    if(e.target.closest('[data-lightbox-close]')) close();
+  });
+
+  prev.addEventListener('click', () => show(current - 1));
+  next.addEventListener('click', () => show(current + 1));
+  document.addEventListener('keydown', e => {
+    if(box.hidden) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(current - 1);
+    if(e.key === 'ArrowRight') show(current + 1);
+  });
+})();
 </script>
 </body>
 </html>
