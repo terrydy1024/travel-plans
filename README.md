@@ -4,3 +4,4 @@
 
 - 清远 2天1夜（深圳电车自驾 · 英西峰林 × 溪降 × 漂流）：[在线阅读](https://terrydy1024.github.io/travel-plans/)
 - 广西国庆旅行提案（靖西 · 鹿寨 · 融水三条线，深圳出发 · 4–5 人）：[在线阅读](https://terrydy1024.github.io/travel-plans/guangxi/)
+- 国庆靖西 4–5 人详细攻略（首选 B：深圳东卧铺直达靖西站）：[在线阅读](https://terrydy1024.github.io/travel-plans/jingxi/)
