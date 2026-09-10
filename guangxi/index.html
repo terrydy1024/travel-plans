@@ -1,266 +1,238 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>广西国庆 3 套路线候选｜深圳出发 4–5 人</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#173a31" />
+<title>广西国庆旅行提案｜靖西 · 鹿寨 · 融水</title>
 <style>
 :root{
-  --bg:#f3f4ef;--paper:#fffdf8;--ink:#17201c;--muted:#65706a;--line:#d9ded8;
-  --green:#1d6b4f;--green-2:#dff0e5;--amber:#b56b24;--amber-2:#f6ead8;--red:#a44a3f;
-  --shadow:0 20px 60px rgba(23,32,28,.10);--radius:28px;--radius-sm:18px;
+  --paper:#f5f1e9;--paper2:#eee7db;--ink:#15231d;--muted:#68736d;--forest:#173a31;--jade:#3f7e68;
+  --gold:#c69355;--line:rgba(21,35,29,.14);--white:#fffdf8;--danger:#a85d52;--shadow:0 20px 60px rgba(20,42,34,.14);
+  --r-lg:28px;--r-md:20px;--r-sm:14px;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;line-height:1.65}
-a{color:inherit}button{font:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
-.hero{padding:26px 0 22px}.hero-shell{background:var(--ink);color:#fff;border-radius:34px;overflow:hidden;box-shadow:var(--shadow);position:relative;min-height:590px}
-.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;min-height:590px}.hero-copy{padding:66px 64px 58px;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2}
-.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#b9c8bf}.hero h1{font-size:clamp(44px,6vw,78px);line-height:1.04;margin:14px 0 20px;letter-spacing:-.04em}.hero-lead{font-size:18px;color:#d5ddd8;max-width:640px;margin:0 0 30px}.hero-facts{display:flex;gap:12px;flex-wrap:wrap}.fact{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 13px;font-size:13px;color:#eef3ef;background:rgba(255,255,255,.06)}
-.hero-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.08fr .92fr;gap:2px;background:#2a352f}.photo{position:relative;overflow:hidden;background:#30423a}.photo:first-child{grid-column:1/-1}.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.94) contrast(1.02)}.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.20))}.photo-label{position:absolute;left:18px;bottom:14px;z-index:2;color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em}
-.section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}.eyebrow{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.14em;text-transform:uppercase}.section h2{font-size:clamp(32px,4vw,48px);line-height:1.1;margin:6px 0 0;letter-spacing:-.03em}.section-note{max-width:520px;color:var(--muted);font-size:15px;margin:0}
-.decision-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.plan-card{appearance:none;border:1px solid var(--line);background:var(--paper);border-radius:22px;padding:20px;text-align:left;cursor:pointer;transition:.2s;min-height:170px;color:var(--ink)}.plan-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(23,32,28,.08)}.plan-card.active{border-color:var(--green);box-shadow:0 0 0 2px rgba(29,107,79,.10)}.plan-card .rank{font-size:12px;color:var(--muted);font-weight:700}.plan-card h3{font-size:22px;margin:5px 0 8px}.plan-card p{margin:0;color:var(--muted);font-size:14px}.mini-score{display:flex;gap:6px;flex-wrap:wrap;margin-top:15px}.pill{font-size:12px;padding:5px 9px;border-radius:999px;background:#edf0ec;color:#405048}.pill.good{background:var(--green-2);color:var(--green)}.pill.warn{background:var(--amber-2);color:#80501f}
-.tabs-wrap{position:sticky;top:10px;z-index:30;margin-top:26px}.plan-tabs{display:flex;gap:8px;background:rgba(255,253,248,.94);backdrop-filter:blur(15px);border:1px solid var(--line);padding:7px;border-radius:16px;width:max-content;max-width:100%;box-shadow:0 8px 28px rgba(23,32,28,.07)}.plan-tab{border:0;background:transparent;border-radius:11px;padding:10px 16px;font-weight:800;color:var(--muted);cursor:pointer}.plan-tab.active{background:var(--ink);color:#fff}
-.plan-panel{display:none;animation:fade .22s ease}.plan-panel.active{display:block}@keyframes fade{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
-.plan-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;padding:54px 0 22px}.plan-title h3{font-size:clamp(38px,5vw,62px);line-height:1.06;margin:6px 0 16px;letter-spacing:-.04em}.plan-title .lead{font-size:18px;color:#495650;margin:0 0 22px}.verdict{border-left:4px solid var(--green);padding:12px 0 12px 16px;font-weight:700;background:linear-gradient(90deg,rgba(29,107,79,.07),transparent);border-radius:0 12px 12px 0}.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.score-box{padding:14px;border-top:1px solid var(--line)}.score-box b{font-size:20px;display:block}.score-box span{font-size:12px;color:var(--muted)}
-.timeline-gallery{border-radius:var(--radius);overflow:hidden;min-height:420px;background:#dfe5df;position:relative;box-shadow:var(--shadow)}.gallery-slide{height:100%;min-height:420px;position:relative;cursor:zoom-in}.gallery-slide img{width:100%;height:100%;min-height:420px;object-fit:cover;display:block}.gallery-slide.image-failed,.image-failed{background:linear-gradient(135deg,#dce8df,#c6d8cc)}.image-failed::before{content:"实景图片加载失败\A可查看页面底部来源";white-space:pre;position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#476052;font-weight:700}.gallery-cap{position:absolute;left:18px;right:18px;bottom:16px;padding:10px 12px;border-radius:12px;background:rgba(18,28,23,.78);color:white;font-size:13px;backdrop-filter:blur(6px)}
-.analysis-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:42px;padding:36px 0}.side-note{align-self:start;position:sticky;top:88px}.side-note h4{font-size:23px;margin:0 0 12px}.side-note p{color:var(--muted);margin:0 0 18px}.signal{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:12px 0;font-size:14px}.signal strong{font-size:14px}.risk-low{color:var(--green)}.risk-mid{color:var(--amber)}.risk-high{color:var(--red)}
-.timeline{border-left:1px solid #cbd3cc;padding-left:28px}.step{position:relative;padding:0 0 30px}.step:last-child{padding-bottom:0}.step::before{content:"";position:absolute;width:11px;height:11px;border:3px solid var(--paper);background:var(--green);border-radius:50%;left:-34px;top:6px;box-shadow:0 0 0 1px var(--green)}.step .day{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.1em}.step h4{font-size:22px;margin:3px 0 7px}.step p{margin:0;color:var(--muted)}
-.callout{margin:30px 0;background:#e7eee9;border-radius:22px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start}.callout .icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--paper);font-weight:900;color:var(--green);flex:none}.callout b{display:block;margin-bottom:4px}.callout p{margin:0;color:#53615a}
-.route-row{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin:26px 0}.route-row p{margin:0;color:var(--muted)}.btn{border:0;border-radius:999px;background:var(--ink);color:white;padding:12px 18px;font-weight:800;cursor:pointer;min-height:44px}.btn.secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.stay{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;margin-top:30px}.stay h4{font-size:20px;margin:0 0 7px}.stay p{margin:0;color:var(--muted)}
-.cost-wrap{margin-top:48px}.cost-head{display:flex;justify-content:space-between;gap:18px;align-items:end}.cost-head h3{font-size:30px;margin:0}.cost-head p{max-width:500px;margin:0;color:var(--muted);font-size:13px}.cost-table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--paper);border-radius:20px;overflow:hidden;border:1px solid var(--line)}.cost-table th,.cost-table td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);font-size:14px}.cost-table th{background:#eef1ec;font-size:12px;color:#4b5851}.cost-table tr:last-child td{border-bottom:0}.cost-table tr.active{background:#edf6f0}.cost-table strong{font-size:17px}
-.sources{margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}.sources h4{margin:0 0 12px}.sources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.source-link{display:block;padding:13px 14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:rgba(255,255,255,.55);font-size:13px}.source-link:hover{border-color:var(--green)}.source-link span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
-.footer{padding:26px 0 60px;color:var(--muted);font-size:13px}.footer strong{color:var(--ink)}
-.modal{position:fixed;inset:0;background:rgba(10,16,13,.68);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.modal.open{display:flex}.modal-card{width:min(980px,100%);max-height:90vh;overflow:auto;background:var(--paper);border-radius:28px;padding:26px;box-shadow:0 30px 90px rgba(0,0,0,.3)}.modal-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.modal-top h3{margin:0;font-size:28px}.modal-top p{margin:5px 0 0;color:var(--muted)}.close{border:0;background:#e9ece8;width:42px;height:42px;border-radius:50%;font-size:20px;cursor:pointer}.route-map-scroll{overflow-x:auto;padding:20px 0}.route-map-canvas{min-width:760px;height:290px;position:relative;background:#edf2ed;border-radius:22px;overflow:hidden;border:1px solid #d5ddd6}.route-map-seg{position:absolute;height:4px;background:var(--green);transform-origin:left center;border-radius:5px}.route-node{position:absolute;transform:translate(-50%,-50%);min-width:118px;text-align:center}.route-node .dot{width:18px;height:18px;border-radius:50%;background:var(--ink);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--ink);margin:0 auto 8px}.route-node b{font-size:13px;background:rgba(255,253,248,.9);padding:5px 8px;border-radius:8px;display:inline-block}.route-node span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.route-note{font-size:12px;color:var(--muted);margin-top:12px}
-#image-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;z-index:120;place-items:center;padding:28px}#image-lightbox.open{display:grid}#image-lightbox img{max-width:min(1200px,96vw);max-height:88vh;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.4)}#image-lightbox button{position:absolute;right:22px;top:18px;border:0;background:white;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer}
-@media(max-width:820px){.wrap{width:min(100% - 24px,1180px)}.hero{padding-top:12px}.hero-grid{grid-template-columns:1fr}.hero-copy{padding:38px 26px 34px;min-height:480px}.hero-photos{height:300px}.hero-shell{min-height:auto}.section{padding:48px 0}.section-head{display:block}.section-note{margin-top:12px}.decision-strip{grid-template-columns:1fr}.plan-tabs{width:100%;overflow:auto;white-space:nowrap}.plan-tab{flex:0 0 auto}.plan-hero,.analysis-grid{grid-template-columns:1fr}.plan-hero{gap:24px;padding-top:38px}.side-note{position:static}.score-grid{grid-template-columns:repeat(3,1fr)}.timeline-gallery,.gallery-slide,.gallery-slide img{min-height:300px}.route-row{align-items:flex-start;flex-direction:column}.cost-table,.cost-table tbody,.cost-table tr,.cost-table td{display:block}.cost-table thead{display:none}.cost-table tr{padding:14px;border-bottom:1px solid var(--line)}.cost-table td{border:0;padding:4px 2px}.cost-table td::before{content:attr(data-label);display:inline-block;width:96px;color:var(--muted);font-size:12px}.sources-grid{grid-template-columns:1fr}.hero h1{font-size:48px}.hero-facts{gap:7px}.fact{font-size:12px}.score-box b{font-size:17px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;line-height:1.72;-webkit-font-smoothing:antialiased}
+button,a{font:inherit}a{color:inherit}.wrap{width:calc(100% - 28px);margin:auto;max-width:1180px}.cn-serif{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--jade)}
+.section-title{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:34px;line-height:1.14;letter-spacing:-.025em;margin:8px 0 0;font-weight:700}
+.section-desc{font-size:15px;color:var(--muted);margin:14px 0 0}
+
+/* ===== Mobile-first cover ===== */
+.cover{position:relative;min-height:88svh;background:#173a31;color:#fff;overflow:hidden}
+.cover-bg{position:absolute;inset:0;background:#173a31}.cover-bg img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03)}
+.cover-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,18,13,.16) 0%,rgba(4,18,13,.25) 36%,rgba(4,18,13,.82) 100%)}
+.cover-inner{position:relative;z-index:2;min-height:88svh;padding:22px 0 calc(32px + env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:space-between}
+.cover-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.82)}
+.cover-badge{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 10px;background:rgba(13,39,30,.24);backdrop-filter:blur(10px)}
+.cover-copy{padding-top:12vh}
+.cover-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;color:#dbe8e2}
+.cover h1{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:clamp(46px,13.5vw,66px);line-height:1.06;letter-spacing:-.045em;margin:16px 0 18px;font-weight:700;text-wrap:balance}
+.cover-lead{max-width:640px;font-size:16px;line-height:1.72;color:rgba(255,255,255,.86);margin:0}
+.cover-facts{display:flex;gap:8px;overflow-x:auto;padding:22px 0 4px;scrollbar-width:none}.cover-facts::-webkit-scrollbar{display:none}.fact{flex:0 0 auto;padding:8px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.24);background:rgba(16,42,33,.30);font-size:12px;backdrop-filter:blur(8px)}
+.cover-note{font-size:13px;line-height:1.65;color:rgba(255,255,255,.72);padding-top:18px;border-top:1px solid rgba(255,255,255,.18)}
+
+/* ===== Intro ===== */
+.intro{padding:70px 0 34px}.intro-quote{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:25px;line-height:1.55;margin:0;color:#26382f}.intro-quote strong{font-weight:800;color:var(--forest)}
+
+/* ===== Plan carousel ===== */
+.plan-showcase{padding:12px 0 56px;overflow:hidden}.plan-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:14px;padding:6px 14px 18px;margin:0 -14px;scrollbar-width:none}.plan-track::-webkit-scrollbar{display:none}
+.plan-card{position:relative;flex:0 0 84vw;max-width:390px;height:520px;border:0;padding:0;border-radius:28px;overflow:hidden;background:var(--forest);color:#fff;text-align:left;scroll-snap-align:center;box-shadow:0 16px 40px rgba(20,42,34,.14);cursor:pointer}
+.plan-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.plan-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,20,15,.02) 22%,rgba(5,20,15,.16) 54%,rgba(5,20,15,.90) 100%)}
+.plan-card.active{outline:3px solid var(--jade);outline-offset:4px}.plan-content{position:absolute;z-index:2;left:22px;right:22px;bottom:22px}.plan-rank{font-size:11px;font-weight:800;letter-spacing:.12em;color:rgba(255,255,255,.72)}.plan-card h3{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:36px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 10px}.plan-card p{font-size:14px;margin:0 0 16px;color:rgba(255,255,255,.82)}
+.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:11px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px)}.tag.best{background:#f1dfbd;color:#4c3820;border:0;font-weight:800}
+
+/* ===== Fast comparison ===== */
+.quick{padding:8px 0 72px}.quick-list{margin-top:24px;border-top:1px solid var(--line)}.quick-row{display:grid;grid-template-columns:84px 1fr auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}.quick-row b{font-size:14px}.quick-row p{margin:0;font-size:13px;color:var(--muted)}.quick-score{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:700}.low{color:#2f765f}.mid{color:#9a6b2e}.high{color:var(--danger)}
+
+/* ===== Sticky tabs ===== */
+.detail{padding-bottom:90px}.tabs-wrap{position:sticky;top:0;z-index:40;margin:0 -14px 26px;padding:8px 14px;background:linear-gradient(180deg,rgba(245,241,233,.98),rgba(245,241,233,.90));backdrop-filter:blur(16px);border-bottom:1px solid rgba(21,35,29,.08)}.plan-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}.plan-tabs::-webkit-scrollbar{display:none}.plan-tab{flex:0 0 auto;border:0;background:#e8e1d6;color:#67716c;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:800;white-space:nowrap;cursor:pointer}.plan-tab.active{background:var(--forest);color:#fff}
+.plan-panel{display:none}.plan-panel.active{display:block}
+
+/* ===== Plan hero ===== */
+.plan-hero{background:var(--white);border-radius:26px;overflow:hidden;box-shadow:0 18px 50px rgba(20,42,34,.10)}.plan-hero-media{position:relative;height:56svh;min-height:430px;background:#25483c;cursor:zoom-in}.plan-hero-media img{width:100%;height:100%;object-fit:cover;display:block}.plan-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,20,15,.02) 45%,rgba(5,20,15,.46) 100%)}.hero-caption{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em}
+.plan-hero-copy{padding:28px 22px 26px}.plan-hero-copy h3{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:38px;line-height:1.08;margin:8px 0 14px;letter-spacing:-.03em}.plan-hero-copy .lead{font-size:15px;color:#53605a;margin:0}.verdict{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:18px;line-height:1.55;margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-weight:700}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.stat{padding-top:12px;border-top:1px solid var(--line)}.stat b{font-size:23px;display:block;line-height:1.2}.stat span{font-size:11px;color:var(--muted)}
+
+/* ===== Scenic experiences ===== */
+.experiences{padding:66px 0 18px}.experience-list{margin-top:28px;display:grid;gap:46px}.experience{padding-bottom:38px;border-bottom:1px solid var(--line)}.experience:last-child{border-bottom:0}.experience-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px}.experience-no{font-family:Georgia,serif;font-size:13px;color:var(--jade);font-weight:700}.experience h4{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:27px;line-height:1.25;margin:2px 0 8px}.experience p{font-size:14px;color:var(--muted);margin:0}.experience-note{flex:0 0 auto;font-size:11px;font-weight:800;padding:7px 9px;border-radius:999px;background:#e7eee9;color:#31624f}
+.photo-strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:18px -14px 0;padding:0 14px 10px;scrollbar-width:none}.photo-strip::-webkit-scrollbar{display:none}.photo{position:relative;flex:0 0 86vw;max-width:520px;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#dfe8e3;scroll-snap-align:center;cursor:zoom-in}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-label{position:absolute;left:12px;bottom:10px;padding:6px 9px;background:rgba(8,26,19,.56);backdrop-filter:blur(8px);color:#fff;border-radius:999px;font-size:11px}
+
+/* ===== Route ===== */
+.route{padding:58px 0 18px}.route-note{font-size:12px;color:#806846;margin-top:10px}.route-flow{margin-top:28px;position:relative;padding-left:10px}.route-flow:before{content:"";position:absolute;left:20px;top:20px;bottom:22px;width:1px;background:#b3c4bb}.stop{position:relative;padding:0 0 26px 58px}.stop:last-child{padding-bottom:0}.stop-dot{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--jade);background:var(--paper);color:var(--jade);font-family:Georgia,serif;font-weight:800}.stop h5{font-size:16px;margin:0 0 4px}.stop p{font-size:13px;color:var(--muted);margin:0 0 7px}.stop a{font-size:12px;font-weight:800;color:var(--jade);text-decoration:none;border-bottom:1px solid rgba(63,126,104,.35)}
+
+/* ===== Itinerary ===== */
+.itinerary{padding:58px 0 24px}.days{margin-top:24px}.day-card{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:22px 0;border-top:1px solid var(--line)}.day-card:last-child{border-bottom:1px solid var(--line)}.day-no{font-family:Georgia,serif;font-size:12px;letter-spacing:.08em;color:var(--jade);font-weight:800}.day-card h5{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:21px;line-height:1.35;margin:0 0 7px}.day-card p{font-size:14px;color:var(--muted);margin:0}
+.community{margin-top:28px;padding:24px 22px;border-radius:20px;background:#e9eee9}.community b{font-size:12px;letter-spacing:.08em;color:var(--jade)}.community p{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:18px;line-height:1.6;margin:8px 0 0;color:#304239}
+
+/* ===== Food ===== */
+.food{padding:66px 0 24px}.food-strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:24px -14px 0;padding:0 14px 12px;scrollbar-width:none}.food-strip::-webkit-scrollbar{display:none}.food-card{flex:0 0 78vw;max-width:340px;background:var(--white);border-radius:22px;overflow:hidden;scroll-snap-align:start;box-shadow:0 12px 32px rgba(20,42,34,.08)}.food-media{height:230px;background:#ddd;cursor:zoom-in}.food-media img{width:100%;height:100%;object-fit:cover;display:block}.food-copy{padding:18px}.food-copy h5{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:21px;margin:0 0 7px}.food-copy p{font-size:13px;color:var(--muted);margin:0}.food-tip{font-size:11px;color:#8e6b3d;font-weight:800;margin-top:11px}
+
+/* ===== Budget ===== */
+.budget{margin-top:72px;padding:70px 0;background:var(--forest);color:#fff}.budget .eyebrow{color:#b9d6ca}.budget .section-desc{color:rgba(255,255,255,.68)}.cost-cards{display:grid;gap:12px;margin-top:28px}.cost-card{padding:20px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:rgba(255,255,255,.05)}.cost-card.active{border-color:#e8c98d;background:rgba(232,201,141,.08)}.cost-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.cost-card h4{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:22px;margin:0}.cost-total{font-size:14px;font-weight:800;color:#ffdfa7}.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:17px}.cost-grid div{padding-top:10px;border-top:1px solid rgba(255,255,255,.13)}.cost-grid b{font-size:13px;display:block}.cost-grid span{font-size:11px;color:rgba(255,255,255,.62)}
+.sources{margin-top:34px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)}.sources summary{cursor:pointer;font-size:13px;font-weight:800}.sources ul{padding-left:18px;color:rgba(255,255,255,.62);font-size:12px;line-height:1.9}.sources a{color:inherit}
+.footer{padding:28px 14px 42px;text-align:center;font-size:11px;color:#78817d}
+
+/* ===== Fallback / Lightbox ===== */
+.media-frame,.photo,.food-media,.cover-bg{position:relative}.image-fallback{display:none;position:absolute;inset:0;place-items:center;background:linear-gradient(145deg,#214b3d,#6f927f);color:#fff;font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;font-size:18px}.failed .image-fallback{display:grid}.failed img{display:none!important}
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(7,15,11,.94);display:none;align-items:center;justify-content:center;padding:18px}.lightbox.open{display:flex}.lightbox img{max-width:100%;max-height:86vh;border-radius:16px;object-fit:contain}.lightbox button{position:absolute;right:14px;top:calc(14px + env(safe-area-inset-top));width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.10);color:#fff;font-size:28px}
+
+@media(min-width:760px){
+  .wrap{width:min(1180px,calc(100% - 64px))}.section-title{font-size:48px}.cover{min-height:94vh}.cover-inner{min-height:94vh;padding-top:32px}.cover-copy{padding-top:18vh}.cover h1{font-size:clamp(62px,8vw,108px);max-width:940px}.cover-lead{font-size:19px}.cover-facts{overflow:visible}
+  .intro{padding:100px 0 48px}.intro-quote{font-size:34px;max-width:900px}
+  .plan-track{display:grid;grid-template-columns:1.12fr .94fr .94fr;overflow:visible;margin:0;padding:0;gap:16px}.plan-card{max-width:none;width:auto;height:560px}.plan-card:nth-child(2),.plan-card:nth-child(3){height:500px;margin-top:60px}
+  .quick-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:0}.quick-row{display:block;padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.35)}.quick-row p{margin:8px 0}.quick-score{font-size:25px}
+  .tabs-wrap{top:12px;margin:0 0 40px;padding:0;background:none;border:0}.plan-tabs{justify-content:center;width:max-content;margin:auto;padding:6px;border-radius:999px;background:rgba(245,241,233,.92);backdrop-filter:blur(16px);box-shadow:0 12px 32px rgba(20,42,34,.09);border:1px solid var(--line)}
+  .plan-hero{display:grid;grid-template-columns:1.18fr .82fr;min-height:650px}.plan-hero-media{height:auto;min-height:650px}.plan-hero-copy{padding:54px 48px;display:flex;flex-direction:column;justify-content:center}.plan-hero-copy h3{font-size:64px}.plan-hero-copy .lead{font-size:17px}.verdict{font-size:22px}
+  .experience-list{gap:72px}.experience{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px;align-items:start;padding-bottom:60px}.experience-head{display:block;position:sticky;top:100px}.photo-strip{display:grid;grid-template-columns:repeat(2,1fr);overflow:visible;margin:0;padding:0}.photo{max-width:none;width:auto;flex:auto}.photo:nth-child(3){grid-column:1/-1;aspect-ratio:16/8}
+  .route-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:54px;align-items:start}.route-flow{margin-top:0}.itinerary-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:54px;align-items:start}.itinerary-grid>.section-head{position:sticky;top:100px}.community{margin-left:70px}
+  .food-strip{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:28px 0 0;padding:0}.food-card{max-width:none;width:auto;flex:auto}.food-media{height:260px}
+  .cost-cards{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<header class="hero">
-  <div class="wrap hero-shell">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <div>
-          <div class="kicker">2026 国庆 · 广西路线第一轮筛选</div>
-          <h1>不去人海里<br>排队。</h1>
-          <p class="hero-lead">深圳出发，4–5 个年轻人。先不定交通方式，只比较三个方向：最近口碑、国庆拥挤风险、真正能玩什么。</p>
-        </div>
-        <div class="hero-facts">
-          <span class="fact">3–4 天</span><span class="fact">人均目标 ¥1000</span><span class="fact">上限 ¥1200</span><span class="fact">玩为主 · 吃为辅</span>
-        </div>
-      </div>
-      <div class="hero-photos">
-        <div class="photo"><img src="https://dimg04.c-ctrip.com/images/1me1i12000my32bap41CA.jpg" alt="靖西古龙山大峡谷漂流实景" onerror="this.style.display='none';this.parentElement.classList.add('image-failed')"><span class="photo-label">靖西 · 古龙山</span></div>
-        <div class="photo"><img src="https://dimg04.c-ctrip.com/images/01032120008ebl18kF9D9_W_640_10000.jpg?proc=autoorient" alt="鹿寨香桥岩溶地貌实景" onerror="this.style.display='none';this.parentElement.classList.add('image-failed')"><span class="photo-label">鹿寨 · 香桥岩溶</span></div>
-        <div class="photo"><img src="https://china-qiao.com/ql32/lzql/pic_lz/lzql048_05.jpg" alt="融水双龙沟玻璃桥实景" onerror="this.style.display='none';this.parentElement.classList.add('image-failed')"><span class="photo-label">融水 · 双龙沟</span></div>
-      </div>
+<header class="cover">
+  <div class="cover-bg media-frame">
+    <img src="https://zhuanti.mct.gov.cn/Uploads/Picture/2023/04/26/u6448892e38e54.jpg" alt="靖西通灵大峡谷瀑布与喀斯特山林" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')" />
+    <div class="image-fallback">广西 · 山水与峡谷</div>
+  </div>
+  <div class="cover-inner wrap">
+    <div class="cover-top"><span>2026 国庆 · 广西旅行提案</span><span class="cover-badge">深圳出发 · 4–5 人</span></div>
+    <div class="cover-copy">
+      <div class="cover-kicker">避开人海，去真正好玩的地方</div>
+      <h1>去广西，<br>别挤进同一张照片里。</h1>
+      <p class="cover-lead">这次只保留三条线：靖西、柳州＋鹿寨、柳州＋融水。先看最近口碑、国庆拥挤风险和交通，再看值不值得花 3–4 天去玩。</p>
+      <div class="cover-facts"><span class="fact">3–4 天</span><span class="fact">人均约 ¥1000</span><span class="fact">最多 ¥1200</span><span class="fact">玩为主 · 吃为辅</span><span class="fact">移动端优先</span></div>
     </div>
+    <div class="cover-note">先选旅行气质：靖西最好玩；鹿寨最适合国庆避峰；融水项目最多、朋友局参与感最强。</div>
   </div>
 </header>
 
 <main>
-<section class="section" id="choose">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">FIRST CUT</div><h2>先选方向，不急着排小时级行程</h2></div>
-      <p class="section-note">目前只用三件事筛：最近真实口碑、国庆拥挤风险、深圳过去的交通复杂度。票价和国庆临时运行图还没锁，交通这里只做难度判断。</p>
-    </div>
+<section class="intro"><div class="wrap">
+  <div class="eyebrow">先选方向</div>
+  <p class="intro-quote">不做“广西景点大全”。这次只问一件事：<strong>你们 4–5 个人，哪条线玩完最不后悔？</strong></p>
+</div></section>
 
-    <div class="decision-strip">
-      <button class="plan-card active" data-plan="A" type="button">
-        <div class="rank">A · 好玩优先</div><h3>靖西深度</h3><p>古龙山自由漂 + 通灵大峡谷 + 鹅泉 / 渠洋湖。三套里最有“专程来玩”的理由。</p>
-        <div class="mini-score"><span class="pill good">口碑最稳</span><span class="pill warn">国庆中等人流</span><span class="pill">交通中等</span></div>
-      </button>
-      <button class="plan-card" data-plan="B" type="button">
-        <div class="rank">B · 避峰优先</div><h3>柳州 + 鹿寨</h3><p>香桥岩溶 + 中渡一带，强度低一点，但国庆反向游和交通都更友好。</p>
-        <div class="mini-score"><span class="pill good">近期口碑好</span><span class="pill good">相对不挤</span><span class="pill good">交通最好</span></div>
-      </button>
-      <button class="plan-card" data-plan="C" type="button">
-        <div class="rank">C · 项目优先</div><h3>柳州 + 融水</h3><p>双龙沟高空项目 + 老君洞。玩法多，但双龙沟近期对二消与排队的评价不够稳。</p>
-        <div class="mini-score"><span class="pill warn">口碑分化</span><span class="pill warn">国庆中偏高</span><span class="pill good">交通方便</span></div>
-      </button>
-    </div>
+<section class="plan-showcase" id="plans"><div class="wrap"><div class="plan-track">
+  <button class="plan-card active" data-plan="A" type="button">
+    <img src="https://bkimg.cdn.bcebos.com/pic/03087bf40ad162d9f2d3c0c96493beec8a136227679b?x-bce-process=image%2Fformat%2Cf_auto" alt="靖西古龙山大峡谷漂流" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">靖西 · 古龙山</div>
+    <div class="plan-content"><div class="plan-rank">A · 玩得最值</div><h3>靖西深度</h3><p>古龙山漂流 · 通灵大峡谷 · 渠洋湖</p><div class="tags"><span class="tag best">首选：好玩</span><span class="tag">口碑稳</span><span class="tag">人流中等</span></div></div>
+  </button>
+  <button class="plan-card" data-plan="B" type="button">
+    <img src="https://p1.itc.cn/q_70/images03/20210902/232a64f326ec4483b8ec93086ad6c380.jpeg" alt="鹿寨香桥岩溶天生桥" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">柳州 · 鹿寨</div>
+    <div class="plan-content"><div class="plan-rank">B · 国庆最稳</div><h3>柳州＋鹿寨</h3><p>香桥岩溶 · 响水石林 · 中渡古镇</p><div class="tags"><span class="tag best">首选：避峰</span><span class="tag">交通简单</span><span class="tag">能吃螺蛳粉</span></div></div>
+  </button>
+  <button class="plan-card" data-plan="C" type="button">
+    <img src="https://n.sinaimg.cn/sinakd20220412ac/88/w1080h608/20220412/b17c-85b11ce68fd7bcdb939f8e134ce07fc8.jpg" alt="融水双龙沟森林悬桥" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">柳州 · 融水</div>
+    <div class="plan-content"><div class="plan-rank">C · 项目最丰富</div><h3>柳州＋融水</h3><p>双龙沟 · 老君洞 · 贝江</p><div class="tags"><span class="tag best">首选：朋友局</span><span class="tag">森林高空</span><span class="tag">排队风险较高</span></div></div>
+  </button>
+</div></div></section>
 
-    <div class="tabs-wrap">
-      <div class="plan-tabs" role="tablist" aria-label="路线方案">
-        <button class="plan-tab active" data-plan="A" type="button">A 靖西</button>
-        <button class="plan-tab" data-plan="B" type="button">B 柳州+鹿寨</button>
-        <button class="plan-tab" data-plan="C" type="button">C 柳州+融水</button>
-      </div>
-    </div>
-
-    <section class="plan-panel active" data-plan-panel="A">
-      <div class="plan-hero">
-        <div class="plan-title">
-          <div class="eyebrow">A · JINGXI</div><h3>靖西深度<br>最好玩的一套</h3>
-          <p class="lead">不是“看景点”，而是漂流穿洞、进峡谷、到大瀑布下面，再用湖泊和田园把节奏放松下来。</p>
-          <div class="verdict">当前判断：如果你们最在意“这趟出去真的玩到了东西”，A 是第一名。</div>
-          <div class="score-grid"><div class="score-box"><b>4.5 / 5</b><span>古龙山 · 1384条</span></div><div class="score-box"><b>4.5 / 5</b><span>通灵 · 4795条</span></div><div class="score-box"><b class="risk-mid">中等</b><span>国庆人流风险</span></div></div>
-        </div>
-        <div class="timeline-gallery"><div class="gallery-slide"><img src="https://dimg04.c-ctrip.com/images/1me1i12000my32bap41CA.jpg" alt="靖西古龙山漂流河道与喀斯特峡谷" onerror="this.style.display='none';this.parentElement.classList.add('image-failed')"><div class="gallery-cap">古龙山：自由漂比经典漂更适合你们，核心不是大落差，而是“峡谷 + 溶洞 + 地下河”的连续体验。</div></div></div>
-      </div>
-      <div class="analysis-grid">
-        <aside class="side-note"><h4>为什么值得保留</h4><p>近期平台评价数量足够大，而且 2026 年的新评论仍然认可核心景观，不是靠多年以前的网红滤镜。</p><div class="signal"><span>玩法差异</span><strong>漂流 / 洞穴 / 巨瀑</strong></div><div class="signal"><span>体力</span><strong>中等</strong></div><div class="signal"><span>国庆策略</span><strong class="risk-mid">10/4 后 + 早场</strong></div><div class="signal"><span>交通</span><strong>深圳→百色/南宁→靖西</strong></div></aside>
-        <div>
-          <div class="timeline">
-            <div class="step"><div class="day">DAY 1</div><h4>到靖西，轻玩法启动</h4><p>到达后不塞大项目。鹅泉 / 旧州一类轻量内容，用来恢复长途交通体力。</p></div>
-            <div class="step"><div class="day">DAY 2 · CORE</div><h4>古龙山：选自由漂</h4><p>重点看“一漂穿洞”和峡谷水系。平台资料显示自由漂约 1.5–2 小时；经典漂更偏观景，刺激度没必要高估。</p></div>
-            <div class="step"><div class="day">DAY 3 · CORE</div><h4>通灵大峡谷：巨瀑 + 水帘洞</h4><p>主游览约 2–3 小时，石阶不少但不是长时间登顶型爬山。把它和渠洋湖放在一天，可以避免连续两天高强度。</p></div>
-            <div class="step"><div class="day">DAY 4</div><h4>留给返程，不再硬塞景点</h4><p>靖西交通比柳州线更长，第四天应该服务返程，而不是再补一个“为了打卡而打卡”的点。</p></div>
-          </div>
-          <div class="callout"><div class="icon">!</div><div><b>真正的风险不是“景点差”，而是路程长。</b><p>所以 A 的成败取决于大交通怎么压时间与预算。最终定这套后，再专门设计“高铁去 / 卧铺回”等组合。</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="plan-panel" data-plan-panel="B">
-      <div class="plan-hero">
-        <div class="plan-title">
-          <div class="eyebrow">B · LUZHAI</div><h3>柳州 + 鹿寨<br>最稳的一套</h3>
-          <p class="lead">用柳州解决交通、住宿和螺蛳粉，再把真正游玩日放到鹿寨喀斯特山水。没有靖西炸裂，但更符合国庆“别挤、别折腾”。</p>
-          <div class="verdict">当前判断：如果“不要人挤人”权重最高，B 应该排第一。</div>
-          <div class="score-grid"><div class="score-box"><b>4.4 / 5</b><span>香桥 · 555条</span></div><div class="score-box"><b class="risk-low">低～中</b><span>国庆人流风险</span></div><div class="score-box"><b>4h+</b><span>深圳直达柳州高铁参考</span></div></div>
-        </div>
-        <div class="timeline-gallery"><div class="gallery-slide"><img src="https://dimg04.c-ctrip.com/images/0102b120008pnu4925761_W_640_0_Q90.jpg?proc=autoorient" alt="鹿寨香桥岩溶景区洞口与碧水实景" onerror="this.style.display='none';this.parentElement.classList.add('image-failed')"><div class="gallery-cap">香桥岩溶：天生桥、地下河、溶洞是主菜；中渡古镇只是串联内容，不把古镇当成整趟旅行的核心。</div></div></div>
-      </div>
-      <div class="analysis-grid">
-        <aside class="side-note"><h4>为什么这轮上升</h4><p>2026 年 3 月近期评价直接提到“小众清净”；2025 国庆当天的真实评价主要吐槽停车，没有出现明显“排队到崩”的反馈。</p><div class="signal"><span>玩法差异</span><strong>天生桥 / 地下河 / 溶洞</strong></div><div class="signal"><span>体力</span><strong>低～中</strong></div><div class="signal"><span>国庆策略</span><strong class="risk-low">早出发 + 包车</strong></div><div class="signal"><span>交通</span><strong>深圳→柳州直达，再包车</strong></div></aside>
-        <div>
-          <div class="timeline">
-            <div class="step"><div class="day">DAY 1</div><h4>柳州落地 + 城市夜晚</h4><p>不专门做美食路线，只安排一顿螺蛳粉和柳江夜景，把时间留给第二天。</p></div>
-            <div class="step"><div class="day">DAY 2 · CORE</div><h4>鹿寨：香桥岩溶深度玩</h4><p>把时间给天生桥、峡谷、地下河和九龙洞，不追求“一天打卡五个点”。近期社区反馈也认为最值得看的还是香桥核心景观。</p></div>
-            <div class="step"><div class="day">DAY 3</div><h4>中渡一带慢玩 / 可选水上体验</h4><p>中渡适合当缓冲日。洛江泛舟、骑行等项目要等国庆前确认实际运营；响水瀑布近期安全与口碑信号不好，不作为必去。</p></div>
-            <div class="step"><div class="day">DAY 4</div><h4>柳州补半天 + 返程</h4><p>如果只玩 3 天，这一天可以直接删除；B 是三套里最容易压缩成 3 天的。</p></div>
-          </div>
-          <div class="callout"><div class="icon">✓</div><div><b>4–5 人是鹿寨路线的优势。</b><p>社区最常见的槽点是景区公共交通与临时打车不方便。你们人数正好适合从柳州包一辆车，把最大短板直接抹掉。</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="plan-panel" data-plan-panel="C">
-      <div class="plan-hero">
-        <div class="plan-title">
-          <div class="eyebrow">C · RONGSHUI</div><h3>柳州 + 融水<br>项目最多的一套</h3>
-          <p class="lead">森林、高空滑索、玻璃桥、溶洞、苗寨都能塞进去，朋友局很容易有参与感；问题是双龙沟二次消费和排队口碑比较分化。</p>
-          <div class="verdict">当前判断：不是不能去，而是要“只挑真正值的项目”，不能被套票和二消牵着走。</div>
-          <div class="score-grid"><div class="score-box"><b>3.9 / 5</b><span>双龙沟 · 200条</span></div><div class="score-box"><b>4.6 / 5</b><span>老君洞 · 101条</span></div><div class="score-box"><b class="risk-mid">中～偏高</b><span>国庆人流风险</span></div></div>
-        </div>
-        <div class="timeline-gallery"><div class="gallery-slide"><img src="https://china-qiao.com/ql32/lzql/pic_lz/lzql048_05.jpg" alt="融水双龙沟悬索玻璃桥与森林实景" onerror="this.style.display='none';this.parentElement.classList.add('image-failed')"><div class="gallery-cap">双龙沟：玻璃桥只是视觉点，高空滑索和林间穿越才是更适合你们的参与型项目。</div></div></div>
-      </div>
-      <div class="analysis-grid">
-        <aside class="side-note"><h4>为什么暂列第三</h4><p>玩法的确丰富，但 2026 年 4 月已经出现“项目都收费、排队”的近期差评。老君洞评分更好，不过 2026 年 6 月也出现设施与管理方面的负面反馈。</p><div class="signal"><span>玩法差异</span><strong>森林 / 高空 / 溶洞</strong></div><div class="signal"><span>体力</span><strong>中等</strong></div><div class="signal"><span>国庆策略</span><strong class="risk-mid">开门入园，砍二消</strong></div><div class="signal"><span>交通</span><strong>深圳→柳州→融水</strong></div></aside>
-        <div>
-          <div class="timeline">
-            <div class="step"><div class="day">DAY 1</div><h4>柳州到达 + 螺蛳粉</h4><p>城市只占半天。把“正宗螺蛳粉”作为顺路奖励，不让吃饭反客为主。</p></div>
-            <div class="step"><div class="day">DAY 2 · CORE</div><h4>双龙沟：只买值得玩的</h4><p>优先森林主线 + 高空滑索 / 空中项目。丛林飞鼠、短滑道等性价比一般的二消先砍，减少排队和预算浪费。</p></div>
-            <div class="step"><div class="day">DAY 3</div><h4>老君洞 + 苗寨夜晚</h4><p>老君洞的溶洞与水月洞天是更稳的景观内容；玻璃滑道、悬崖秋千等额外项目不列核心。</p></div>
-            <div class="step"><div class="day">DAY 4 · OPTIONAL</div><h4>龙女沟 / 贝江等自然线候选</h4><p>这部分比双龙沟更值得继续深挖，但要等国庆前核实水量、运营和安全状态，再决定是否替换苗寨。</p></div>
-          </div>
-          <div class="callout"><div class="icon">!</div><div><b>C 不是“口碑最好的”，而是“玩法最多”。</b><p>如果你们朋友投票更看重高空、森林和项目参与感，它仍然值得保留；如果最怕国庆排队，则 B 更稳。</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="route-row"><div><strong id="route-summary-title">路线速览：靖西深度</strong><p id="footer-route">深圳 → 百色/南宁 → 靖西 → 古龙山 → 通灵 → 返程</p></div><button class="btn" id="route-open-btn" type="button">查看路线图</button></div>
-
-    <div class="stay"><h4 id="stay-title">住宿策略：靖西市区为主</h4><p id="stay-desc">先不锁具体酒店。目标是让古龙山、通灵、返程之间少换住宿；国庆优先可取消房型，等大交通确定后再落店。</p></div>
-
-    <div class="cost-wrap">
-      <div class="cost-head"><div><div class="eyebrow">BUDGET CHECK</div><h3>预算只是规划级估算</h3></div><p>因为交通方式还没最终确定，下面不是报价，只看“这套路线有没有机会卡进人均 1000 左右、最多 1200”。国庆酒店和车票放票后必须重算。</p></div>
-      <table class="cost-table">
-        <thead><tr><th>方案</th><th>大交通</th><th>住宿</th><th>当地交通</th><th>核心游玩</th><th>餐饮</th><th>当前判断</th></tr></thead>
-        <tbody>
-          <tr class="active" data-cost-plan="A"><td data-label="方案"><strong>靖西深度</strong></td><td data-label="大交通">偏高</td><td data-label="住宿">2晚为主</td><td data-label="当地交通">中</td><td data-label="核心游玩">约 220–350</td><td data-label="餐饮">约 120–180</td><td data-label="判断">¥1000–1200 边缘，需压交通</td></tr>
-          <tr data-cost-plan="B"><td data-label="方案"><strong>柳州+鹿寨</strong></td><td data-label="大交通">中</td><td data-label="住宿">柳州2晚</td><td data-label="当地交通">4–5人包车可摊</td><td data-label="核心游玩">约 80–180</td><td data-label="餐饮">约 120–180</td><td data-label="判断">最容易控制在 ¥900–1100</td></tr>
-          <tr data-cost-plan="C"><td data-label="方案"><strong>柳州+融水</strong></td><td data-label="大交通">中</td><td data-label="住宿">柳州/融水2晚</td><td data-label="当地交通">低～中</td><td data-label="核心游玩">约 180–300</td><td data-label="餐饮">约 120–180</td><td data-label="判断">约 ¥950–1150，注意二消</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sources">
-      <h4>这版主要参考的近期信息</h4>
-      <div class="sources-grid">
-        <a class="source-link" href="https://you.ctrip.com/sight/jingxi967/51456.html" target="_blank" rel="noreferrer">古龙山大峡谷 · 携程<span>当前评分、近期用户评价、开放信息</span></a>
-        <a class="source-link" href="https://you.ctrip.com/sight/jingxi967/51441.html" target="_blank" rel="noreferrer">通灵大峡谷 · 携程<span>当前评分、游览时长、台阶与核心景观</span></a>
-        <a class="source-link" href="https://www.gxnews.com.cn/staticpages/20260703/newgx6a472251-21965164.shtml" target="_blank" rel="noreferrer">广西新闻网 · 2026玩水线路<span>自由漂热度、古龙山近期运营趋势</span></a>
-        <a class="source-link" href="https://you.ctrip.com/sight/luzhai3054/1407599.html" target="_blank" rel="noreferrer">香桥岩溶 · 携程<span>2026近期评价、2025国庆真实评价样本</span></a>
-        <a class="source-link" href="https://v.gxnews.com.cn/a/21861715" target="_blank" rel="noreferrer">广西新闻网 · 鹿寨出行推荐<span>鹿寨交通与主要景点结构</span></a>
-        <a class="source-link" href="https://you.ctrip.com/sight/rongshui3047/2486941.html" target="_blank" rel="noreferrer">双龙沟 · 携程<span>当前评分、2026近期二消/排队反馈</span></a>
-        <a class="source-link" href="https://you.ctrip.com/sight/rongshui3047/2521995.html" target="_blank" rel="noreferrer">老君洞 · 携程<span>当前评分、近期管理反馈</span></a>
-        <a class="source-link" href="https://trains.ctrip.com/trainbooking/shenzhen-liuzhou/" target="_blank" rel="noreferrer">深圳 → 柳州 · 当前铁路<span>直达高铁约4小时级；国庆运行图待放票后重核</span></a>
-        <a class="source-link" href="https://trains.ctrip.com/trainbooking/baise-shenzhenbei/gaotie/" target="_blank" rel="noreferrer">百色 ↔ 深圳 · 当前铁路<span>用于判断靖西大交通复杂度，不作为国庆最终班次</span></a>
-      </div>
-    </div>
+<section class="quick"><div class="wrap">
+  <div class="eyebrow">一眼比较</div><h2 class="section-title">三条线，各有一个最强理由。</h2>
+  <div class="quick-list">
+    <div class="quick-row"><b>靖西</b><p>最近口碑最稳，三种玩法不重复；缺点是从深圳过去最远。</p><span class="quick-score mid">9.3</span></div>
+    <div class="quick-row"><b>鹿寨</b><p>最容易避开国庆大客流，柳州做基地也省心；刺激度偏低。</p><span class="quick-score low">9.0</span></div>
+    <div class="quick-row"><b>融水</b><p>森林、高空、洞穴都能玩；但双龙沟二消与排队口碑有分化。</p><span class="quick-score high">8.4</span></div>
   </div>
-</section>
+</div></section>
+
+<section class="detail"><div class="wrap">
+  <div class="tabs-wrap"><div class="plan-tabs" aria-label="切换旅行方案">
+    <button class="plan-tab active" data-plan="A" type="button">A 靖西深度</button>
+    <button class="plan-tab" data-plan="B" type="button">B 柳州＋鹿寨</button>
+    <button class="plan-tab" data-plan="C" type="button">C 柳州＋融水</button>
+  </div></div>
+
+  <!-- A -->
+  <section class="plan-panel active" data-plan-panel="A">
+    <article class="plan-hero">
+      <div class="plan-hero-media media-frame" data-lightbox><img src="https://ak-d.tripcdn.com/images/1mi6c12000hjqajod7323.jpg?proc=source%2Ftrip" alt="靖西渠洋湖喀斯特群峰与湖泊" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">靖西 · 渠洋湖</div><div class="hero-caption">靖西 · 渠洋湖｜把最激烈的两天，收在一片安静的湖里</div></div>
+      <div class="plan-hero-copy"><div class="eyebrow">方案 A · 靖西</div><h3>漂进暗河，<br>再走到百米瀑布脚下。</h3><p class="lead">三套里最有“专门跑一趟广西也值”的感觉。漂流、雨林峡谷、巨型瀑布、喀斯特湖，一天一个主角。</p><div class="verdict">如果你们第一优先级是“玩得值”，A 仍然排第一。</div><div class="stats"><div class="stat"><b>4.5 / 5</b><span>古龙山 · 1300+点评</span></div><div class="stat"><b>4.5 / 5</b><span>通灵 · 4700+点评</span></div><div class="stat"><b class="mid">中</b><span>国庆拥挤风险</span></div><div class="stat"><b>中</b><span>交通难度</span></div></div></div>
+    </article>
+
+    <section class="experiences"><div class="section-head"><div class="eyebrow">真正玩什么</div><h2 class="section-title">不是看山，是把自己放进山水里。</h2><p class="section-desc">每个核心项目都配实景图，手机左右滑；点图可放大。</p></div>
+      <div class="experience-list">
+        <article class="experience"><div class="experience-head"><div><div class="experience-no">01</div><h4>古龙山大峡谷｜优先自由漂</h4><p>重点不是“急流多刺激”，而是皮艇连续穿过峡谷、溶洞和暗河。近期评价仍把“一漂穿三洞”作为最大亮点；国庆要早到，避免漂流时段排队。</p></div><span class="experience-note">参与感最高</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://bkimg.cdn.bcebos.com/pic/03087bf40ad162d9f2d3c0c96493beec8a136227679b?x-bce-process=image%2Fformat%2Cf_auto" alt="古龙山峡谷河道漂流" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">古龙山 · 漂流</div><span class="photo-label">峡谷河道</span></div><div class="photo media-frame" data-lightbox><img src="https://dimg04.c-ctrip.com/images/1me1i12000my32bap41CA.jpg" alt="古龙山大峡谷自然风光" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">古龙山 · 峡谷</div><span class="photo-label">雨林与溶洞</span></div></div></article>
+        <article class="experience"><div class="experience-head"><div><div class="experience-no">02</div><h4>通灵大峡谷｜188 米级瀑布的压迫感</h4><p>800 多级台阶一路下到谷底，核心是热带雨林、地下暗河、水帘洞和通灵大瀑布。不是持续爬山，但回程腿会有感觉。</p></div><span class="experience-note">风景最强</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://zhuanti.mct.gov.cn/Uploads/Picture/2023/04/26/u6448892e38e54.jpg" alt="靖西通灵大峡谷188米瀑布" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">通灵 · 大瀑布</div><span class="photo-label">通灵大瀑布</span></div></div></article>
+        <article class="experience"><div class="experience-head"><div><div class="experience-no">03</div><h4>渠洋湖｜最后一天把节奏降下来</h4><p>喀斯特孤峰散在蓝绿色湖面上，适合游船、临湖发呆或轻量骑行。它不是刺激项目，而是让前三天不至于一路硬冲。</p></div><span class="experience-note">最松弛</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://ak-d.tripcdn.com/images/1mi6c12000hjqajod7323.jpg?proc=source%2Ftrip" alt="渠洋湖喀斯特岛屿航拍" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">渠洋湖 · 航拍</div><span class="photo-label">湖上峰林</span></div><div class="photo media-frame" data-lightbox><img src="https://dimg04.c-ctrip.com/images/1me1f12000q9f2hioC8EC.jpg?proc=source%2Ftripcommunity" alt="渠洋湖观景步道与湖面" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">渠洋湖 · 观景</div><span class="photo-label">环湖视角</span></div><div class="photo media-frame" data-lightbox><img src="https://ak-d.tripcdn.com/images/1mi4912000fklf9qq5C77.jpg?proc=source%2Ftrip" alt="渠洋湖蓝绿色湖面与喀斯特峰丛" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">渠洋湖 · 峰林</div><span class="photo-label">蓝绿湖色</span></div></div></article>
+      </div>
+    </section>
+
+    <section class="route"><div class="route-grid"><div><div class="eyebrow">路线骨架</div><h2 class="section-title">靖西住下来，核心点往外打。</h2><p class="section-desc">当前仍不拿示意图冒充真实地图；正式定线后再接高德真实导航。</p><div class="route-note">已核实：古龙山与通灵距离很近，适合连续两天或同一区域安排。</div></div><div class="route-flow"><div class="stop"><span class="stop-dot">01</span><h5>靖西市区</h5><p>住宿 / 补给</p><a href="https://ditu.amap.com/search?query=%E9%9D%96%E8%A5%BF%E5%B8%82" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">02</span><h5>古龙山大峡谷</h5><p>自由漂 + 峡谷</p><a href="https://ditu.amap.com/search?query=%E5%8F%A4%E9%BE%99%E5%B1%B1%E5%A4%A7%E5%B3%A1%E8%B0%B7" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">03</span><h5>通灵大峡谷</h5><p>瀑布 + 雨林 + 暗河</p><a href="https://ditu.amap.com/search?query=%E9%80%9A%E7%81%B5%E5%A4%A7%E5%B3%A1%E8%B0%B7" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">04</span><h5>渠洋湖</h5><p>游船 / 放松</p><a href="https://ditu.amap.com/search?query=%E6%B8%A0%E6%B4%8B%E6%B9%96" target="_blank" rel="noreferrer">在高德查看</a></div></div></div></section>
+
+    <section class="itinerary"><div class="itinerary-grid"><div class="section-head"><div class="eyebrow">3–4 天节奏</div><h2 class="section-title">一天一个主角，不赶景点。</h2></div><div><div class="days"><div class="day-card"><div class="day-no">DAY 1</div><div><h5>到靖西，落地休息</h5><p>到达日不塞大景区，晚上吃当地小吃、补给，留体力给第二天。</p></div></div><div class="day-card"><div class="day-no">DAY 2</div><div><h5>古龙山：把“玩”放在第一天</h5><p>开门附近入园，优先自由漂；天气或水情不允许就切经典漂/徒步。</p></div></div><div class="day-card"><div class="day-no">DAY 3</div><div><h5>通灵：雨林 + 巨型瀑布</h5><p>上午进谷，下午回靖西休息，不再塞第二个大景区。</p></div></div><div class="day-card"><div class="day-no">DAY 4</div><div><h5>渠洋湖：轻松收尾</h5><p>如果只有 3 天，渠洋湖可删；4 天版本则保留。</p></div></div></div><div class="community"><b>近期社区信号</b><p>古龙山和通灵的核心自然体验评价一直比较稳。需要防的是国庆排队、漂流票型和天气，不是“景点本身值不值”。</p></div></div></div></section>
+
+    <section class="food"><div class="eyebrow">这一站吃什么</div><h2 class="section-title">靖西不是为了吃去，但有两样值得顺手吃。</h2><p class="section-desc">当地米食很有辨识度，早餐或夜宵解决即可，不占用主玩法时间。</p><div class="food-strip"><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://n.sinaimg.cn/sinakd10116/286/w640h446/20211218/3aa1-3c0062fa81ebe0afea6c7aab3a91f6c3.jpg" alt="靖西卷筒粉" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">靖西 · 卷筒粉</div></div><div class="food-copy"><h5>靖西卷筒粉</h5><p>薄软米皮裹馅，配酱汁和辣椒，适合当早餐。</p><div class="food-tip">建议：到市区后随便找本地早餐店，不追网红。</div></div></article><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://x0.ifengimg.com/ucms/2024_16/1BBD94E81A6776DC2E46F9ECA5491EABDA6314C3_size190_w1080_h1370.jpg" alt="靖西米饺" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">靖西 · 米饺</div></div><div class="food-copy"><h5>靖西米饺</h5><p>米制外皮软糯微韧，鲜肉木耳类馅料，蘸当地米醋更有特色。</p><div class="food-tip">2026 年入选靖西非遗美食体验线路。</div></div></article></div></section>
+  </section>
+
+  <!-- B -->
+  <section class="plan-panel" data-plan-panel="B">
+    <article class="plan-hero"><div class="plan-hero-media media-frame" data-lightbox><img src="https://k.sinaimg.cn/n/sinacn/w1000h667/20180210/d0bf-fyrkuxt0807348.jpg/w700d1q75cms.jpg" alt="鹿寨香桥岩溶天生桥与碧水" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">鹿寨 · 香桥岩溶</div><div class="hero-caption">鹿寨 · 香桥岩溶｜更像国庆的“反向游”</div></div><div class="plan-hero-copy"><div class="eyebrow">方案 B · 柳州＋鹿寨</div><h3>把柳州当基地，<br>白天躲进喀斯特。</h3><p class="lead">这条线的优势不是刺激拉满，而是“国庆舒服”。柳州负责住、吃和夜晚；鹿寨负责天生桥、峡谷、石林和古镇。</p><div class="verdict">如果“不想人挤人”是第一权重，B 应该排第一。</div><div class="stats"><div class="stat"><b>约 4.4 / 5</b><span>香桥 · 500+点评</span></div><div class="stat"><b class="low">低～中</b><span>国庆拥挤风险</span></div><div class="stat"><b>约 1.5h</b><span>柳州 → 鹿寨中渡片区</span></div><div class="stat"><b class="low">低</b><span>整体交通难度</span></div></div></div></article>
+
+    <section class="experiences"><div class="section-head"><div class="eyebrow">真正玩什么</div><h2 class="section-title">这条线的高级感，来自人少和山水本身。</h2></div><div class="experience-list">
+      <article class="experience"><div class="experience-head"><div><div class="experience-no">01</div><h4>香桥岩溶｜天生桥 + 地下河 + 洞穴</h4><p>这是鹿寨真正值得花门票和半天时间的核心。喀斯特天生桥、碧水峡谷和溶洞组合在一起，近期官方/社区仍持续推荐。</p></div><span class="experience-note">核心必玩</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://p1.itc.cn/q_70/images03/20210902/232a64f326ec4483b8ec93086ad6c380.jpeg" alt="香桥岩溶天生桥峡谷" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">香桥 · 天生桥</div><span class="photo-label">天生桥</span></div><div class="photo media-frame" data-lightbox><img src="https://k.sinaimg.cn/n/sinacn/w1000h667/20180210/d0bf-fyrkuxt0807348.jpg/w700d1q75cms.jpg" alt="香桥岩溶峡谷碧水" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">香桥 · 峡谷</div><span class="photo-label">峡谷与碧水</span></div></div></article>
+      <article class="experience"><div class="experience-head"><div><div class="experience-no">02</div><h4>响水石林｜免费、野、没有景区模板感</h4><p>近期广西文旅仍把它列为鹿寨小众线的一部分。石林体量不大，但胜在人少、免费、朋友一起走走更轻松。</p></div><span class="experience-note">低成本加分项</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://ak-d.tripcdn.com/images/1mi4h12000rjmk2ks14F3.jpg?proc=source%2Ftrip" alt="鹿寨响水石林喀斯特峡谷" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">鹿寨 · 响水石林</div><span class="photo-label">喀斯特石林</span></div></div></article>
+      <article class="experience"><div class="experience-head"><div><div class="experience-no">03</div><h4>中渡古镇｜只做 1–2 小时串联</h4><p>不是为了“逛古镇”专门去，而是把青石板、古榕码头和一碗柴火粉穿插进自然线路里。</p></div><span class="experience-note">轻松收尾</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://dimg04.c-ctrip.com/images/1me1412000qy5vxfg9E21.jpg?proc=source%2Ftripcommunity" alt="鹿寨中渡古镇街巷" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">中渡古镇</div><span class="photo-label">古镇街巷</span></div></div></article>
+    </div></section>
+
+    <section class="route"><div class="route-grid"><div><div class="eyebrow">路线骨架</div><h2 class="section-title">柳州连住，鹿寨当天往返。</h2><p class="section-desc">4–5 人最适合包车解决鹿寨最后一段公共交通，避免假期临时叫车。</p><div class="route-note">响水瀑布近期口碑与安全反馈一般，本版降为“看当天水情再决定”的备选，不作为必玩。</div></div><div class="route-flow"><div class="stop"><span class="stop-dot">01</span><h5>柳州市区</h5><p>住宿 / 螺蛳粉 / 夜晚</p><a href="https://ditu.amap.com/search?query=%E6%9F%B3%E5%B7%9E%E5%B8%82" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">02</span><h5>中渡古镇</h5><p>早餐 / 古榕码头</p><a href="https://ditu.amap.com/search?query=%E4%B8%AD%E6%B8%A1%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">03</span><h5>香桥岩溶</h5><p>当天主项目</p><a href="https://ditu.amap.com/search?query=%E9%B9%BF%E5%AF%A8%E9%A6%99%E6%A1%A5%E5%B2%A9%E6%BA%B6%E5%9B%BD%E5%AE%B6%E5%9C%B0%E8%B4%A8%E5%85%AC%E5%9B%AD" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">04</span><h5>响水石林</h5><p>免费轻徒步</p><a href="https://ditu.amap.com/search?query=%E9%B9%BF%E5%AF%A8%E5%93%8D%E6%B0%B4%E7%9F%B3%E6%9E%97" target="_blank" rel="noreferrer">在高德查看</a></div></div></div></section>
+
+    <section class="itinerary"><div class="itinerary-grid"><div class="section-head"><div class="eyebrow">3–4 天节奏</div><h2 class="section-title">适合把“国庆不累”放在前面。</h2></div><div><div class="days"><div class="day-card"><div class="day-no">DAY 1</div><div><h5>柳州落地，晚上吃和逛</h5><p>下午抵达就不抢热门景点；吃粉、柳江边走走，早点休息。</p></div></div><div class="day-card"><div class="day-no">DAY 2</div><div><h5>鹿寨：中渡 → 香桥 → 石林</h5><p>包车早出发，把香桥留足 3–4 小时，其余都做轻量串联。</p></div></div><div class="day-card"><div class="day-no">DAY 3</div><div><h5>柳州或周边再选一个轻项目</h5><p>根据国庆实际人流，宁愿少玩一个，也不要去热门点硬排队。</p></div></div><div class="day-card"><div class="day-no">DAY 4</div><div><h5>半天自由，开始返程</h5><p>如果只玩 3 天，直接删掉这一天。</p></div></div></div><div class="community"><b>近期社区信号</b><p>鹿寨最近仍被广西文旅作为“小众周末线”持续推荐。真正的槽点更多是公共交通，而不是香桥本身；4–5 人包车刚好能把这个缺点抹掉。</p></div></div></div></section>
+
+    <section class="food"><div class="eyebrow">这一站吃什么</div><h2 class="section-title">柳州负责“正宗”，鹿寨负责“本地”。</h2><p class="section-desc">不用专门排美食一日游，落地晚饭和鹿寨早餐各吃一次就够。</p><div class="food-strip"><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://img1.dsb.cn/images/2021/02/46_1612673428.jpg" alt="柳州螺蛳粉" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">柳州 · 螺蛳粉</div></div><div class="food-copy"><h5>柳州螺蛳粉</h5><p>这趟既然经过柳州，就吃一碗现煮的，不需要追“全网第一名”。</p><div class="food-tip">优先：本地老店、非景区核心时段。</div></div></article><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://www.zhccr.com/File/GWCwenzlb/20260407/a439de200a1e47b3a42bf7de4d0f72a7_thumb.jpg" alt="柳州田螺鸭脚煲" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">柳州 · 鸭脚煲</div></div><div class="food-copy"><h5>螺蛳鸭脚煲</h5><p>更适合 4–5 个人晚上围一锅，鸭脚、田螺、酸笋和腐竹一起吃。</p><div class="food-tip">朋友局比一个人单吃螺蛳粉更有意思。</div></div></article><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://30383985.s21i.faiusr.com/2/ABUIABACGAAg-u3HygYoxOqtqgYwgBA4gBA.jpg" alt="鹿寨中渡柴火粉风味米粉" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">鹿寨 · 柴火粉</div></div><div class="food-copy"><h5>中渡柴火粉</h5><p>鹿寨近期官方推荐里仍反复出现，适合到中渡后直接当早餐。</p><div class="food-tip">吃完再进香桥，路线最顺。</div></div></article></div></section>
+  </section>
+
+  <!-- C -->
+  <section class="plan-panel" data-plan-panel="C">
+    <article class="plan-hero"><div class="plan-hero-media media-frame" data-lightbox><img src="https://n.sinaimg.cn/sinakd20220412ac/88/w1080h608/20220412/b17c-85b11ce68fd7bcdb939f8e134ce07fc8.jpg" alt="融水双龙沟森林高空悬桥" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">融水 · 双龙沟</div><div class="hero-caption">融水 · 双龙沟｜朋友一起玩，比单纯看景更有参与感</div></div><div class="plan-hero-copy"><div class="eyebrow">方案 C · 柳州＋融水</div><h3>森林、高空、洞穴，<br>一天换一种玩法。</h3><p class="lead">如果大家都想“动起来”，融水是三条线里项目最多的。但它不能无脑全买，国庆尤其要主动砍二消和排队项目。</p><div class="verdict">C 的优势是“项目丰富”，不是“最近口碑最好”。</div><div class="stats"><div class="stat"><b>约 3.9 / 5</b><span>双龙沟 · 约200点评</span></div><div class="stat"><b>约 4.6 / 5</b><span>老君洞 · 约100点评</span></div><div class="stat"><b class="high">中～偏高</b><span>国庆拥挤风险</span></div><div class="stat"><b class="low">低～中</b><span>交通难度</span></div></div></div></article>
+
+    <section class="experiences"><div class="section-head"><div class="eyebrow">真正玩什么</div><h2 class="section-title">选融水，就要选“体验”，别选“项目数量”。</h2></div><div class="experience-list">
+      <article class="experience"><div class="experience-head"><div><div class="experience-no">01</div><h4>双龙沟｜森林主线 + 只挑一个高空项目</h4><p>原始森林、瀑布、悬桥本身就够走；高空滑索可作为唯一二消。近期评价分化主要集中在收费项目和排队，所以不要“来都来了”全买。</p></div><span class="experience-note">朋友局最强</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://dimg04.c-ctrip.com/images/01032120008ebl18kF9D9_W_640_10000.jpg?proc=autoorient" alt="融水双龙沟森林瀑布" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">双龙沟 · 瀑布</div><span class="photo-label">森林瀑布</span></div><div class="photo media-frame" data-lightbox><img src="https://n.sinaimg.cn/sinakd20220412ac/88/w1080h608/20220412/b17c-85b11ce68fd7bcdb939f8e134ce07fc8.jpg" alt="融水双龙沟高空悬桥" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">双龙沟 · 高空</div><span class="photo-label">高空悬桥</span></div></div></article>
+      <article class="experience"><div class="experience-head"><div><div class="experience-no">02</div><h4>老君洞｜换到地下世界</h4><p>溶洞、溪流、摩崖石刻和洞内景观，整体口碑比双龙沟稳定。视觉上和前一天森林完全不同。</p></div><span class="experience-note">口碑更稳</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://p1.itc.cn/images01/20221223/f72fcdff50a44dedad9f5524781d18e0.jpeg" alt="融水老君洞洞穴景观" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">老君洞 · 溶洞</div><span class="photo-label">洞穴空间</span></div><div class="photo media-frame" data-lightbox><img src="https://dimg04.c-ctrip.com/images/100n1f000001gpctgB549_R_1000_500.jpg_.webp?proc=namelogo%2Fd_5" alt="融水老君洞钟乳石彩灯景观" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">老君洞 · 钟乳石</div><span class="photo-label">钟乳石</span></div></div></article>
+      <article class="experience"><div class="experience-head"><div><div class="experience-no">03</div><h4>贝江｜天气好才保留</h4><p>如果国庆当天水情和天气不错，可以用半天坐船看山水；如果阴雨、水量或运营不理想，直接删掉，不为了凑天数硬去。</p></div><span class="experience-note">条件型项目</span></div><div class="photo-strip"><div class="photo media-frame" data-lightbox><img src="https://youimg1.c-ctrip.com/target/fd/tg/g4/M00/D4/A9/CggYHlYRCYyAM0bUAAFCio9Dhu8095.jpg" alt="融水贝江山水与游船" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">融水 · 贝江</div><span class="photo-label">贝江山水</span></div></div></article>
+    </div></section>
+
+    <section class="route"><div class="route-grid"><div><div class="eyebrow">路线骨架</div><h2 class="section-title">柳州进，融水住，别每天折返。</h2><p class="section-desc">如果 Day 2、Day 3 都玩融水，就直接住融水县城或景区附近。</p><div class="route-note">柳州到融水铁路交通本身不难，真正要管的是景区内排队与二消。</div></div><div class="route-flow"><div class="stop"><span class="stop-dot">01</span><h5>柳州市区</h5><p>大交通入口 / 吃粉</p><a href="https://ditu.amap.com/search?query=%E6%9F%B3%E5%B7%9E%E5%B8%82" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">02</span><h5>融水县城</h5><p>住宿基地</p><a href="https://ditu.amap.com/search?query=%E8%9E%8D%E6%B0%B4%E8%8B%97%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8E%BF" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">03</span><h5>双龙沟</h5><p>森林 / 高空</p><a href="https://ditu.amap.com/search?query=%E8%9E%8D%E6%B0%B4%E5%8F%8C%E9%BE%99%E6%B2%9F" target="_blank" rel="noreferrer">在高德查看</a></div><div class="stop"><span class="stop-dot">04</span><h5>老君洞</h5><p>洞穴 / 溪流</p><a href="https://ditu.amap.com/search?query=%E8%9E%8D%E6%B0%B4%E8%80%81%E5%90%9B%E6%B4%9E" target="_blank" rel="noreferrer">在高德查看</a></div></div></div></section>
+
+    <section class="itinerary"><div class="itinerary-grid"><div class="section-head"><div class="eyebrow">3–4 天节奏</div><h2 class="section-title">项目多，所以更需要删。</h2></div><div><div class="days"><div class="day-card"><div class="day-no">DAY 1</div><div><h5>柳州落地，晚上吃粉</h5><p>城市只承担抵达、吃饭和夜晚，不专门做网红打卡。</p></div></div><div class="day-card"><div class="day-no">DAY 2</div><div><h5>双龙沟：森林 + 1 个高空项目</h5><p>早点进园，宁愿少玩，也不把时间浪费在二消排队。</p></div></div><div class="day-card"><div class="day-no">DAY 3</div><div><h5>老君洞：完全换环境</h5><p>洞穴与溪流为主，强度中等，适合和前一天错峰搭配。</p></div></div><div class="day-card"><div class="day-no">DAY 4</div><div><h5>贝江条件合适就上，不合适就撤</h5><p>不把天气型项目写死，国庆前 3–5 天再最终确认。</p></div></div></div><div class="community"><b>近期社区信号</b><p>融水不是不好玩，而是双龙沟“二消 + 排队 + 性价比”让评价分化。选它，就要有勇气删项目。</p></div></div></div></section>
+
+    <section class="food"><div class="eyebrow">这一站吃什么</div><h2 class="section-title">先在柳州吃正宗，再到融水吃苗乡风味。</h2><p class="section-desc">这条线最适合把“柳州螺蛳粉”自然塞进行程，不需要额外绕路。</p><div class="food-strip"><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://img1.dsb.cn/images/2021/02/46_1612673428.jpg" alt="柳州螺蛳粉" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">柳州 · 螺蛳粉</div></div><div class="food-copy"><h5>柳州螺蛳粉</h5><p>落地当第一顿或返程前最后一顿，最顺。</p><div class="food-tip">不把排网红店当旅行项目。</div></div></article><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://www.zhccr.com/File/GWCwenzlb/20250913/f55c01e3a6c946aaa4be85efc64f2ace_thumb.jpg" alt="柳州螺蛳鸭脚煲" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">柳州 · 鸭脚煲</div></div><div class="food-copy"><h5>螺蛳鸭脚煲</h5><p>4–5 个人更适合点一锅，作为晚上朋友局。</p><div class="food-tip">酸辣重口，和冰饮/糖水一起更舒服。</div></div></article><article class="food-card"><div class="food-media media-frame" data-lightbox><img src="https://t.m.youth.cn/magicimg/df.youth.cn/dfjdt/202005/W020200501310626739383.jpg" alt="广西五色糯米饭" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('failed')"><div class="image-fallback">苗乡 · 五色糯米饭</div></div><div class="food-copy"><h5>五色糯米饭</h5><p>广西少数民族地区常见的节庆米食，看到本地现蒸的可以顺手尝。</p><div class="food-tip">作为体验即可，不需要专门找网红店。</div></div></article></div></section>
+  </section>
+</div></section>
+
+<section class="budget"><div class="wrap"><div class="eyebrow">预算判断</div><h2 class="section-title">目标 ¥1000 左右，<br>最多不超过 ¥1200。</h2><p class="section-desc">交通方式暂时不锁死，所以这里只判断“值不值得继续算”，不把估算写成报价。</p><div class="cost-cards"><article class="cost-card active" data-cost-plan="A"><div class="cost-top"><h4>靖西深度</h4><span class="cost-total">约 ¥1000–1200</span></div><div class="cost-grid"><div><b>大交通</b><span>偏高</span></div><div><b>住宿</b><span>2–3 晚</span></div><div><b>当地交通</b><span>中</span></div><div><b>游玩</b><span>约 ¥220–350</span></div></div></article><article class="cost-card" data-cost-plan="B"><div class="cost-top"><h4>柳州＋鹿寨</h4><span class="cost-total">最容易控制</span></div><div class="cost-grid"><div><b>大交通</b><span>中</span></div><div><b>住宿</b><span>柳州连住</span></div><div><b>当地交通</b><span>4–5 人包车分摊</span></div><div><b>游玩</b><span>约 ¥80–180</span></div></div></article><article class="cost-card" data-cost-plan="C"><div class="cost-top"><h4>柳州＋融水</h4><span class="cost-total">约 ¥950–1150</span></div><div class="cost-grid"><div><b>大交通</b><span>中</span></div><div><b>住宿</b><span>2–3 晚</span></div><div><b>当地交通</b><span>低～中</span></div><div><b>游玩</b><span>约 ¥180–300</span></div></div></article></div>
+<div class="sources"><details><summary>信息与图片参考来源</summary><ul><li><a href="https://you.ctrip.com/sight/jingxi967/51456.html" target="_blank" rel="noreferrer">古龙山大峡谷 · 携程近期点评</a></li><li><a href="https://you.ctrip.com/sight/jingxi967/51441.html" target="_blank" rel="noreferrer">通灵大峡谷 · 携程近期点评</a></li><li><a href="https://zhuanti.mct.gov.cn/rxhmxjgn2022/beijing/detail_g7yU_506/3463.html" target="_blank" rel="noreferrer">文化和旅游部 · 靖西山水线路</a></li><li><a href="https://www.sina.cn/news/detail/5332148532022007.html" target="_blank" rel="noreferrer">广西文旅 · 2026 鹿寨小众路线</a></li><li><a href="https://you.ctrip.com/sight/luzhai3054/112653257.html" target="_blank" rel="noreferrer">响水石林 · 携程近期点评</a></li><li><a href="https://you.ctrip.com/sight/rongshui3047/2486941.html" target="_blank" rel="noreferrer">双龙沟 · 携程近期点评</a></li><li><a href="https://zhuanti.mct.gov.cn/csxz2022/guangxi/detail/1520.html" target="_blank" rel="noreferrer">文化和旅游部 · 柳州乡村旅游与特色美食</a></li><li><a href="https://www.liuzhou.gov.cn/sjzt/zxzt/zwzt/dlfzsfjj/" target="_blank" rel="noreferrer">柳州市政府 · 螺蛳粉专题</a></li></ul></details></div>
+</div></section>
 </main>
+<footer class="footer">这是一版“方向选择稿”。路线与车次将在确定方案后，再接真实高德路线与国庆实际交通。</footer>
 
-<footer class="footer"><div class="wrap"><strong>当前首轮结论：</strong>想玩得值选 A；最怕人挤人选 B；想要高空与森林项目选 C。下一轮再对入选方案做国庆小时级路线、真实住宿和交通预算。</div></footer>
-
-<div class="modal" id="route-modal" role="dialog" aria-modal="true" aria-labelledby="route-modal-title">
-  <div class="modal-card">
-    <div class="modal-top"><div><h3 id="route-modal-title">靖西路线</h3><p id="route-modal-desc">路线仅用于理解位置关系，非精确地图导航。</p></div><button class="close" id="route-close-btn" type="button" aria-label="关闭">×</button></div>
-    <div class="route-map-scroll"><div class="route-map-canvas" id="route-map-canvas"></div></div>
-    <div class="route-note">说明：这是对比阶段的“路线关系图”，不冒充高德精确路线。确定最终方案后再核真实转场时间、车站和国庆交通组织。</div>
-  </div>
-</div>
-
-<div id="image-lightbox" role="dialog" aria-modal="true" aria-label="图片大图预览"><button type="button" id="lightbox-close" aria-label="关闭">×</button><img id="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="大图预览"></div>
-
+<div class="lightbox" id="image-lightbox" role="dialog" aria-modal="true" aria-label="图片预览"><button id="lightbox-close" type="button" aria-label="关闭">×</button><img id="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="大图预览"></div>
 <script>
-const PLAN_DATA = {
-  A:{routeTitle:'靖西深度 · 路线关系',routeDesc:'长途到靖西后，核心玩法集中在靖西及湖润一带。',nodes:[['深圳','出发',8,70],['百色 / 南宁','中转',28,38],['靖西市区','住宿',50,66],['古龙山','自由漂',70,34],['通灵大峡谷','巨瀑/峡谷',88,68]],stayTitle:'住宿策略：靖西市区为主',stayDesc:'先不锁具体酒店。目标是让古龙山、通灵、返程之间少换住宿；国庆优先可取消房型，等大交通确定后再落店。',footer:'深圳 → 百色/南宁 → 靖西 → 古龙山 → 通灵 → 返程'},
-  B:{routeTitle:'柳州 + 鹿寨 · 路线关系',routeDesc:'以柳州为基地，4–5 人包车跑鹿寨，避免频繁换住宿。',nodes:[['深圳','出发',8,68],['柳州','住宿/螺蛳粉',31,34],['鹿寨中渡','包车',52,65],['香桥岩溶','核心',72,35],['柳州','返程基地',90,66]],stayTitle:'住宿策略：两晚都住柳州',stayDesc:'这套最大的价值就是省心：不用为了鹿寨再搬行李。4–5 人包车当天往返，把鹿寨公共交通的短板直接解决。',footer:'深圳 → 柳州 → 鹿寨中渡 → 香桥岩溶 → 柳州 → 深圳'},
-  C:{routeTitle:'柳州 + 融水 · 路线关系',routeDesc:'柳州作为大交通入口，融水负责森林、高空和溶洞。',nodes:[['深圳','出发',8,68],['柳州','半天/吃粉',29,36],['融水县城','住宿可选',49,64],['双龙沟','高空/森林',69,34],['老君洞','溶洞',89,66]],stayTitle:'住宿策略：柳州 + 融水各一晚或融水连住',stayDesc:'如果第二、三天都在融水玩，就不要每天折返柳州。等最终项目确定后，再决定柳州1晚+融水1晚，还是融水连住。',footer:'深圳 → 柳州 → 融水 → 双龙沟 → 老君洞 → 柳州/返程'}
-};
-let activePlan='A';
-const panels=[...document.querySelectorAll('[data-plan-panel]')];
 const tabs=[...document.querySelectorAll('.plan-tab')];
 const cards=[...document.querySelectorAll('.plan-card')];
-const costRows=[...document.querySelectorAll('[data-cost-plan]')];
-function setPlan(plan){
-  activePlan=plan;
-  panels.forEach(el=>el.classList.toggle('active',el.dataset.planPanel===plan));
-  tabs.forEach(el=>el.classList.toggle('active',el.dataset.plan===plan));
-  cards.forEach(el=>el.classList.toggle('active',el.dataset.plan===plan));
-  costRows.forEach(el=>el.classList.toggle('active',el.dataset.costPlan===plan));
-  const d=PLAN_DATA[plan];
-  document.getElementById('stay-title').textContent=d.stayTitle;
-  document.getElementById('stay-desc').textContent=d.stayDesc;
-  document.getElementById('footer-route').textContent=d.footer;
-  document.getElementById('route-summary-title').textContent='路线速览：'+(plan==='A'?'靖西深度':plan==='B'?'柳州 + 鹿寨':'柳州 + 融水');
+const panels=[...document.querySelectorAll('[data-plan-panel]')];
+const costs=[...document.querySelectorAll('[data-cost-plan]')];
+function setPlan(plan, shouldScroll=false){
+  tabs.forEach(x=>x.classList.toggle('active',x.dataset.plan===plan));
+  cards.forEach(x=>x.classList.toggle('active',x.dataset.plan===plan));
+  panels.forEach(x=>x.classList.toggle('active',x.dataset.planPanel===plan));
+  costs.forEach(x=>x.classList.toggle('active',x.dataset.costPlan===plan));
+  if(shouldScroll) document.querySelector('.tabs-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
-[...tabs,...cards].forEach(el=>el.addEventListener('click',()=>setPlan(el.dataset.plan)));
-
-const routeModal=document.getElementById('route-modal');
-const routeCanvas=document.getElementById('route-map-canvas');
-function renderRoute(plan){
-  const d=PLAN_DATA[plan];
-  document.getElementById('route-modal-title').textContent=d.routeTitle;
-  document.getElementById('route-modal-desc').textContent=d.routeDesc;
-  routeCanvas.innerHTML='';
-  const nodes=d.nodes;
-  for(let i=0;i<nodes.length-1;i++){
-    const a=nodes[i],b=nodes[i+1];
-    const x1=a[2],y1=a[3],x2=b[2],y2=b[3];
-    const dx=x2-x1,dy=y2-y1;
-    const len=Math.sqrt(dx*dx+dy*dy);
-    const angle=Math.atan2(dy,dx)*180/Math.PI;
-    const seg=document.createElement('div');seg.className='route-map-seg';seg.style.left=x1+'%';seg.style.top=y1+'%';seg.style.width=len+'%';seg.style.transform='rotate('+angle+'deg)';routeCanvas.appendChild(seg);
-  }
-  nodes.forEach((n,i)=>{const el=document.createElement('div');el.className='route-node';el.style.left=n[2]+'%';el.style.top=n[3]+'%';el.innerHTML='<div class="dot"></div><b>'+(i+1)+' · '+n[0]+'</b><span>'+n[1]+'</span>';routeCanvas.appendChild(el)});
-}
-document.getElementById('route-open-btn').addEventListener('click',()=>{renderRoute(activePlan);routeModal.classList.add('open')});
-document.getElementById('route-close-btn').addEventListener('click',()=>routeModal.classList.remove('open'));
-routeModal.addEventListener('click',e=>{if(e.target===routeModal)routeModal.classList.remove('open')});
-
-const lightbox=document.getElementById('image-lightbox');
-const lightboxImage=document.getElementById('lightbox-image');
-document.querySelectorAll('.gallery-slide img').forEach(img=>img.addEventListener('click',()=>{lightboxImage.src=img.src;lightboxImage.alt=img.alt;lightbox.classList.add('open')}));
-document.getElementById('lightbox-close').addEventListener('click',()=>lightbox.classList.remove('open'));
-lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.classList.remove('open')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){routeModal.classList.remove('open');lightbox.classList.remove('open')}});
+tabs.forEach(x=>x.addEventListener('click',()=>setPlan(x.dataset.plan,false)));
+cards.forEach(x=>x.addEventListener('click',()=>setPlan(x.dataset.plan,true)));
+const lb=document.getElementById('image-lightbox');
+const lbImg=document.getElementById('lightbox-image');
+document.querySelectorAll('[data-lightbox] img').forEach(img=>img.addEventListener('click',()=>{if(!img.src)return;lbImg.src=img.src;lbImg.alt=img.alt;lb.classList.add('open');document.body.style.overflow='hidden';}));
+function closeLightbox(){lb.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('lightbox-close').addEventListener('click',closeLightbox);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 </script>
 </body>
 </html>
