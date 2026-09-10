@@ -28,8 +28,8 @@
 .food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.food{background:var(--paper);border-radius:18px;overflow:hidden;border:1px solid var(--line)}.food figure{margin:0;aspect-ratio:4/3;overflow:hidden;position:relative;background:#e5ece8;cursor:zoom-in}.food img{width:100%;height:100%;object-fit:cover}.food .body{padding:14px}.food h4{margin:0 0 5px;font-size:17px}.food p{margin:0;font-size:12px;color:var(--muted)}
 .discuss{background:linear-gradient(135deg,#113f3c,#0f766e);color:#fff;border-radius:24px;padding:24px;margin-top:36px}.discuss h2{font-size:28px;line-height:1.15;margin:6px 0 12px}.discuss p{font-size:13px;color:rgba(255,255,255,.8)}.vote{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}.vote div{padding:13px;border-radius:15px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12)}.vote b{display:block;font-size:13px}.vote span{font-size:10px;color:rgba(255,255,255,.72)}.footer{padding:34px 0 48px;color:#7a847f;font-size:10px}.source-links a{color:var(--teal);margin-right:10px}
 #image-lightbox{position:fixed;inset:0;z-index:99;background:rgba(6,20,18,.92);display:none;align-items:center;justify-content:center;padding:18px}.lightbox-open #image-lightbox{display:flex}#image-lightbox img{max-width:96vw;max-height:88vh;border-radius:14px}.lightbox-close{position:absolute;right:16px;top:16px;border:0;width:42px;height:42px;border-radius:999px;background:#fff;color:#16332f;font-size:22px}
-#route-modal{position:fixed;inset:0;z-index:98;background:rgba(6,20,18,.88);display:none;padding:16px}.route-modal-open #route-modal{display:block}.route-modal-panel{background:var(--paper);border-radius:20px;max-width:1100px;margin:8px auto;overflow:hidden;max-height:calc(100svh - 24px);display:flex;flex-direction:column}.route-modal-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}.route-modal-bar button{border:0;width:42px;height:42px;border-radius:999px;background:#f0ede5;cursor:pointer}.route-map-scroll{overflow-x:auto;padding:10px 12px;background:#f6f2e9}.route-map-canvas{min-width:860px;height:180px}.route-map-canvas svg{width:100%;height:100%;display:block}.route-map-seg{fill:none;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:720px){.wrap{width:calc(100% - 28px)}.hero-grid{grid-template-columns:1fr 34%;height:56svh;min-height:450px}.hero-main,.hero-side figure{border-radius:18px}.hero-copy{left:15px;right:14px;bottom:15px}.hero h1{font-size:42px}.facts{grid-template-columns:1fr 1fr}.plan-grid{display:flex;overflow:auto;scroll-snap-type:x mandatory;margin:20px -14px 0;padding:4px 14px 10px;gap:10px;scrollbar-width:none}.plan-card{flex:0 0 80vw;scroll-snap-align:center}.plan-card .card{height:360px}.mode-hero{grid-template-columns:1fr;gap:10px}.mode-photo{min-height:260px;aspect-ratio:16/10}.mode-copy{padding:18px}.mode-copy h3{font-size:29px}.cost-list{grid-template-columns:1fr 1fr}.food-grid{display:flex;overflow:auto;scroll-snap-type:x mandatory;margin-right:-14px}.food{flex:0 0 78vw;scroll-snap-align:start}.vote{grid-template-columns:1fr}.title{font-size:28px}.section{padding:40px 0}.day{grid-template-columns:58px 1fr}.photo{flex-basis:84vw}.map-layout{grid-template-columns:1fr}.map-info{border-left:0;border-top:1px solid var(--line)}#jx-map,#jx-map-modal{height:380px}.desktop-map{display:none}}
+#route-modal{position:fixed;inset:0;z-index:120;background:rgba(6,20,18,.88);display:none;padding:max(8px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}.route-modal-open{overflow:hidden}.route-modal-open #route-modal{display:flex;align-items:stretch}.route-modal-panel{background:var(--paper);border-radius:20px;width:min(1100px,100%);margin:0 auto;overflow:auto;max-height:calc(100svh - 20px);max-height:calc(100vh - 20px);display:flex;flex-direction:column;flex:1}.route-modal-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);flex:0 0 auto}.route-modal-bar button{border:0;width:44px;height:44px;border-radius:999px;background:#f0ede5;cursor:pointer;touch-action:manipulation}.route-map-scroll{overflow-x:auto;display:none}.route-map-canvas{min-width:860px;height:180px}.route-map-canvas svg{width:100%;height:100%;display:block}.route-map-seg{fill:none;stroke-linecap:round;stroke-linejoin:round}#jx-map-modal{flex:1 1 auto;min-height:58vh;height:auto!important;touch-action:manipulation}#map-chips-modal{flex:0 0 auto}.map-chip,.plan-tab,#route-open-btn{touch-action:manipulation;-webkit-tap-highlight-color:rgba(15,118,110,.18)}
+@media(max-width:720px){.wrap{width:calc(100% - 28px)}.hero-grid{grid-template-columns:1fr 34%;height:56svh;min-height:450px}.hero-main,.hero-side figure{border-radius:18px}.hero-copy{left:15px;right:14px;bottom:15px}.hero h1{font-size:42px}.facts{grid-template-columns:1fr 1fr}.plan-grid{display:flex;overflow:auto;scroll-snap-type:x mandatory;margin:20px -14px 0;padding:4px 14px 10px;gap:10px;scrollbar-width:none}.plan-card{flex:0 0 80vw;scroll-snap-align:center}.plan-card .card{height:360px}.mode-hero{grid-template-columns:1fr;gap:10px}.mode-photo{min-height:260px;aspect-ratio:16/10}.mode-copy{padding:18px}.mode-copy h3{font-size:29px}.cost-list{grid-template-columns:1fr 1fr}.food-grid{display:flex;overflow:auto;scroll-snap-type:x mandatory;margin-right:-14px}.food{flex:0 0 78vw;scroll-snap-align:start}.vote{grid-template-columns:1fr}.title{font-size:28px}.section{padding:40px 0}.day{grid-template-columns:58px 1fr}.photo{flex-basis:84vw}.map-layout{grid-template-columns:1fr}.map-info{border-left:0;border-top:1px solid var(--line)}#jx-map,#jx-map-modal{height:360px}.map-shell{margin-top:14px}#route-open-btn{width:100%;margin-top:4px}}
 @media(min-width:721px){#route-open-btn{display:none}}
 @media(max-width:440px){.hero-grid{grid-template-columns:1fr 31%;height:54svh;min-height:430px}.hero h1{font-size:39px}.hero-side figcaption{font-size:9px}.hero-summary p{font-size:14px}.plan-card{flex-basis:84vw}.mode-points{grid-template-columns:1fr 1fr}.spot-head{display:block}.spot-tag{display:inline-block;margin-top:10px}.cost-head strong{font-size:26px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -102,10 +102,10 @@
   <div class="map-head" data-page-node-id="vyI2aDLoICE8JNOQXTJOjx">
     <div data-page-node-id="g1eQmC9r00ZtcgWKJ7aBAT">
       <div class="eyebrow" data-page-node-id="yMreQaJZiijJHLFzDyEBoj">每日路线图</div>
-      <h2 class="title" data-page-node-id="WRXaKFAsakGVMbAIrsH99d">点 D1 / D2，就能看见当天怎么走。</h2>
-      <p class="desc" data-page-node-id="UVMNYEI3tER0HRsysdNyVw">点某一天：高德 2D 真实底图 + 驾车路网 + 顺序点 + 方向箭头。火车段不画成公路。</p>
+      <h2 class="title" data-page-node-id="WRXaKFAsakGVMbAIrsH99d">点上面的天数，就能看见当天怎么走。</h2>
+      <p class="desc" data-page-node-id="UVMNYEI3tER0HRsysdNyVw">点 D1 / D2：高德 2D 真实底图 + 驾车路网 + 顺序点 + 方向箭头。手机可直接看图，也可点「放大查看」。</p>
     </div>
-    <button id="route-open-btn" type="button" data-page-node-id="qztvSM8r9xenXhYUU6Ey5q">查看路线图</button>
+    <button id="route-open-btn" type="button" data-page-node-id="qztvSM8r9xenXhYUU6Ey5q">放大查看路线图</button>
   </div>
   <div class="map-shell desktop-map" data-page-node-id="9iTCEZnlfVJDXGrWemv4jT">
     <div class="map-toolbar" id="map-chips" data-page-node-id="eEl8ww2xvJtIBCiHVT1dzj"></div>
@@ -297,12 +297,18 @@ const liveMaps = {};
 const liveLayers = {};
 
 function lnglat(key){const p=POIS[key];return [p.lng,p.lat]}
+function onChipTap(day){
+  if(!day||!PLAN_DATA[currentPlan].days[day]) return;
+  currentDay=day;
+  renderChips();
+  drawDay(currentDay);
+}
 function renderChips(){
   const days=PLAN_DATA[currentPlan].days;
   const html=Object.keys(days).map(k=>`<button type="button" class="map-chip${k===currentDay?' active':''}" data-day="${k}">${days[k].label}</button>`).join('');
   document.getElementById('map-chips').innerHTML=html;
   document.getElementById('map-chips-modal').innerHTML=html;
-  document.querySelectorAll('.map-chip').forEach(btn=>btn.addEventListener('click',()=>{currentDay=btn.dataset.day;renderChips();drawDay(currentDay)}));
+  document.querySelectorAll('.map-chip').forEach(btn=>btn.addEventListener('click',()=>onChipTap(btn.dataset.day)));
 }
 function modeClass(mode){return mode==='coach'?'mode-coach':mode==='none'?'mode-none':'mode-taxi'}
 function setMapMode(){
@@ -578,17 +584,25 @@ const lb=document.getElementById('image-lightbox'), lbImg=lb.querySelector('img'
 document.addEventListener('click',e=>{const img=e.target.closest('img.zoomable');if(!img)return;lbImg.src=img.src;lbImg.alt=img.alt||'大图预览';document.body.classList.add('lightbox-open')});
 function closeLb(){document.body.classList.remove('lightbox-open');lbImg.src=''}
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.closest('.lightbox-close'))closeLb()});
-document.getElementById('route-open-btn').addEventListener('click',()=>{
+function closeRouteModal(){
+  document.body.classList.remove('route-modal-open');
+  document.documentElement.classList.remove('route-modal-open');
+}
+function openRouteModal(){
+  document.documentElement.classList.add('route-modal-open');
   document.body.classList.add('route-modal-open');
+  const d=PLAN_DATA[currentPlan].days[currentDay];
   drawDay(currentDay);
   setTimeout(function(){
+    renderMap('jx-map-modal', d);
     const mm=liveMaps['jx-map-modal'];
-    if(mm) mm.resize();
-  }, 80);
-});
-document.getElementById('route-modal-close').addEventListener('click',()=>document.body.classList.remove('route-modal-open'));
-document.getElementById('route-modal').addEventListener('click',e=>{if(e.target.id==='route-modal')document.body.classList.remove('route-modal-open')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();document.body.classList.remove('route-modal-open')}});
+    if(mm && mm.resize) mm.resize();
+  }, 60);
+}
+document.getElementById('route-open-btn').addEventListener('click',openRouteModal);
+document.getElementById('route-modal-close').addEventListener('click',closeRouteModal);
+document.getElementById('route-modal').addEventListener('click',e=>{if(e.target.id==='route-modal')closeRouteModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeRouteModal()}});
 
 renderChips();
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setPlan('B'));
